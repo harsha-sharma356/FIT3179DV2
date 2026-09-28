@@ -1,0 +1,152 @@
+device_id,device_tag,location_suburb,dev_site,device_type,solar_capacity_kw,address,description
+807D3A947FB0,COC-CBN-PC07,Cranbourne,Cranbourne High Street,Device counter,,,People Movements North/South
+807D3A9480C4,COC-BER-PC08,Berwick,Berwick Village,Device counter,,,West End of Blackburne Square
+840D8E117A48,COC-BER-PC09,Berwick,Berwick Village,Device counter,,,Adams Lane East/West Movements
+840D8E121D80,COC-BER-PAX01,Berwick,Berwick Village,Device counter,,,Smart Devices in Main Street
+F008D1CEC89C,COC-NWR-PC02,Narre Warren,Narre Warren Village,Device counter,,,People moving from Rebound Ct toward Webb street
+F008D1CECB44,,Cranbourne,Cranbourne High Street,Device counter,,,People Carrying Smart Devices
+F008D1D0976C,COC-BER-PC07,Berwick,Berwick Village,Device counter,,,Lower End of High Street North Side
+456980967,COC-CAM-008,Narre Warren,Bunjil Place,Device counter,,,Dwell Time/Exiting Plaza/Entering Plaza
+503859705,COC-CAM-003,Narre Warren,Bunjil Place,Device counter,,,Main Foyer Camera
+casey-fields-1500m-trail-marking-bollard,COC-CSF-PC-007,,1500M Trail Marking Bollard,Casey Fields,,,
+casey-fields-2250m-trail-marking-bollard,COC-CSF-PC-010,,2250M Trail Marking Bollard,Casey Fields,,,
+casey-fields-2750m-trail-marking-bollard,COC-CSF-PC-012,,2750M Trail Marking Bollard,Casey Fields,,,
+casey-fields-3250m-trail-marking-bollard,COC-CSF-PC-014,,3250M Trail Marking Bollard,Casey Fields,,,
+casey-fields-500m-trail-marking-bollard-new-sensor,COC-CSF-PC-003,,500M Trail Marking Bollard (New Sensor),Casey Fields,,,
+casey-fields-750m-trail-marking-bollard,COC-CSF-PC-004,,750M Trail Marking Bollard,Casey Fields,,,
+casey-fields-dog-park-north-yabby-edge-4caa,COC-CSF-YB-001,,Dog Park North (yabby-edge-4caa),Casey Fields,,,
+casey-fields-inside-ladies-bathroom-ers-a95e,COC-CSF-ER-002,,Inside ladies bathroom  (ers-a95e),Casey Fields,,,
+casey-fields-under-the-bottom-of-the-blue-slide-yabby-edge-4926,COC-CSF-YB-004,,Under the bottom of the blue slide (yabby-edge-4926),Casey Fields,,,
+casey-fields-criterion,COC-CSF-CAM-008,,Criterion,Casey Fields,,,
+casey-fields-athletics-track,COC-CSF-CAM-009,,Athletics Track,Casey Fields,,,
+,COC-CSF-TC-000,,Casey Fields Facility,Casey Fields,,,
+,COC-CSF-YB-002,,Dog Park East (yabby-edge-4c88),Casey Fields,,,
+,COC-CSF-TC-002,,Gate 2 Outbound,Casey Fields,,,
+,COC-CSF-TC-009,,Tili Terrin Drive,Casey Fields,,,
+,COC-CSF-YB-003,,Under the Park Bench near climbing ropes (yabby-edge-4788),Casey Fields,,,
+bathroom-sensor-unisex-ers-a961,COC-RYB-ER-001,,Bathroom Sensor Unisex (ers-a961),Ray Bastin,,,
+noise-sensor-southside-r72624-2de3,COC-RYB-NS-001,,Noise Sensor (Southside) (r72624-2de3),Ray Bastin,,,
+ray-bastin-reserve-people-counter-northside,COC-RYB-PC-001,,Ray Bastin Reserve People Counter - Northside,Ray Bastin,,,
+vehicle-counter,COC-RYB-VC-001,,Vehicle Counter,Ray Bastin,,,
+1364960,,,Marriot Waters Family & Community Centre,Solar,20.0,"25 Boland Dr, Lyndhurst VIC 3975, Australia",
+1232500,,,156 sladen street cranbourne,Solar,5.0,"156 Sladen St, Cranbourne VIC 3977, Australia",
+1281332,,,Hampton Park Community Centre,Solar,5.28,"16/20 Stuart Ave, Hampton Park",
+53008c91-0ea5-4372-bc29-ee13364c0141,,,Casey Fields BMX Pavillion,Solar,4.0,,
+7ee0738a-7f70-44c1-80a8-4e628a7571d6,,,Sweeney Reserve - Softball Pavilion,Solar,5.5,,
+fe670d49-642a-40fd-b3cb-6404573793c6,,,Jack Thomas Reserve Soccer Pavilion,Solar,10.0,,
+e19e67fa-d30a-4e60-9cba-612f441c40b8,,,Casey Fields Workshop Depot,Solar,13.02,,
+44081296-451c-439e-9326-9ce1bcf07238,,,Booring Recreation Reserve,Solar,13.44,,
+6f2c1ecd-0640-4e17-8745-6e467cffff60,,,Arch Brown Reserve Football Pavilion,Solar,14.8,,
+0a736b85-aee0-457d-9414-84954b954a4c,,,Rossmoyne Family & Community Centre,Solar,15.18,,
+e8d369cf-9557-4a97-8b48-fc3d54a275f9,,,Lochaven Reserve Pavilion,Solar,20.72,,
+3f292a14-5e2d-4ed0-9564-8dac0848ce57,,,Littlecroft Childrens Centre,Solar,29.04,,
+5289711d-c745-4709-8c76-3dc71ce2d96e,,,Bridgewater Family & Community Centre,Solar,30.0,,
+807D3A947978,COC-CBN-PC04,Cranbourne,Cranbourne High Street,Device counter,,,People Movements North/South
+807D3A9487CC,COC-NWR-PC01,Narre Warren,Narre Warren Village,Device counter,,,"People Moving South to Center, East Side"
+807D3A949850,COC-BER-PC03,Berwick,Berwick Village,Device counter,,,Upper End of High Street South
+840D8E116DA0,COC-BER-PC02,Berwick,Berwick Village,Device counter,,,Movements East West on South Side
+840D8E117DD0,COC-CBN-PC08,Cranbourne,Cranbourne High Street,Device counter,,,People Movements North/South
+840D8E1186E8,COC-NWR-PC08,Narre Warren,Narre Warren Village,Device counter,,,People Moving East-West on Crossing
+840D8E121A04,COC-NWR-PAX01,Narre Warren,Narre Warren Village,Device counter,,,People in Dining Area
+840D8E122370,COC-NWR-PC03,Narre Warren,Narre Warren Village,Device counter,,,Nth Carpark East/West Movements
+F008D1CEC8A4,,Cranbourne,Cranbourne High Street,Device counter,,,People Carrying Smart Devices
+F008D1CEC914,,Cranbourne,Cranbourne High Street,Device counter,,,People Carrying Smart Devices
+F008D1CECBCC,,Berwick,Berwick Village,Device counter,,,Pop Up Dining East/West Movements
+F008D1CECBD4,,Berwick,Berwick Village,Device counter,,,Average Dwell Time
+CM27V142205001796,COC-CBW-CAM01,Cranbourne West,Cranbourne West Community Hub,Device counter,,,People Entering
+24E124600C489737,COC-CBW-DRC-003,Cranbourne West,Cranbourne West Community Hub,Device counter,,,People Exiting
+CM27V142205001798,COC-ORN-CAM01,Clyde North,Orana Community Place,Device counter,,,
+coc-bun-017,coc-bun-017,Narre Warren,Bunjil Place,Device counter,,,Enters
+745813543,COC-CAM-007,Narre Warren,Bunjil Place,Device counter,,,Dwell Time/Exiting Plaza/Entering Plaza
+COC-BUN-016,COC-BUN-016,Narre Warren,Bunjil Place,Device counter,,,Main Entrance - Gallery Side
+24E124600C489209,COC-CAM-008,Narre Warren,Bunjil Place,Device counter,,,Dwell Time/Exiting Plaza/Entering Plaza
+casey-fields-1750m-trail-marking-bollard,COC-CSF-PC-008,,1750M Trail Marking Bollard,Casey Fields,,,
+casey-fields-2000m-trail-marking-bollard,COC-CSF-PC-009,,2000M Trail Marking Bollard,Casey Fields,,,
+casey-fields-2500m-trail-marking-bollard,COC-CSF-PC-011,,2500M Trail Marking Bollard,Casey Fields,,,
+casey-fields-3500m-trail-marking-bollard,COC-CSF-PC-015,,3500M Trail Marking Bollard,Casey Fields,,,
+casey-fields-mounted-to-the-pivot-on-top-of-the-round-swing.-yabby-edge-4890,COC-CSF-YB-005,,Mounted to the pivot on top of the round swing. (yabby-edge-4890),Casey Fields,,,
+,COC-CSF-CAM-001V,,Casey Fields Oval Total People Count,Casey Fields,,,
+,COC-CSF-CAM-001,,City of Casey Oval Monitoring 1(NorthEast),Casey Fields,,,
+,COC-CSF-TC-008,,Criterium Track,Casey Fields,,,
+,COC-CSF-TC-002VL,,Gate 2,Casey Fields,,,
+,COC-CSF-TC-002VR,,Gate 2,Casey Fields,,,
+,COC-CSF-TC-007,,Gate 2 Inbound,Casey Fields,,,
+,COC-CSF-TC-003,,Gate 3,Casey Fields,,,
+,COC-CSF-TC-004,,Gate 4,Casey Fields,,,
+,COC-CSF-TC-006,,Woolepe Way,Casey Fields,,,
+noise-sensor-northside--r72624-2de4,COC-RYB-NS-002,,Noise Sensor (Northside ) (r72624-2de4),Ray Bastin,,,
+1360914,,,Strathaird Family & Community Centre,Solar,30.0,"106-108 Strathaird Dr, Narre Warren South VIC 3805",
+1360885,,,Arthur Wren Hall,Solar,20.0,"16-20 Stuart Ave, Hampton Park VIC 3976",
+1236006,,,"Pavilion Reserve 106-108 Strathaird Dr, Narre Warren South VIC 3805",Solar,20.0,"41 Community Parade, Narre Warren South VIC 3805, Australia",
+72d762f8-5608-4c21-89b1-70f7562949a4,,,Bernly Gardens Sports Pavilion,Solar,4.5,,
+f6e970f2-bb6c-478f-b105-61d59adfa233,,,Clarendon Street Kinder,Solar,4.8,,
+969a8de8-4481-42a5-a2f3-74f10e5b79f0,,,Casy City Council - Orana Kinder,Solar,9.6,,
+a5a1b53c-2b9b-4898-aeb3-461f3e33a505,,,Ramlegh Reserve Pavilion,Solar,9.9,,
+b6215afe-1487-4925-97dc-f5b3c60b5bf2,,,Selandra Reserve Pavilion,Solar,9.9,,
+d6e0d7e0-ccc1-433a-b7b6-1912982de311,,,Livingston Reserve Pavilion,Solar,10.0,,
+8a580645-b7f5-4050-9e98-7e25daa839db,,,Mick Moreland Reserve Pavilion,Solar,10.0,,
+6bd90d50-0782-4b1d-8fed-96553f5924ef,,,Arbourlea Family and Community,Solar,20.13,,
+f9ea2aa2-831d-4933-8b40-696a3cfbb47f,,,Olive Rd Res Netball Stadium,Solar,20.93,,
+d19c780a-e5b7-4e38-b4c3-c1159d5a4f1f,,,Manna Gum Family and Community Centre,Solar,30.0,,
+d34101d5-8708-4105-896b-32f0dabf3d7b,,,Myuna Farm,Solar,30.0,,
+2e7b2f09-eb54-4be3-8937-cf572681cc08,,,Eliston Community Centre,Solar,30.6,,
+ea0bbcbe-a116-4dd1-856b-e9b862ed97e5,,,Casey Works Centre ViBE,Solar,80.0,,
+807D3A945AD4,COC-NWR-PC07,Narre Warren,Narre Warren Village,Device counter,,,People moving at South End of Footpath
+840D8E115E18,COC-CBN-PC06,Cranbourne,Cranbourne High Street,Device counter,,,Movements North/South
+840D8E116358,COC-CBN-PC01,Cranbourne,Cranbourne High Street,Device counter,,,Count
+840D8E117A54,COC-NWR-PC05,Narre Warren,Narre Warren Village,Device counter,,,"Nth End, East Side Carpark - North/South Movements"
+840D8E120D00,COC-BER-PC06,Berwick,Berwick Village,Device counter,,,Loveridge Walk to Blackburne Square Exit
+840D8E120D58,COC-NWR-PC06,Narre Warren,Narre Warren Village,Device counter,,,People travelling exiting carpark area from North end Footpath
+840D8E120F18,COC-NWR-PAX02,Narre Warren,Narre Warren Village,Device counter,,,People Carrying Smart Devices
+840D8E121C74,,Cranbourne,Cranbourne High Street,Device counter,,,Movements North/South
+840D8E122420,COC-BER-PC05,Berwick,Berwick Village,Device counter,,,Middle section of High Street (North)
+840D8E122790,COC-BER-PC04,Berwick,Berwick Village,Device counter,,,Middle of High Street North
+F008D1CEC8F8,COC-CBN-PC02,Cranbourne,Cranbourne High Street,Device counter,,,People Movements North/South
+F008D1CEFABC,COC-CBN-PC03,Cranbourne,Cranbourne High Street,Device counter,,,People Movements North/South
+1CC3162CEF7E,COC-CBW-CAM01,Cranbourne West,Cranbourne West Community Hub,Device counter,,,People Entering
+1CC3162CEFA4,COC-CBW-CAM02,Cranbourne West,Cranbourne West Community Hub,Device counter,,,People Entering
+CM27V142205001758,COC-CBW-CAM02,Cranbourne West,Cranbourne West Community Hub,Device counter,,,People Entering
+CM27V142205001156,COC-ELI-CAM01,Clyde,Eliston Family and Community Centre,Device counter,,,
+coc-bun-002,coc-bun-002,Narre Warren,Bunjil Place,Device counter,,,Enters
+COC-CAM-009,COC-CAM-009,Narre Warren,Bunjil Place,Device counter,,,Dwell Time/Exiting Plaza/Entering Plaza
+COC-CAM-010,COC-CAM-010,Narre Warren,Bunjil Place,Device counter,,,Dwell Time/Exiting Plaza/Entering Plaza
+503741216,COC-CAM-001,Narre Warren,Bunjil Place,Device counter,,,Ticket Counter Camera
+coc-bun-001,coc-bun-001,Narre Warren,Bunjil Place,Device counter,,,Main Entrance - Cafe Side
+casey-fields-0m-trail-marking-bollard-starting-point,COC-CSF-PC-001,,0M Trail Marking Bollard - Starting Point,Casey Fields,,,
+casey-fields-1000m-trail-marking-bollard,COC-CSF-PC-005,,1000M Trail Marking Bollard,Casey Fields,,,
+casey-fields-1250m-trail-marking-bollard,COC-CSF-PC-006,,1250M Trail Marking Bollard,Casey Fields,,,
+casey-fields-250m-trail-marking-bollard,COC-CSF-PC-002,,250M Trail Marking Bollard,Casey Fields,,,
+casey-fields-3000m-trail-marking-bollard,COC-CSF-PC-013,,3000M Trail Marking Bollard,Casey Fields,,,
+casey-fields-3750m-trail-marking-bollard-ending-point,COC-CSF-PC-016,,3750M Trail Marking Bollard - Ending Point,Casey Fields,,,
+casey-fields-picnic-space-ncounter,COC-CSF-NC-001,,Picnic Space NCounter,Casey Fields,,,
+casey-fields-playground-space,COC-CSF-NC-002,,Playground Space,Casey Fields,,,
+casey-fields-soccer-stadium-car-park,COC-CSF-CAM-007,,Soccer Stadium Car Park,Casey Fields,,,
+casey-fields-main-gate,COC-CSF-CAM-005,,Main Gate,Casey Fields,,,
+,COC-CSF-TC-010,,Athletics Field Foot Traffic,Casey Fields,,,
+,COC-CSF-TC-011,,Athletics gate 2 Secondary Entrance,Casey Fields,,,
+,COC-CSF-YB-006,,Chris's Test Car (yabby-edge-45a2) - WORK WITH THIS ONE ASH!,Casey Fields,,,
+,COC-CSF-CAM-002,,City of Casey Oval Monitoring 2(SouthEast),Casey Fields,,,
+,COC-CSF-CAM-003,,City of Casey Oval Monitoring 3(SouthWest),Casey Fields,,,
+,COC-CSF-CAM-004,,City of Casey Oval Monitoring 4(NorthWest),Casey Fields,,,
+,COC-CSF-TC-005,,Gate 5,Casey Fields,,,
+,COC-CSF-ER-001,,Inside men's bathroom   (ers-a95d),Casey Fields,,,
+,COC-CSF-TC-001,,Main Entrance,Casey Fields,,,
+bus-stop-ncounter,COC-RYB-NC-001,,Bus Stop NCounter,Ray Bastin,,,
+disability-parking-spot-wireless-vehicle-detector-tbs223-0540,COC-RYB-VD-002,,Disability Parking Spot (Wireless Vehicle Detector - tbs223-0540),Ray Bastin,,,
+ray-bastin-reserve-people-counter-southside,COC-RYB-PC-002,,Ray Bastin Reserve People Counter - Southside,Ray Bastin,,,
+skate-park-ncounter,COC-RYB-NC-002,,Skate Park NCounter,Ray Bastin,,,
+1536247,,,Fairhaven F&CC,Solar,30.0,52 Fairhaven Blvd,
+1469151,,,Clyde Township family & Children's Centre,Solar,31.6,"3I Valetta St, Clyde VIC 3978, Australia",
+1306244,,,Old Cheese Factory Men's Shed,Solar,15.0,"9 Yiota Ct, Berwick VIC 3806, Australia",
+1282822,,,"182 Quarry Rd, Narre Warren",Solar,6.6,"40 Quarry Rd, Narre Warren VIC 3805, Australia",
+1232579,,,JP Hall,Solar,20.0,"76 Power Rd, Doveton VIC 3177, Australia",
+1516714,,,Hallam Reserve Football Pavilion,Solar,5.28,"118 - 126 Frawley Road, Hallam",
+c5eba71a-3410-4278-825e-41749f106c6d,,,Jindalee Children's Centre,Solar,5.25,,
+e0b8a816-8915-451e-af6b-94f36b9f74f7,,,Tulliallan Res Pavilion,Solar,5.46,,
+b434f2f8-da78-4ab3-886b-fa22377445aa,,,Hallam tennis courts,Solar,6.0,,
+c084e4a5-b82f-47b8-ab11-49ead88f3e21,,,Barton Recreation Reserve Pavilion,Solar,8.0,,
+884b3c29-54fb-42e5-9823-3f9af2b3ab10,,,Hunt Club Childrens Centre,Solar,15.75,,
+0daed931-7a9a-43c0-88ce-629669c359a1,,,Gwendoline Community Centre,Solar,16.43,,
+ac503ec9-d4d6-43f7-b94d-c9408f30e489,,,Casey Fields Cricket Club,Solar,20.0,,
+55c3b05e-4366-493b-92da-22439e5645cf,,,Cranbourne West Community Hub,Solar,31.5,,
+5bc1656e-b161-4821-bc75-3911b5b5a465,,,Casey RACE,Solar,412.0,,
