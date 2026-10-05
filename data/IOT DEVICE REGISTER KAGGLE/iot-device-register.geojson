@@ -1,0 +1,2119 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "807D3A947FB0",
+        "device_tag": "COC-CBN-PC07",
+        "location_suburb": "Cranbourne",
+        "dev_site": "Cranbourne High Street",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People Movements North\/South"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "807D3A9480C4",
+        "device_tag": "COC-BER-PC08",
+        "location_suburb": "Berwick",
+        "dev_site": "Berwick Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "West End of Blackburne Square"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "840D8E117A48",
+        "device_tag": "COC-BER-PC09",
+        "location_suburb": "Berwick",
+        "dev_site": "Berwick Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Adams Lane East\/West Movements"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "840D8E121D80",
+        "device_tag": "COC-BER-PAX01",
+        "location_suburb": "Berwick",
+        "dev_site": "Berwick Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Smart Devices in Main Street"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "F008D1CEC89C",
+        "device_tag": "COC-NWR-PC02",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Narre Warren Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People moving from Rebound Ct toward Webb street"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "F008D1CECB44",
+        "device_tag": null,
+        "location_suburb": "Cranbourne",
+        "dev_site": "Cranbourne High Street",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People Carrying Smart Devices"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "F008D1D0976C",
+        "device_tag": "COC-BER-PC07",
+        "location_suburb": "Berwick",
+        "dev_site": "Berwick Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Lower End of High Street North Side"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "456980967",
+        "device_tag": "COC-CAM-008",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Bunjil Place",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Dwell Time\/Exiting Plaza\/Entering Plaza"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "503859705",
+        "device_tag": "COC-CAM-003",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Bunjil Place",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Main Foyer Camera"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-1500m-trail-marking-bollard",
+        "device_tag": "COC-CSF-PC-007",
+        "location_suburb": null,
+        "dev_site": "1500M Trail Marking Bollard",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-2250m-trail-marking-bollard",
+        "device_tag": "COC-CSF-PC-010",
+        "location_suburb": null,
+        "dev_site": "2250M Trail Marking Bollard",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-2750m-trail-marking-bollard",
+        "device_tag": "COC-CSF-PC-012",
+        "location_suburb": null,
+        "dev_site": "2750M Trail Marking Bollard",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-3250m-trail-marking-bollard",
+        "device_tag": "COC-CSF-PC-014",
+        "location_suburb": null,
+        "dev_site": "3250M Trail Marking Bollard",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-500m-trail-marking-bollard-new-sensor",
+        "device_tag": "COC-CSF-PC-003",
+        "location_suburb": null,
+        "dev_site": "500M Trail Marking Bollard (New Sensor)",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-750m-trail-marking-bollard",
+        "device_tag": "COC-CSF-PC-004",
+        "location_suburb": null,
+        "dev_site": "750M Trail Marking Bollard",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-dog-park-north-yabby-edge-4caa",
+        "device_tag": "COC-CSF-YB-001",
+        "location_suburb": null,
+        "dev_site": "Dog Park North (yabby-edge-4caa)",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-inside-ladies-bathroom-ers-a95e",
+        "device_tag": "COC-CSF-ER-002",
+        "location_suburb": null,
+        "dev_site": "Inside ladies bathroom  (ers-a95e)",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-under-the-bottom-of-the-blue-slide-yabby-edge-4926",
+        "device_tag": "COC-CSF-YB-004",
+        "location_suburb": null,
+        "dev_site": "Under the bottom of the blue slide (yabby-edge-4926)",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-criterion",
+        "device_tag": "COC-CSF-CAM-008",
+        "location_suburb": null,
+        "dev_site": "Criterion",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-athletics-track",
+        "device_tag": "COC-CSF-CAM-009",
+        "location_suburb": null,
+        "dev_site": "Athletics Track",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-TC-000",
+        "location_suburb": null,
+        "dev_site": "Casey Fields Facility",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-YB-002",
+        "location_suburb": null,
+        "dev_site": "Dog Park East (yabby-edge-4c88)",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-TC-002",
+        "location_suburb": null,
+        "dev_site": "Gate 2 Outbound",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-TC-009",
+        "location_suburb": null,
+        "dev_site": "Tili Terrin Drive",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-YB-003",
+        "location_suburb": null,
+        "dev_site": "Under the Park Bench near climbing ropes (yabby-edge-4788)",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "bathroom-sensor-unisex-ers-a961",
+        "device_tag": "COC-RYB-ER-001",
+        "location_suburb": null,
+        "dev_site": "Bathroom Sensor Unisex (ers-a961)",
+        "device_type": "Ray Bastin",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "noise-sensor-southside-r72624-2de3",
+        "device_tag": "COC-RYB-NS-001",
+        "location_suburb": null,
+        "dev_site": "Noise Sensor (Southside) (r72624-2de3)",
+        "device_type": "Ray Bastin",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "ray-bastin-reserve-people-counter-northside",
+        "device_tag": "COC-RYB-PC-001",
+        "location_suburb": null,
+        "dev_site": "Ray Bastin Reserve People Counter - Northside",
+        "device_type": "Ray Bastin",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "vehicle-counter",
+        "device_tag": "COC-RYB-VC-001",
+        "location_suburb": null,
+        "dev_site": "Vehicle Counter",
+        "device_type": "Ray Bastin",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "1364960",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Marriot Waters Family & Community Centre",
+        "device_type": "Solar",
+        "solar_capacity_kw": 20.0,
+        "address": "25 Boland Dr, Lyndhurst VIC 3975, Australia",
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "1232500",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "156 sladen street cranbourne",
+        "device_type": "Solar",
+        "solar_capacity_kw": 5.0,
+        "address": "156 Sladen St, Cranbourne VIC 3977, Australia",
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "1281332",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Hampton Park Community Centre",
+        "device_type": "Solar",
+        "solar_capacity_kw": 5.28,
+        "address": "16\/20 Stuart Ave, Hampton Park",
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "53008c91-0ea5-4372-bc29-ee13364c0141",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Casey Fields BMX Pavillion",
+        "device_type": "Solar",
+        "solar_capacity_kw": 4.0,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "7ee0738a-7f70-44c1-80a8-4e628a7571d6",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Sweeney Reserve - Softball Pavilion",
+        "device_type": "Solar",
+        "solar_capacity_kw": 5.5,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "fe670d49-642a-40fd-b3cb-6404573793c6",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Jack Thomas Reserve Soccer Pavilion",
+        "device_type": "Solar",
+        "solar_capacity_kw": 10.0,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "e19e67fa-d30a-4e60-9cba-612f441c40b8",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Casey Fields Workshop Depot",
+        "device_type": "Solar",
+        "solar_capacity_kw": 13.02,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "44081296-451c-439e-9326-9ce1bcf07238",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Booring Recreation Reserve",
+        "device_type": "Solar",
+        "solar_capacity_kw": 13.44,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "6f2c1ecd-0640-4e17-8745-6e467cffff60",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Arch Brown Reserve Football Pavilion",
+        "device_type": "Solar",
+        "solar_capacity_kw": 14.8,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "0a736b85-aee0-457d-9414-84954b954a4c",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Rossmoyne Family & Community Centre",
+        "device_type": "Solar",
+        "solar_capacity_kw": 15.18,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "e8d369cf-9557-4a97-8b48-fc3d54a275f9",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Lochaven Reserve Pavilion",
+        "device_type": "Solar",
+        "solar_capacity_kw": 20.72,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "3f292a14-5e2d-4ed0-9564-8dac0848ce57",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Littlecroft Childrens Centre",
+        "device_type": "Solar",
+        "solar_capacity_kw": 29.04,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "5289711d-c745-4709-8c76-3dc71ce2d96e",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Bridgewater Family & Community Centre",
+        "device_type": "Solar",
+        "solar_capacity_kw": 30.0,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "807D3A947978",
+        "device_tag": "COC-CBN-PC04",
+        "location_suburb": "Cranbourne",
+        "dev_site": "Cranbourne High Street",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People Movements North\/South"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "807D3A9487CC",
+        "device_tag": "COC-NWR-PC01",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Narre Warren Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People Moving South to Center, East Side"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "807D3A949850",
+        "device_tag": "COC-BER-PC03",
+        "location_suburb": "Berwick",
+        "dev_site": "Berwick Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Upper End of High Street South"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "840D8E116DA0",
+        "device_tag": "COC-BER-PC02",
+        "location_suburb": "Berwick",
+        "dev_site": "Berwick Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Movements East West on South Side"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "840D8E117DD0",
+        "device_tag": "COC-CBN-PC08",
+        "location_suburb": "Cranbourne",
+        "dev_site": "Cranbourne High Street",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People Movements North\/South"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "840D8E1186E8",
+        "device_tag": "COC-NWR-PC08",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Narre Warren Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People Moving East-West on Crossing"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "840D8E121A04",
+        "device_tag": "COC-NWR-PAX01",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Narre Warren Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People in Dining Area"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "840D8E122370",
+        "device_tag": "COC-NWR-PC03",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Narre Warren Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Nth Carpark East\/West Movements"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "F008D1CEC8A4",
+        "device_tag": null,
+        "location_suburb": "Cranbourne",
+        "dev_site": "Cranbourne High Street",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People Carrying Smart Devices"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "F008D1CEC914",
+        "device_tag": null,
+        "location_suburb": "Cranbourne",
+        "dev_site": "Cranbourne High Street",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People Carrying Smart Devices"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "F008D1CECBCC",
+        "device_tag": null,
+        "location_suburb": "Berwick",
+        "dev_site": "Berwick Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Pop Up Dining East\/West Movements"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "F008D1CECBD4",
+        "device_tag": null,
+        "location_suburb": "Berwick",
+        "dev_site": "Berwick Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Average Dwell Time"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "CM27V142205001796",
+        "device_tag": "COC-CBW-CAM01",
+        "location_suburb": "Cranbourne West",
+        "dev_site": "Cranbourne West Community Hub",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People Entering"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "24E124600C489737",
+        "device_tag": "COC-CBW-DRC-003",
+        "location_suburb": "Cranbourne West",
+        "dev_site": "Cranbourne West Community Hub",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People Exiting"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "CM27V142205001798",
+        "device_tag": "COC-ORN-CAM01",
+        "location_suburb": "Clyde North",
+        "dev_site": "Orana Community Place",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "coc-bun-017",
+        "device_tag": "coc-bun-017",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Bunjil Place",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Enters"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "745813543",
+        "device_tag": "COC-CAM-007",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Bunjil Place",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Dwell Time\/Exiting Plaza\/Entering Plaza"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "COC-BUN-016",
+        "device_tag": "COC-BUN-016",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Bunjil Place",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Main Entrance - Gallery Side"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "24E124600C489209",
+        "device_tag": "COC-CAM-008",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Bunjil Place",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Dwell Time\/Exiting Plaza\/Entering Plaza"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-1750m-trail-marking-bollard",
+        "device_tag": "COC-CSF-PC-008",
+        "location_suburb": null,
+        "dev_site": "1750M Trail Marking Bollard",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-2000m-trail-marking-bollard",
+        "device_tag": "COC-CSF-PC-009",
+        "location_suburb": null,
+        "dev_site": "2000M Trail Marking Bollard",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-2500m-trail-marking-bollard",
+        "device_tag": "COC-CSF-PC-011",
+        "location_suburb": null,
+        "dev_site": "2500M Trail Marking Bollard",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-3500m-trail-marking-bollard",
+        "device_tag": "COC-CSF-PC-015",
+        "location_suburb": null,
+        "dev_site": "3500M Trail Marking Bollard",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-mounted-to-the-pivot-on-top-of-the-round-swing.-yabby-edge-4890",
+        "device_tag": "COC-CSF-YB-005",
+        "location_suburb": null,
+        "dev_site": "Mounted to the pivot on top of the round swing. (yabby-edge-4890)",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-CAM-001V",
+        "location_suburb": null,
+        "dev_site": "Casey Fields Oval Total People Count",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-CAM-001",
+        "location_suburb": null,
+        "dev_site": "City of Casey Oval Monitoring 1(NorthEast)",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-TC-008",
+        "location_suburb": null,
+        "dev_site": "Criterium Track",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-TC-002VL",
+        "location_suburb": null,
+        "dev_site": "Gate 2",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-TC-002VR",
+        "location_suburb": null,
+        "dev_site": "Gate 2",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-TC-007",
+        "location_suburb": null,
+        "dev_site": "Gate 2 Inbound",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-TC-003",
+        "location_suburb": null,
+        "dev_site": "Gate 3",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-TC-004",
+        "location_suburb": null,
+        "dev_site": "Gate 4",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-TC-006",
+        "location_suburb": null,
+        "dev_site": "Woolepe Way",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "noise-sensor-northside--r72624-2de4",
+        "device_tag": "COC-RYB-NS-002",
+        "location_suburb": null,
+        "dev_site": "Noise Sensor (Northside ) (r72624-2de4)",
+        "device_type": "Ray Bastin",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "1360914",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Strathaird Family & Community Centre",
+        "device_type": "Solar",
+        "solar_capacity_kw": 30.0,
+        "address": "106-108 Strathaird Dr, Narre Warren South VIC 3805",
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "1360885",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Arthur Wren Hall",
+        "device_type": "Solar",
+        "solar_capacity_kw": 20.0,
+        "address": "16-20 Stuart Ave, Hampton Park VIC 3976",
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "1236006",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Pavilion Reserve 106-108 Strathaird Dr, Narre Warren South VIC 3805",
+        "device_type": "Solar",
+        "solar_capacity_kw": 20.0,
+        "address": "41 Community Parade, Narre Warren South VIC 3805, Australia",
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "72d762f8-5608-4c21-89b1-70f7562949a4",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Bernly Gardens Sports Pavilion",
+        "device_type": "Solar",
+        "solar_capacity_kw": 4.5,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "f6e970f2-bb6c-478f-b105-61d59adfa233",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Clarendon Street Kinder",
+        "device_type": "Solar",
+        "solar_capacity_kw": 4.8,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "969a8de8-4481-42a5-a2f3-74f10e5b79f0",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Casy City Council - Orana Kinder",
+        "device_type": "Solar",
+        "solar_capacity_kw": 9.6,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "a5a1b53c-2b9b-4898-aeb3-461f3e33a505",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Ramlegh Reserve Pavilion",
+        "device_type": "Solar",
+        "solar_capacity_kw": 9.9,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "b6215afe-1487-4925-97dc-f5b3c60b5bf2",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Selandra Reserve Pavilion",
+        "device_type": "Solar",
+        "solar_capacity_kw": 9.9,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "d6e0d7e0-ccc1-433a-b7b6-1912982de311",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Livingston Reserve Pavilion",
+        "device_type": "Solar",
+        "solar_capacity_kw": 10.0,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "8a580645-b7f5-4050-9e98-7e25daa839db",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Mick Moreland Reserve Pavilion",
+        "device_type": "Solar",
+        "solar_capacity_kw": 10.0,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "6bd90d50-0782-4b1d-8fed-96553f5924ef",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Arbourlea Family and Community",
+        "device_type": "Solar",
+        "solar_capacity_kw": 20.13,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "f9ea2aa2-831d-4933-8b40-696a3cfbb47f",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Olive Rd Res Netball Stadium",
+        "device_type": "Solar",
+        "solar_capacity_kw": 20.93,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "d19c780a-e5b7-4e38-b4c3-c1159d5a4f1f",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Manna Gum Family and Community Centre",
+        "device_type": "Solar",
+        "solar_capacity_kw": 30.0,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "d34101d5-8708-4105-896b-32f0dabf3d7b",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Myuna Farm",
+        "device_type": "Solar",
+        "solar_capacity_kw": 30.0,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "2e7b2f09-eb54-4be3-8937-cf572681cc08",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Eliston Community Centre",
+        "device_type": "Solar",
+        "solar_capacity_kw": 30.6,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "ea0bbcbe-a116-4dd1-856b-e9b862ed97e5",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Casey Works Centre ViBE",
+        "device_type": "Solar",
+        "solar_capacity_kw": 80.0,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "807D3A945AD4",
+        "device_tag": "COC-NWR-PC07",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Narre Warren Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People moving at South End of Footpath"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "840D8E115E18",
+        "device_tag": "COC-CBN-PC06",
+        "location_suburb": "Cranbourne",
+        "dev_site": "Cranbourne High Street",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Movements North\/South"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "840D8E116358",
+        "device_tag": "COC-CBN-PC01",
+        "location_suburb": "Cranbourne",
+        "dev_site": "Cranbourne High Street",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Count"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "840D8E117A54",
+        "device_tag": "COC-NWR-PC05",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Narre Warren Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Nth End, East Side Carpark - North\/South Movements"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "840D8E120D00",
+        "device_tag": "COC-BER-PC06",
+        "location_suburb": "Berwick",
+        "dev_site": "Berwick Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Loveridge Walk to Blackburne Square Exit"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "840D8E120D58",
+        "device_tag": "COC-NWR-PC06",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Narre Warren Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People travelling exiting carpark area from North end Footpath"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "840D8E120F18",
+        "device_tag": "COC-NWR-PAX02",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Narre Warren Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People Carrying Smart Devices"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "840D8E121C74",
+        "device_tag": null,
+        "location_suburb": "Cranbourne",
+        "dev_site": "Cranbourne High Street",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Movements North\/South"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "840D8E122420",
+        "device_tag": "COC-BER-PC05",
+        "location_suburb": "Berwick",
+        "dev_site": "Berwick Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Middle section of High Street (North)"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "840D8E122790",
+        "device_tag": "COC-BER-PC04",
+        "location_suburb": "Berwick",
+        "dev_site": "Berwick Village",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Middle of High Street North"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "F008D1CEC8F8",
+        "device_tag": "COC-CBN-PC02",
+        "location_suburb": "Cranbourne",
+        "dev_site": "Cranbourne High Street",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People Movements North\/South"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "F008D1CEFABC",
+        "device_tag": "COC-CBN-PC03",
+        "location_suburb": "Cranbourne",
+        "dev_site": "Cranbourne High Street",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People Movements North\/South"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "1CC3162CEF7E",
+        "device_tag": "COC-CBW-CAM01",
+        "location_suburb": "Cranbourne West",
+        "dev_site": "Cranbourne West Community Hub",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People Entering"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "1CC3162CEFA4",
+        "device_tag": "COC-CBW-CAM02",
+        "location_suburb": "Cranbourne West",
+        "dev_site": "Cranbourne West Community Hub",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People Entering"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "CM27V142205001758",
+        "device_tag": "COC-CBW-CAM02",
+        "location_suburb": "Cranbourne West",
+        "dev_site": "Cranbourne West Community Hub",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "People Entering"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "CM27V142205001156",
+        "device_tag": "COC-ELI-CAM01",
+        "location_suburb": "Clyde",
+        "dev_site": "Eliston Family and Community Centre",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "coc-bun-002",
+        "device_tag": "coc-bun-002",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Bunjil Place",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Enters"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "COC-CAM-009",
+        "device_tag": "COC-CAM-009",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Bunjil Place",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Dwell Time\/Exiting Plaza\/Entering Plaza"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "COC-CAM-010",
+        "device_tag": "COC-CAM-010",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Bunjil Place",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Dwell Time\/Exiting Plaza\/Entering Plaza"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "503741216",
+        "device_tag": "COC-CAM-001",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Bunjil Place",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Ticket Counter Camera"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "coc-bun-001",
+        "device_tag": "coc-bun-001",
+        "location_suburb": "Narre Warren",
+        "dev_site": "Bunjil Place",
+        "device_type": "Device counter",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": "Main Entrance - Cafe Side"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-0m-trail-marking-bollard-starting-point",
+        "device_tag": "COC-CSF-PC-001",
+        "location_suburb": null,
+        "dev_site": "0M Trail Marking Bollard - Starting Point",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-1000m-trail-marking-bollard",
+        "device_tag": "COC-CSF-PC-005",
+        "location_suburb": null,
+        "dev_site": "1000M Trail Marking Bollard",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-1250m-trail-marking-bollard",
+        "device_tag": "COC-CSF-PC-006",
+        "location_suburb": null,
+        "dev_site": "1250M Trail Marking Bollard",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-250m-trail-marking-bollard",
+        "device_tag": "COC-CSF-PC-002",
+        "location_suburb": null,
+        "dev_site": "250M Trail Marking Bollard",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-3000m-trail-marking-bollard",
+        "device_tag": "COC-CSF-PC-013",
+        "location_suburb": null,
+        "dev_site": "3000M Trail Marking Bollard",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-3750m-trail-marking-bollard-ending-point",
+        "device_tag": "COC-CSF-PC-016",
+        "location_suburb": null,
+        "dev_site": "3750M Trail Marking Bollard - Ending Point",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-picnic-space-ncounter",
+        "device_tag": "COC-CSF-NC-001",
+        "location_suburb": null,
+        "dev_site": "Picnic Space NCounter",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-playground-space",
+        "device_tag": "COC-CSF-NC-002",
+        "location_suburb": null,
+        "dev_site": "Playground Space",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-soccer-stadium-car-park",
+        "device_tag": "COC-CSF-CAM-007",
+        "location_suburb": null,
+        "dev_site": "Soccer Stadium Car Park",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "casey-fields-main-gate",
+        "device_tag": "COC-CSF-CAM-005",
+        "location_suburb": null,
+        "dev_site": "Main Gate",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-TC-010",
+        "location_suburb": null,
+        "dev_site": "Athletics Field Foot Traffic",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-TC-011",
+        "location_suburb": null,
+        "dev_site": "Athletics gate 2 Secondary Entrance",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-YB-006",
+        "location_suburb": null,
+        "dev_site": "Chris's Test Car (yabby-edge-45a2) - WORK WITH THIS ONE ASH!",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-CAM-002",
+        "location_suburb": null,
+        "dev_site": "City of Casey Oval Monitoring 2(SouthEast)",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-CAM-003",
+        "location_suburb": null,
+        "dev_site": "City of Casey Oval Monitoring 3(SouthWest)",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-CAM-004",
+        "location_suburb": null,
+        "dev_site": "City of Casey Oval Monitoring 4(NorthWest)",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-TC-005",
+        "location_suburb": null,
+        "dev_site": "Gate 5",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-ER-001",
+        "location_suburb": null,
+        "dev_site": "Inside men's bathroom   (ers-a95d)",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": null,
+        "device_tag": "COC-CSF-TC-001",
+        "location_suburb": null,
+        "dev_site": "Main Entrance",
+        "device_type": "Casey Fields",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "bus-stop-ncounter",
+        "device_tag": "COC-RYB-NC-001",
+        "location_suburb": null,
+        "dev_site": "Bus Stop NCounter",
+        "device_type": "Ray Bastin",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "disability-parking-spot-wireless-vehicle-detector-tbs223-0540",
+        "device_tag": "COC-RYB-VD-002",
+        "location_suburb": null,
+        "dev_site": "Disability Parking Spot (Wireless Vehicle Detector - tbs223-0540)",
+        "device_type": "Ray Bastin",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "ray-bastin-reserve-people-counter-southside",
+        "device_tag": "COC-RYB-PC-002",
+        "location_suburb": null,
+        "dev_site": "Ray Bastin Reserve People Counter - Southside",
+        "device_type": "Ray Bastin",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "skate-park-ncounter",
+        "device_tag": "COC-RYB-NC-002",
+        "location_suburb": null,
+        "dev_site": "Skate Park NCounter",
+        "device_type": "Ray Bastin",
+        "solar_capacity_kw": null,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "1536247",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Fairhaven F&CC",
+        "device_type": "Solar",
+        "solar_capacity_kw": 30.0,
+        "address": "52 Fairhaven Blvd",
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "1469151",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Clyde Township family & Children's Centre",
+        "device_type": "Solar",
+        "solar_capacity_kw": 31.6,
+        "address": "3I Valetta St, Clyde VIC 3978, Australia",
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "1306244",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Old Cheese Factory Men's Shed",
+        "device_type": "Solar",
+        "solar_capacity_kw": 15.0,
+        "address": "9 Yiota Ct, Berwick VIC 3806, Australia",
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "1282822",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "182 Quarry Rd, Narre Warren",
+        "device_type": "Solar",
+        "solar_capacity_kw": 6.6,
+        "address": "40 Quarry Rd, Narre Warren VIC 3805, Australia",
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "1232579",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "JP Hall",
+        "device_type": "Solar",
+        "solar_capacity_kw": 20.0,
+        "address": "76 Power Rd, Doveton VIC 3177, Australia",
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "1516714",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Hallam Reserve Football Pavilion",
+        "device_type": "Solar",
+        "solar_capacity_kw": 5.28,
+        "address": "118 - 126 Frawley Road, Hallam",
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "c5eba71a-3410-4278-825e-41749f106c6d",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Jindalee Children's Centre",
+        "device_type": "Solar",
+        "solar_capacity_kw": 5.25,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "e0b8a816-8915-451e-af6b-94f36b9f74f7",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Tulliallan Res Pavilion",
+        "device_type": "Solar",
+        "solar_capacity_kw": 5.46,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "b434f2f8-da78-4ab3-886b-fa22377445aa",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Hallam tennis courts",
+        "device_type": "Solar",
+        "solar_capacity_kw": 6.0,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "c084e4a5-b82f-47b8-ab11-49ead88f3e21",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Barton Recreation Reserve Pavilion",
+        "device_type": "Solar",
+        "solar_capacity_kw": 8.0,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "884b3c29-54fb-42e5-9823-3f9af2b3ab10",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Hunt Club Childrens Centre",
+        "device_type": "Solar",
+        "solar_capacity_kw": 15.75,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "0daed931-7a9a-43c0-88ce-629669c359a1",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Gwendoline Community Centre",
+        "device_type": "Solar",
+        "solar_capacity_kw": 16.43,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "ac503ec9-d4d6-43f7-b94d-c9408f30e489",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Casey Fields Cricket Club",
+        "device_type": "Solar",
+        "solar_capacity_kw": 20.0,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "55c3b05e-4366-493b-92da-22439e5645cf",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Cranbourne West Community Hub",
+        "device_type": "Solar",
+        "solar_capacity_kw": 31.5,
+        "address": null,
+        "description": null
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": null,
+      "properties": {
+        "device_id": "5bc1656e-b161-4821-bc75-3911b5b5a465",
+        "device_tag": null,
+        "location_suburb": null,
+        "dev_site": "Casey RACE",
+        "device_type": "Solar",
+        "solar_capacity_kw": 412.0,
+        "address": null,
+        "description": null
+      }
+    }
+  ]
+}
