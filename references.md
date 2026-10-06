@@ -9,3 +9,4 @@ https://discover.data.vic.gov.au/dataset/vicmap-features-locality-point
 https://itwire.com/guest-articles/guest-opinion/smart-home-adoption-rises-in-australia-with-25-connected-devices-per-household
 
 
+https://www.nbnco.com.au/corporate-information/media-centre/media-statements/average-nbn-network-downloads-to-double-by-2029
