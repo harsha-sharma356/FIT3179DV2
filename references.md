@@ -10,3 +10,6 @@ https://itwire.com/guest-articles/guest-opinion/smart-home-adoption-rises-in-aus
 
 
 https://www.nbnco.com.au/corporate-information/media-centre/media-statements/average-nbn-network-downloads-to-double-by-2029
+
+
+https://www.energystar.gov/products/heating_cooling/smart_thermostats/smart_thermostat_faq

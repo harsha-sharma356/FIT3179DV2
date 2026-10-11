@@ -1,62 +1,37 @@
-const spec = {
+const spec1 = 
+  {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "IoT Device Register",
-  "width": 800,
-  "height": 400,
-  "projection": {"type": "mercator"},
+  "description": "Global choropleth map showing tech consumption metrics with a year slider.",
+  "width": 600,
+  "height": 450,
   "data": {
-    "url": "./data/IOT DEVICE REGISTER KAGGLE/iot-device-register.geojson",
-    "format": {
-      "type": "json",
-      "property": "features"
-    }
+    "url": "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/global_tech_gadget_consumption/Global_Tech_Gadget_Consumption.csv"
   },
-  "transform": [
+  "projection": {
+    "type": "equalEarth"
+  },
+  "layer": [
     {
-      "lookup": "location_suburb",
-      "from": {
-        "data": {
-          "url": "/data/LOCALITY_POINT (1).json",
-          "format": {
-            "type": "topojson",
-            "feature": "LOCALITY_POINT"
-          }
-        },
-        "key": "properties.PLACELABEL",
-        "fields": ["geometry"]
+      "data": {
+        "url": "https://raw.githubusercontent.com/vega/vega-datasets/master/data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 0.5,
+        "fill": "#ddd"
       }
     },
-    {
-      "calculate": "datum.geometry && datum.geometry.coordinates ? datum.geometry.coordinates[0] : null",
-      "as": "longitude"
-    },
-    {
-      "calculate": "datum.geometry && datum.geometry.coordinates ? datum.geometry.coordinates[1] : null",
-      "as": "latitude"
-    },
-    {
-      "filter": "datum.longitude !== null && datum.latitude !== null"
-    }
-  ],
-  "mark": "circle",
-  "encoding": {
-    "longitude": {"field": "longitude", "type": "quantitative"},
-    "latitude": {"field": "latitude", "type": "quantitative"},
-    "color": {
-      "field": "category",
-      "type": "nominal",
-      "title": "Category"
-    },
-    "tooltip": [
-      {"field": "location_suburb", "type": "nominal", "title": "Suburb"},
-      {"field": "category", "type": "nominal", "title": "Category"}
-    ]
-  }
+  ]
 }
 
 
-console.log(JSON.stringify(spec))
+console.log(JSON.stringify(spec1))
     // Embed the visualization into the div with ID 'vis'
-vegaEmbed('#vis', spec).then(result => {
+vegaEmbed('#vis1', spec1).then(result => {
   console.log(result);
 }).catch(console.error);
