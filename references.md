@@ -13,3 +13,9 @@ https://www.nbnco.com.au/corporate-information/media-centre/media-statements/ave
 
 
 https://www.energystar.gov/products/heating_cooling/smart_thermostats/smart_thermostat_faq
+
+
+https://sqmagazine.co.uk/smart-home-statistics/
+
+
+https://www.sciencedirect.com/science/article/pii/S2352340926000697#refdata001
