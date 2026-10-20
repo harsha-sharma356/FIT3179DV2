@@ -1,4 +1,4 @@
-const spec = 
+const spec4 = 
   {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {"url": "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/global_ev_adoption/global_ev_adoption_behavior_2026.csv"},
@@ -24,6 +24,6 @@ const spec =
   }
 }
     // Embed the visualization into the div with ID 'vis'
-vegaEmbed('#vis', spec).then(result => {
+vegaEmbed('#vis', spec4).then(result => {
   console.log(result);
 }).catch(console.error);

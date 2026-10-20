@@ -1,4 +1,4 @@
-const spec = {
+const spec5 = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Chicken nugger",
   "width": 500,
@@ -15,6 +15,6 @@ const spec = {
 }
 
     // Embed the visualization into the div with ID 'vis'
-vegaEmbed('#vis', spec).then(result => {
+vegaEmbed('#vis', spec5).then(result => {
   console.log(result);
 }).catch(console.error);

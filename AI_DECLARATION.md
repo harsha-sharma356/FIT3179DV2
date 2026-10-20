@@ -1,0 +1,1 @@
+i declare that i used Claude and gemini to generate portions of my codebase

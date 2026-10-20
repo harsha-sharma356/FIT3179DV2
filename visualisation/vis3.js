@@ -1,67 +1,76 @@
-const spec4 = {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 650,
-  "height": 500,
-  "data": {
-    "url": "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/upgradeE/UPGRADE-E_V2.csv",
-    "format": {
-      "type": "csv"
-    }
-  },
-  "transform": [
+const spec4 ={
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "width": 500,
+  "height": 300,
+  "projection": { "type": "equalEarth" },
+  "params": [
     {
-      "calculate": "toNumber(datum.willing_electric_vehicle)",
-      "as": "ev_score"
-    },
-    {
-      "filter": "isValid(datum.ev_score) && datum.ev_score != 999 && datum.ev_score < 100"
+      "name": "selected_year",
+      "value": 2015,
+      "bind": {
+        "input": "range",
+        "min": 2000,
+        "max": 2024,
+        "step": 1,
+        "name": "Select Year: "
+      }
     }
   ],
-  "mark": "rect",
-  "encoding": {
-    "y": {
-      "field": "assigned_state",
-      "type": "nominal",
-      "title": "State",
-      "sort": "ascending"
+  "layer": [
+    {
+      "data": {
+        "url": "https://vega.github.io/editor/data/world-110m.json",
+        "format": { "type": "topojson", "feature": "countries" }
+      },
+      "mark": { "type": "geoshape", "fill": "#e5e5e5", "stroke": "white", "strokeWidth": 0.3 }
     },
-    "x": {
-      "field": "hometype",
-      "type": "nominal",
-      "title": "Home Type",
-      "axis": {
-        "labelAngle": -45
+    {
+      "data": {
+        "url": "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/internetAccess/internet_access_households_cleaned.csv"
+      },
+      "transform": [
+        { "filter": "datum.year == selected_year" },
+        {
+          "lookup": "country_code",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/refs/heads/master/all/all.csv",
+              "format": { "type": "csv", "parse": { "country-code": "number" } }
+            },
+            "key": "alpha-3",
+            "fields": ["country-code"]
+          },
+          "as": "numeric_id"
+        },
+        {
+          "lookup": "numeric_id",
+          "from": {
+            "data": {
+              "url": "https://vega.github.io/editor/data/world-110m.json",
+              "format": { "type": "topojson", "feature": "countries" }
+            },
+            "key": "id"
+          },
+          "as": "geo"
+        }
+      ],
+      "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 0.3 },
+      "encoding": {
+        "shape": { "field": "geo", "type": "geojson" },
+        "color": {
+          "field": "internet_access_pct",
+          "type": "quantitative",
+          "scale": { "scheme": "blues", "domain": [0, 100] },
+          "legend": { "title": "Households with internet (%)" }
+        },
+        "tooltip": [
+          { "field": "country_code", "title": "Country" },
+          { "field": "year", "title": "Year" },
+          { "field": "internet_access_pct", "title": "Internet access (%)", "format": ".1f" }
+        ]
       }
-    },
-    "color": {
-      "field": "ev_score",
-      "type": "quantitative",
-      "aggregate": "mean",
-      "scale": {
-        "scheme": "blues"
-      },
-      "title": "Avg Willingness"
-    },
-    "tooltip": [
-      {
-        "field": "assigned_state",
-        "type": "nominal",
-        "title": "State"
-      },
-      {
-        "field": "hometype",
-        "type": "nominal",
-        "title": "Home Type"
-      },
-      {
-        "field": "ev_score",
-        "type": "quantitative",
-        "aggregate": "mean",
-        "format": ".2f",
-        "title": "Avg EV Willingness"
-      }
-    ]
-  }
+    }
+  ]
 }
     // Embed the visualization into the div with ID 'vis'
 vegaEmbed('#vis11', spec4).then(result => {
