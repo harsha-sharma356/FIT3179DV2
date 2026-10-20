@@ -26,6 +26,7 @@ const spec3 =
         "fill": "#ddd"
       }
     },
+    
   ]
 }
 

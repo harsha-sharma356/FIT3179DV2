@@ -58,10 +58,9 @@ const spec4 ={
       "encoding": {
         "shape": { "field": "geo", "type": "geojson" },
         "color": {
-          "field": "internet_access_pct",
-          "type": "quantitative",
-          "scale": { "scheme": "blues", "domain": [0, 100] },
-          "legend": { "title": "Households with internet (%)" }
+          "field": "access_category",
+          "type": "ordinal",
+          "bin": 3
         },
         "tooltip": [
           { "field": "country_code", "title": "Country" },

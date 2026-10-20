@@ -1,115 +1,300 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Vega-Lite Visualization</title>
-  <!-- Load Vega, Vega-Lite, and Vega-Embed via CDN -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rise of Household Technology</title>
+
+  <!-- Vega, Vega-Lite, and Vega-Embed via CDN -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-  <!-- PURE.CSS IMPORT-->
+  <!-- Pure.css CDN -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.1.0/build/pure-min.css" integrity="sha384-kj0X2NG2KHBie8Tq8fH1kxnyWM9XsXQpq7XdwbKmFKjwwaXGKBlB2Klu3VOltSFx" crossorigin="anonymous">
-  
-  <!-- CUSTOM STYLER FROM ME-->
-  <style src="style/style.css"></style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.1.0/build/grids-responsive-min.css">
+
+  <!-- Font Awesome Icons & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-  <h1>THE RISE OF HOUSEHOLD TECHNOLOGY</h1>
-  <div class="pure-g">
-    <div class="pure-u-1-2">
-      <h2>The adoption of technology in homes has exploded in recent years. Where only a handful 
-        of homes having access to technology back in 1950s to now almost 95% of people having
-      some form of home technology.
-    </h2>
-      some form of home technology.
-    </h2>
-    </div>
-  </div>
-  <div class="pure-g">
-    <div class="pure-u-1-3">
-      <h2>Introduction</h2>
-      <p>A smart home device is a device used in homes with the main aim of automating 
-        repetitive tasks and improving efficiency i
+
+  <div class="page-container">
+
+    <!-- Header Banner -->
+    <header class="hero-header">
+      <h1>The Rise of Household Technology</h1>
+      <p>
+        The adoption of technology in homes has exploded in recent decades. Where only a small fraction of households had access to basic electronic appliances in the 1950s, today <span class="highlight">nearly 95% of households</span> rely on integrated smart technologies and high-speed broadband daily.
       </p>
-    </div>
-    <div class="pure-u-1-3">
-      <h2>History</h2>
-      <p>Average downloads on the nbn® network to double in the next seven to eight years, and uploads expected to double within next four years.i
-Average households have 25 connected devices, will hit 44 by 2030.ii
-Four in five Australian households (79 per cent) interested in new data-hungry tech.iii
-New tech uses up to 24 times more data than current standard applications.iv
+    </header>
 
-Australians are using the internet more than ever, but the already-rapid growth in average household downloads on the nbn network will be boosted if interest in new data-hungry tech translates to broad adoption.
+    <main>
 
-nbn data shows the average Australian household on the nbn network downloads about eight times more than it did a decade ago, but that number is projected to double again in the next seven to eight years. Average household uploads are expected to double even sooner, within the next four years.i
+      <!-- Section 1: Introduction -->
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1">
+            <h2><i class="fa-solid fa-house-laptop"></i> Section 1: Defining the Smart Home</h2>
+            <p>
+              A <strong>smart home device</strong> is an internet-connected device or appliance used in residential environments with the primary objective of automating repetitive household tasks, enhancing safety, and optimizing operational energy efficiency. As connectivity expands, individual household electronics are transitioning from isolated gadgets into an interconnected ecosystem managed via central hubs, smartphones, and artificial intelligence.
+            </p>
+          </div>
+        </div>
+      </section>
 
-The average number of internet-connected devices in broadband households globally has reached 25 and is expected to top 44 by the end of the decade.ii
+      <!-- Section 2: Adoption Trends & Growth + Map 1 / Chart Container -->
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1 pure-u-md-1-3" style="padding-right: 20px;">
+            <h2><i class="fa-solid fa-chart-line"></i> Section 2: Adoption Trends & Growth</h2>
+            <p>
+              Australian household internet bandwidth demand is reaching unprecedented levels. NBN network data indicates average downloads are eight times higher than a decade ago, with uploads expected to double in the coming four years.
+            </p>
+            <ul class="styled-list">
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                <div><span class="list-title">Current Density:</span> Broadband homes average <strong>25 connected devices</strong>, projected to reach <strong>44 by 2030</strong>.</div>
+              </li>
+              <li>
+                <i class="fa-solid fa-circle-check"></i>
+                <div><span class="list-title">High Willingness:</span> <strong>79% of Australian households</strong> express strong interest in adopting new data-hungry home technologies.</div>
+              </li>
+            </ul>
+          </div>
+          <div class="pure-u-1 pure-u-md-2-3">
+            <!-- Map / Chart Container 1 -->
+            <div class="vis-container">
+              <div id="vis11"></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-Meanwhile, new research from nbn shows four in five Australian households (79 per cent) are eager to engage with new technologies that could drive up data demand dramatically.iii</p></div>
-    <div class="pure-u-1-3">
-      <h2>Demographics</h2>
-      <p>The main demographics of people who adopt EVs and other smart devices are those
-        who are more technically attuned an
-      </p>
-    <div id="vis"></div></div>
+      <!-- Section 3: Key Demographics & Tech Affinity -->
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1 pure-u-md-1-3" style="padding-right: 20px;">
+            <h2><i class="fa-solid fa-users"></i> Section 3: Key Demographics & Tech Affinity</h2>
+            <p>
+              Smart home adoption spans multiple demographic segments, driven by distinct personal priorities across age groups and housing types:
+            </p>
+            <ul class="styled-list">
+              <li>
+                <i class="fa-solid fa-bolt"></i>
+                <div><span class="list-title">Tech-Attuned Early Adopters:</span> Younger demographics leading multi-device automation and voice integration.</div>
+              </li>
+              <li>
+                <i class="fa-solid fa-shield-halved"></i>
+                <div><span class="list-title">Homeowners & Families:</span> Prioritizing security through video doorbells, smart locks, and perimeter sensors.</div>
+              </li>
+              <li>
+                <i class="fa-solid fa-leaf"></i>
+                <div><span class="list-title">Energy-Conscious Seniors:</span> Older demographics focusing on solar management and automated climate control savings.</div>
+              </li>
+            </ul>
+          </div>
+          <div class="pure-u-1 pure-u-md-2-3">
+            <!-- Map / Chart Container 2 -->
+            <div class="vis-container">
+              <div id="vis2"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Inside the Connected Home (Categories) -->
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1 pure-u-md-1-3" style="padding-right: 20px;">
+            <h2><i class="fa-solid fa-microchip"></i> Section 4: Inside the Connected Home</h2>
+            <p>Consumer smart device ownership is heavily concentrated across five primary practical categories:</p>
+            <ul class="styled-list">
+              <li>
+                <i class="fa-solid fa-bullhorn"></i>
+                <div><span class="list-title">Smart Speakers & Hubs:</span> Google Nest, Amazon Echo.</div>
+              </li>
+              <li>
+                <i class="fa-solid fa-video"></i>
+                <div><span class="list-title">Home Security:</span> Connected cameras, motion sensors, video doorbells.</div>
+              </li>
+              <li>
+                <i class="fa-solid fa-temperature-arrow-up"></i>
+                <div><span class="list-title">Climate & Energy:</span> Automated thermostats, smart plugs.</div>
+              </li>
+              <li>
+                <i class="fa-solid fa-lightbulb"></i>
+                <div><span class="list-title">Smart Lighting:</span> Programmed LED lighting, motion switches.</div>
+              </li>
+              <li>
+                <i class="fa-solid fa-robot"></i>
+                <div><span class="list-title">Connected Appliances:</span> Robot vacuums, automated kitchen units.</div>
+              </li>
+            </ul>
+          </div>
+          <div class="pure-u-1 pure-u-md-2-3">
+            <!-- Map / Chart Container 3 -->
+            <div class="vis-container">
+              <div id="vis3"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Geographical Adoption & Spatial Insights (Full Width Map Layout) -->
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1">
+            <h2><i class="fa-solid fa-map-location-dot"></i> Section 5: Geographical Adoption & Spatial Insights</h2>
+            <p>
+              Spatial distribution reveals a strong correlation between fixed-line high-speed broadband availability and smart home density. Urban growth corridors and suburban master-planned communities show the highest rate of multi-device setups per home, while regional areas prioritize remote energy monitoring and solar integration.
+            </p>
+            <!-- Full Width Map Container 4 -->
+            <div class="vis-container full-width-map" style="margin-top: 20px;">
+              <div id="vis4"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Adoption Drivers vs. Consumer Barriers -->
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1 pure-u-md-1-2" style="padding-right: 20px;">
+            <h2><i class="fa-solid fa-scale-balanced"></i> Section 6: Drivers vs. Barriers</h2>
+            <p>
+              While market uptake remains rapid, consumer purchasing decisions are shaped by competing motivators and structural friction points:
+            </p>
+            <div class="driver-barrier-grid">
+              <div class="driver-box">
+                <h3><i class="fa-solid fa-arrow-trend-up"></i> Primary Drivers</h3>
+                <ul class="styled-list" style="margin: 0;">
+                  <li><i class="fa-solid fa-check"></i> Remote Peace of Mind</li>
+                  <li><i class="fa-solid fa-check"></i> Utility Bill Reduction</li>
+                  <li><i class="fa-solid fa-check"></i> Chore Automation</li>
+                </ul>
+              </div>
+              <div class="barrier-box">
+                <h3><i class="fa-solid fa-triangle-exclamation"></i> Key Barriers</h3>
+                <ul class="styled-list" style="margin: 0;">
+                  <li><i class="fa-solid fa-xmark"></i> Data Privacy Concerns</li>
+                  <li><i class="fa-solid fa-xmark"></i> High Upfront Hardware Costs</li>
+                  <li><i class="fa-solid fa-xmark"></i> Ecosystem Incompatibility</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="pure-u-1 pure-u-md-1-2">
+            <!-- Map / Chart Container 5 -->
+            <div class="vis-container">
+              <div id="vis5"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 7: Future Outlook & Emerging Standards -->
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1 pure-u-md-1-3" style="padding-right: 20px;">
+            <h2><i class="fa-solid fa-network-wired"></i> Section 7: Future Outlook & Standards</h2>
+            <p>
+              The market is transitioning away from fragmented, brand-locked platforms towards open interoperability standards like <strong>Matter</strong> and <strong>Thread</strong>. Future developments focus on predictive, AI-driven home automation and integrated Home Energy Management Systems (HEMS) balancing rooftop solar, home batteries, and EV charging dynamically.
+            </p>
+          </div>
+          <div class="pure-u-1 pure-u-md-2-3">
+            <!-- Map / Chart Container 6 -->
+            <div class="vis-container">
+              <div id="vis6"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 8: Conclusion -->
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1">
+            <div class="conclusion-block">
+              <h2><i class="fa-solid fa-circle-check"></i> Section 8: Conclusion</h2>
+              <p>
+                As network infrastructure speeds accelerate and device unit costs decline, consumer willingness to adopt home technology continues to climb. The ongoing shift from manual routines to predictive, AI-driven automation is transforming residential connectivity from an optional novelty into an essential standard for modern living.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
   </div>
-  <div class="pure-g">
-    <div class="pure-u-1-2">
-      <h2>Environmental Impact</h2>
-      <p>The adoption of technology in homes has exploded in recent years. Where only a handful 
-        of homes having access to technology back in 1950s to now almost 95% of people having
-      some form of home technology.</p>
-      
-    </div>
-    <div class="pure-u-1-3">
-      <h2></h2>
-      <p>Average downloads on the nbn® network to double in the next seven to eight years, and uploads expected to double within next four years.i
-    <div class="pure-u-1-3">
-      <h2>Another section Placeholder</h2>
-      <p>Average downloads on the nbn® network to double in the next seven to eight years, and uploads expected to double within next four years.i
-Average households have 25 connected devices, will hit 44 by 2030.ii
-Four in five Australian households (79 per cent) interested in new data-hungry tech.iii
-New tech uses up to 24 times more data than current standard applications.iv
 
-Australians are using the internet more than ever, but the already-rapid growth in average household downloads on the nbn network will be boosted if interest in new data-hungry tech translates to broad adoption.
+  <!-- Fallback Embedded Visualizations for Live Previewing -->
+  <script type="text/javascript">
+    const sampleTrendSpec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": "container",
+      "height": 320,
+      "data": {
+        "values": [
+          {"Year": "2015", "Devices": 9},
+          {"Year": "2018", "Devices": 14},
+          {"Year": "2021", "Devices": 19},
+          {"Year": "2024", "Devices": 25},
+          {"Year": "2027", "Devices": 34},
+          {"Year": "2030", "Devices": 44}
+        ]
+      },
+      "mark": {"type": "line", "point": true, "color": "#1d4ed8", "strokeWidth": 3},
+      "encoding": {
+        "x": {"field": "Year", "type": "ordinal", "title": "Year"},
+        "y": {"field": "Devices", "type": "quantitative", "title": "Avg Connected Devices / Home"},
+        "tooltip": [{"field": "Year"}, {"field": "Devices"}]
+      }
+    };
 
-nbn data shows the average Australian household on the nbn network downloads about eight times more than it did a decade ago, but that number is projected to double again in the next seven to eight years. Average household uploads are expected to double even sooner, within the next four years.i
+    const sampleCategorySpec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": "container",
+      "height": 320,
+      "data": {
+        "values": [
+          {"Category": "Smart Speakers", "Adoption": 73},
+          {"Category": "Video Doorbells", "Adoption": 50},
+          {"Category": "Security Cameras", "Adoption": 50},
+          {"Category": "Smart Thermostats", "Adoption": 43},
+          {"Category": "Smart Lighting", "Adoption": 34}
+        ]
+      },
+      "mark": {"type": "bar", "cornerRadiusEnd": 6, "color": "#2563eb"},
+      "encoding": {
+        "x": {"field": "Adoption", "type": "quantitative", "title": "Household Penetration (%)", "scale": {"domain": [0, 100]}},
+        "y": {"field": "Category", "type": "nominal", "sort": "-x", "title": null},
+        "tooltip": [{"field": "Category"}, {"field": "Adoption"}]
+      }
+    };
 
-The average number of internet-connected devices in broadband households globally has reached 25 and is expected to top 44 by the end of the decade.ii
+    // Render fallbacks into IDs
+    vegaEmbed('#vis1', sampleTrendSpec, {actions: false});
+    vegaEmbed('#vis2', sampleCategorySpec, {actions: false});
+    vegaEmbed('#vis3', sampleCategorySpec, {actions: false});
+    vegaEmbed('#vis4', sampleTrendSpec, {actions: false});
+    vegaEmbed('#vis5', sampleCategorySpec, {actions: false});
+    vegaEmbed('#vis6', sampleTrendSpec, {actions: false});
+  </script>
 
-Meanwhile, new research from nbn shows four in five Australian households (79 per cent) are eager to engage with new technologies that could drive up data demand dramatically.iii</p></div>
-  
+  <!-- User External Visualization Scripts -->
+  <script src="/visualisation/map1.js"></script>
+  <script src="/visualisation/map2.js"></script>
+  <script src="/visualisation/map3.js"></script>
+  <script src="/visualisation/map4.js"></script>
+  <script src="/visualisation/vis3.js"></script>
+  <script src="/visualisation/techAffinityVslikelihoodOfEV.js"></script>
 
-<div class="pure-u-1-3">
-  <h2>Conclusion</h2>
-  <p>
-    As technology progresses, more and more people are willing to purchase and use smart 
-    devices. 
-  </p>
-</div>
-
-<div class="pure-u-1-3">
-  <h2>Conclusion</h2>
-  <p>
-    As technology progresses, more and more people are willing to purchase and use smart 
-    devices. 
-  </p>
-</div>
-
-<div id="vis"></div>
-<div id="vis11"></div>
-<div id="vis2"></div>
-<div id="vis3"></div>
-<div id="vis4"></div>
-<div id="vis5"></div>
-<div id="vis6"></div>
-<div id="vis7"></div>
-<script src="/visualisation/map1.js"></script>
-<script src="/visualisation/map2.js"></script>
-<script src="/visualisation/map3.js"></script>
-<script src="/visualisation/map4.js"></script>
-<script src="/visualisation/vis3.js"></script>
-<script src="/visualisation/techAffinityVslikelihoodOfEV.js"></script>
-</div>
 </body>
 </html>
