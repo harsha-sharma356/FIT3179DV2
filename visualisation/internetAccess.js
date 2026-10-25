@@ -1,4 +1,4 @@
-const spec4 ={
+const spec4 = {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "width": 500,
   "height": 300,
@@ -40,6 +40,10 @@ const spec4 ={
             "key": "alpha-3",
             "fields": ["country-code"]
           },
+          "as": "raw_numeric_id"
+        },
+        {
+          "calculate": "format(datum.raw_numeric_id, '03d')",
           "as": "numeric_id"
         },
         {
@@ -60,7 +64,10 @@ const spec4 ={
         "color": {
           "field": "access_category",
           "type": "ordinal",
-          "bin": 3
+          "scale": {
+            "domain": ["Low (<25%)", "Medium (25-60%)", "High (>60%)"],
+            "scheme": "accent"
+          }          
         },
         "tooltip": [
           { "field": "country_code", "title": "Country" },
@@ -71,7 +78,6 @@ const spec4 ={
     }
   ]
 }
-    // Embed the visualization into the div with ID 'vis'
 vegaEmbed('#vis11', spec4).then(result => {
   console.log(result);
 }).catch(console.error);

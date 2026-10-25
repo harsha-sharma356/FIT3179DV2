@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Rise of Household Technology</title>
 
-  <!-- Vega, Vega-Lite, and Vega-Embed via CDN -->
+  <!-- Vega, Vega-Lite, & Vega-Embed CDNs -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-  <!-- Pure.css CDN -->
+  <!-- Pure.css CDNs -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.1.0/build/pure-min.css" integrity="sha384-kj0X2NG2KHBie8Tq8fH1kxnyWM9XsXQpq7XdwbKmFKjwwaXGKBlB2Klu3VOltSFx" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.1.0/build/grids-responsive-min.css">
 
@@ -20,7 +20,218 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="style/style.css">
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --border-color: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    .page-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    /* Hero Banner Header */
+    .hero-header {
+      text-align: center;
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .hero-header h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      margin: 0 0 16px 0;
+      text-transform: uppercase;
+    }
+
+    .hero-header p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 850px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    /* Section Blocks & Layout Styles */
+    .section-block {
+      margin-bottom: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 0;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title i {
+      color: var(--primary);
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.02rem;
+      margin-bottom: 20px;
+    }
+
+    /* Shared Visualization Container Styling */
+    .vis-container {
+      width: 100%;
+      min-height: 380px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vis-container > div {
+      width: 100%;
+    }
+
+    /* 3-Column Card Wrapper */
+    .card-item {
+      padding: 12px;
+    }
+
+    .card-inner {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .card-inner h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-inner h3 i {
+      color: var(--primary);
+    }
+
+    .card-inner p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-top: 0;
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .card-inner .vis-container {
+      min-height: 280px;
+      border: 1px solid var(--border-color);
+      box-shadow: none;
+    }
+
+    /* Styled Bullet Lists */
+    ul.styled-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+    }
+
+    ul.styled-list li {
+      padding: 8px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.98rem;
+    }
+
+    ul.styled-list li i {
+      color: var(--primary);
+      margin-top: 4px;
+    }
+
+    /* Drivers / Barriers Grid Box */
+    .split-box-container {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .driver-box, .barrier-box {
+      flex: 1;
+      padding: 16px;
+      border-radius: 8px;
+    }
+
+    .driver-box {
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+    }
+
+    .barrier-box {
+      background: #fef2f2;
+      border-left: 4px solid #ef4444;
+    }
+
+    .driver-box h4 { margin: 0 0 8px 0; color: #1e40af; }
+    .barrier-box h4 { margin: 0 0 8px 0; color: #991b1b; }
+
+    /* Footer / Conclusion Block */
+    .conclusion-block {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-left: 6px solid var(--primary);
+      border-radius: 8px;
+      padding: 32px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-header h1 { font-size: 2rem; }
+      .page-container { padding: 20px 12px; }
+      .split-box-container { flex-direction: column; }
+    }
+  </style>
 </head>
 <body>
 
@@ -29,272 +240,249 @@
     <!-- Header Banner -->
     <header class="hero-header">
       <h1>The Rise of Household Technology</h1>
-      <p>
-        The adoption of technology in homes has exploded in recent decades. Where only a small fraction of households had access to basic electronic appliances in the 1950s, today <span class="highlight">nearly 95% of households</span> rely on integrated smart technologies and high-speed broadband daily.
-      </p>
+      <p>An interactive visualization dashboard exploring the expansion of smart home adoption, grid impact, device density, and global internet connectivity.</p>
     </header>
 
     <main>
 
-      <!-- Section 1: Introduction -->
-      <section class="section-block">
-        <div class="pure-g">
-          <div class="pure-u-1">
-            <h2><i class="fa-solid fa-house-laptop"></i> Section 1: Defining the Smart Home</h2>
-            <p>
-              A <strong>smart home device</strong> is an internet-connected device or appliance used in residential environments with the primary objective of automating repetitive household tasks, enhancing safety, and optimizing operational energy efficiency. As connectivity expands, individual household electronics are transitioning from isolated gadgets into an interconnected ecosystem managed via central hubs, smartphones, and artificial intelligence.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 2: Adoption Trends & Growth + Map 1 / Chart Container -->
-      <section class="section-block">
-        <div class="pure-g">
-          <div class="pure-u-1 pure-u-md-1-3" style="padding-right: 20px;">
-            <h2><i class="fa-solid fa-chart-line"></i> Section 2: Adoption Trends & Growth</h2>
-            <p>
-              Australian household internet bandwidth demand is reaching unprecedented levels. NBN network data indicates average downloads are eight times higher than a decade ago, with uploads expected to double in the coming four years.
-            </p>
-            <ul class="styled-list">
-              <li>
-                <i class="fa-solid fa-circle-check"></i>
-                <div><span class="list-title">Current Density:</span> Broadband homes average <strong>25 connected devices</strong>, projected to reach <strong>44 by 2030</strong>.</div>
-              </li>
-              <li>
-                <i class="fa-solid fa-circle-check"></i>
-                <div><span class="list-title">High Willingness:</span> <strong>79% of Australian households</strong> express strong interest in adopting new data-hungry home technologies.</div>
-              </li>
-            </ul>
-          </div>
-          <div class="pure-u-1 pure-u-md-2-3">
-            <!-- Map / Chart Container 1 -->
-            <div class="vis-container">
-              <div id="vis11"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 3: Key Demographics & Tech Affinity -->
-      <section class="section-block">
-        <div class="pure-g">
-          <div class="pure-u-1 pure-u-md-1-3" style="padding-right: 20px;">
-            <h2><i class="fa-solid fa-users"></i> Section 3: Key Demographics & Tech Affinity</h2>
-            <p>
-              Smart home adoption spans multiple demographic segments, driven by distinct personal priorities across age groups and housing types:
-            </p>
-            <ul class="styled-list">
-              <li>
-                <i class="fa-solid fa-bolt"></i>
-                <div><span class="list-title">Tech-Attuned Early Adopters:</span> Younger demographics leading multi-device automation and voice integration.</div>
-              </li>
-              <li>
-                <i class="fa-solid fa-shield-halved"></i>
-                <div><span class="list-title">Homeowners & Families:</span> Prioritizing security through video doorbells, smart locks, and perimeter sensors.</div>
-              </li>
-              <li>
-                <i class="fa-solid fa-leaf"></i>
-                <div><span class="list-title">Energy-Conscious Seniors:</span> Older demographics focusing on solar management and automated climate control savings.</div>
-              </li>
-            </ul>
-          </div>
-          <div class="pure-u-1 pure-u-md-2-3">
-            <!-- Map / Chart Container 2 -->
-            <div class="vis-container">
-              <div id="vis2"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 4: Inside the Connected Home (Categories) -->
-      <section class="section-block">
-        <div class="pure-g">
-          <div class="pure-u-1 pure-u-md-1-3" style="padding-right: 20px;">
-            <h2><i class="fa-solid fa-microchip"></i> Section 4: Inside the Connected Home</h2>
-            <p>Consumer smart device ownership is heavily concentrated across five primary practical categories:</p>
-            <ul class="styled-list">
-              <li>
-                <i class="fa-solid fa-bullhorn"></i>
-                <div><span class="list-title">Smart Speakers & Hubs:</span> Google Nest, Amazon Echo.</div>
-              </li>
-              <li>
-                <i class="fa-solid fa-video"></i>
-                <div><span class="list-title">Home Security:</span> Connected cameras, motion sensors, video doorbells.</div>
-              </li>
-              <li>
-                <i class="fa-solid fa-temperature-arrow-up"></i>
-                <div><span class="list-title">Climate & Energy:</span> Automated thermostats, smart plugs.</div>
-              </li>
-              <li>
-                <i class="fa-solid fa-lightbulb"></i>
-                <div><span class="list-title">Smart Lighting:</span> Programmed LED lighting, motion switches.</div>
-              </li>
-              <li>
-                <i class="fa-solid fa-robot"></i>
-                <div><span class="list-title">Connected Appliances:</span> Robot vacuums, automated kitchen units.</div>
-              </li>
-            </ul>
-          </div>
-          <div class="pure-u-1 pure-u-md-2-3">
-            <!-- Map / Chart Container 3 -->
-            <div class="vis-container">
-              <div id="vis3"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 5: Geographical Adoption & Spatial Insights (Full Width Map Layout) -->
-      <section class="section-block">
-        <div class="pure-g">
-          <div class="pure-u-1">
-            <h2><i class="fa-solid fa-map-location-dot"></i> Section 5: Geographical Adoption & Spatial Insights</h2>
-            <p>
-              Spatial distribution reveals a strong correlation between fixed-line high-speed broadband availability and smart home density. Urban growth corridors and suburban master-planned communities show the highest rate of multi-device setups per home, while regional areas prioritize remote energy monitoring and solar integration.
-            </p>
-            <!-- Full Width Map Container 4 -->
-            <div class="vis-container full-width-map" style="margin-top: 20px;">
-              <div id="vis4"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 6: Adoption Drivers vs. Consumer Barriers -->
+      <!-- ==================== ROW 1: 2-COLUMN SPLIT (Section 1 & Vis 1) ==================== -->
       <section class="section-block">
         <div class="pure-g">
           <div class="pure-u-1 pure-u-md-1-2" style="padding-right: 20px;">
-            <h2><i class="fa-solid fa-scale-balanced"></i> Section 6: Drivers vs. Barriers</h2>
-            <p>
-              While market uptake remains rapid, consumer purchasing decisions are shaped by competing motivators and structural friction points:
+            <h2 class="section-title"><i class="fa-solid fa-earth-americas"></i> Section 1: Global Connectivity Growth</h2>
+            <p class="section-desc">
+              Household broadband connectivity serves as the foundational utility for modern smart homes. Over the past two decades, international internet access has expanded rapidly, bridging connectivity gaps and paving the way for multi-device ecosystem integration.
             </p>
-            <div class="driver-barrier-grid">
+            <ul class="styled-list">
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>High Expansion:</strong> Global household internet access has more than tripled since 2000.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Foundation for Smart Tech:</strong> High-speed broadband enables real-time sensor monitoring and cloud communication.</span></li>
+            </ul>
+          </div>
+          <div class="pure-u-1 pure-u-md-1-2">
+            <div class="vis-container" id="vis1"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ROW 2: 3-COLUMN CARDS (Vis 2, Vis 3, Vis 4) ==================== -->
+      <section class="section-block">
+        <h2 class="section-title"><i class="fa-solid fa-cubes"></i> Section 2: Core Adoption Metrics</h2>
+        <p class="section-desc">Key quantitative metrics driving modern residential technology adoption and energy allocation across connected households.</p>
+        
+        <div class="pure-g">
+          <!-- Card 1 -->
+          <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 card-item">
+            <div class="card-inner">
+              <h3><i class="fa-solid fa-chart-line"></i> Device Density</h3>
+              <p>Average connected devices per broadband home are projected to rise from 25 today to 44 by 2030.</p>
+              <div class="vis-container" id="vis2"></div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 card-item">
+            <div class="card-inner">
+              <h3><i class="fa-solid fa-bolt"></i> Appliance Load Draw</h3>
+              <p>Peak household power consumption breakdown across major appliances (HVAC, Refrigeration, Laundry).</p>
+              <div class="vis-container" id="vis3"></div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 card-item">
+            <div class="card-inner">
+              <h3><i class="fa-solid fa-chart-pie"></i> Category Distribution</h3>
+              <p>Market share distribution across smart security, environmental hubs, and climate control units.</p>
+              <div class="vis-container" id="vis4"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ROW 3: 2-COLUMN SPLIT (Section 3 & Vis 5) ==================== -->
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1 pure-u-md-1-2" style="padding-right: 20px;">
+            <h2 class="section-title"><i class="fa-solid fa-users"></i> Section 3: Demographic & Age Adoption</h2>
+            <p class="section-desc">
+              Smart device uptake varies across age brackets, income tiers, and housing types. While tech-attuned younger demographics lead multi-device automation setups, older homeowners prioritize energy cost management and home health monitoring.
+            </p>
+            <ul class="styled-list">
+              <li><i class="fa-solid fa-bolt"></i> <span><strong>Early Adopters (18-34):</strong> Lead in smart speakers, lighting, and ambient routines.</span></li>
+              <li><i class="fa-solid fa-shield-halved"></i> <span><strong>Family Households (35-54):</strong> Highest uptake in video doorbells and access control.</span></li>
+              <li><i class="fa-solid fa-leaf"></i> <span><strong>Seniors (55+):</strong> Focus heavily on solar ROI and smart climate control.</span></li>
+            </ul>
+          </div>
+          <div class="pure-u-1 pure-u-md-1-2">
+            <div class="vis-container" id="vis5"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ROW 4: 3-COLUMN CARDS (Vis 6, Vis 7, Vis 8) ==================== -->
+      <section class="section-block">
+        <h2 class="section-title"><i class="fa-solid fa-sliders"></i> Section 4: Behavioral & Ecosystem Insights</h2>
+        <p class="section-desc">Investigating consumer motivators, interface preference, and EV charging infrastructure integration.</p>
+        
+        <div class="pure-g">
+          <!-- Card 4 -->
+          <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 card-item">
+            <div class="card-inner">
+              <h3><i class="fa-solid fa-car-side"></i> EV Charger Uptake</h3>
+              <p>Residential EV charger adoption and its daily impact on evening peak electrical demand.</p>
+              <div class="vis-container" id="vis6"></div>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 card-item">
+            <div class="card-inner">
+              <h3><i class="fa-solid fa-scale-balanced"></i> Drivers vs. Barriers</h3>
+              <p>Comparing primary consumer motivators (convenience, peace of mind) against privacy concerns.</p>
+              <div class="vis-container" id="vis7"></div>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 card-item">
+            <div class="card-inner">
+              <h3><i class="fa-solid fa-microphone"></i> Voice Assistant Share</h3>
+              <p>Platform distribution across major smart ecosystem hubs (Amazon Alexa, Google Home, Apple).</p>
+              <div class="vis-container" id="vis8"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ROW 5: 2-COLUMN SPLIT (Section 5 & Vis 9) ==================== -->
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1 pure-u-md-1-2" style="padding-right: 20px;">
+            <h2 class="section-title"><i class="fa-solid fa-faucet-drip"></i> Section 5: Environmental & Safety Sensors</h2>
+            <p class="section-desc">
+              Connected water leak detectors, smoke alarms, and environmental sensors protect physical infrastructure. Early detection mitigates costly domestic water damage and alerts homeowners remotely.
+            </p>
+            <div class="split-box-container">
               <div class="driver-box">
-                <h3><i class="fa-solid fa-arrow-trend-up"></i> Primary Drivers</h3>
-                <ul class="styled-list" style="margin: 0;">
-                  <li><i class="fa-solid fa-check"></i> Remote Peace of Mind</li>
-                  <li><i class="fa-solid fa-check"></i> Utility Bill Reduction</li>
-                  <li><i class="fa-solid fa-check"></i> Chore Automation</li>
-                </ul>
+                <h4><i class="fa-solid fa-shield"></i> Safety First</h4>
+                <p style="font-size: 0.88rem; margin:0;">Instant mobile notifications prevent property loss during plumbing failures.</p>
               </div>
               <div class="barrier-box">
-                <h3><i class="fa-solid fa-triangle-exclamation"></i> Key Barriers</h3>
-                <ul class="styled-list" style="margin: 0;">
-                  <li><i class="fa-solid fa-xmark"></i> Data Privacy Concerns</li>
-                  <li><i class="fa-solid fa-xmark"></i> High Upfront Hardware Costs</li>
-                  <li><i class="fa-solid fa-xmark"></i> Ecosystem Incompatibility</li>
-                </ul>
+                <h4><i class="fa-solid fa-triangle-exclamation"></i> Battery Care</h4>
+                <p style="font-size: 0.88rem; margin:0;">Requires long-life protocols (Zigbee/Thread) to ensure multi-year reliability.</p>
               </div>
             </div>
           </div>
           <div class="pure-u-1 pure-u-md-1-2">
-            <!-- Map / Chart Container 5 -->
-            <div class="vis-container">
-              <div id="vis5"></div>
+            <div class="vis-container" id="vis9"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== ROW 6: 3-COLUMN CARDS (Vis 10, Vis 11, Vis 12) ==================== -->
+      <section class="section-block">
+        <h2 class="section-title"><i class="fa-solid fa-network-wired"></i> Section 6: Next-Generation Technologies</h2>
+        <p class="section-desc">Exploring home solar peak shaving, smart security access logs, and predictive AI automation trends.</p>
+        
+        <div class="pure-g">
+          <!-- Card 7 -->
+          <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 card-item">
+            <div class="card-inner">
+              <h3><i class="fa-solid fa-solar-panel"></i> Solar Peak Shaving</h3>
+              <p>Integrating battery storage to shave peak grid energy consumption during high-tariff hours.</p>
+              <div class="vis-container" id="vis10"></div>
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 card-item">
+            <div class="card-inner">
+              <h3><i class="fa-solid fa-lock"></i> Access Control Logs</h3>
+              <p>Hourly entry logs showing peak movement through smart door locks and garage doors.</p>
+              <div class="vis-container" id="vis11"></div>
+            </div>
+          </div>
+
+          <!-- Card 9 -->
+          <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 card-item">
+            <div class="card-inner">
+              <h3><i class="fa-solid fa-brain"></i> Predictive AI Growth</h3>
+              <p>Transitioning from basic voice commands to context-aware, predictive ambient automation.</p>
+              <div class="vis-container" id="vis12"></div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Section 7: Future Outlook & Emerging Standards -->
-      <section class="section-block">
-        <div class="pure-g">
-          <div class="pure-u-1 pure-u-md-1-3" style="padding-right: 20px;">
-            <h2><i class="fa-solid fa-network-wired"></i> Section 7: Future Outlook & Standards</h2>
-            <p>
-              The market is transitioning away from fragmented, brand-locked platforms towards open interoperability standards like <strong>Matter</strong> and <strong>Thread</strong>. Future developments focus on predictive, AI-driven home automation and integrated Home Energy Management Systems (HEMS) balancing rooftop solar, home batteries, and EV charging dynamically.
-            </p>
-          </div>
-          <div class="pure-u-1 pure-u-md-2-3">
-            <!-- Map / Chart Container 6 -->
-            <div class="vis-container">
-              <div id="vis6"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Section 8: Conclusion -->
-      <section class="section-block">
-        <div class="pure-g">
-          <div class="pure-u-1">
-            <div class="conclusion-block">
-              <h2><i class="fa-solid fa-circle-check"></i> Section 8: Conclusion</h2>
-              <p>
-                As network infrastructure speeds accelerate and device unit costs decline, consumer willingness to adopt home technology continues to climb. The ongoing shift from manual routines to predictive, AI-driven automation is transforming residential connectivity from an optional novelty into an essential standard for modern living.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <!-- Conclusion Block -->
+      <div class="conclusion-block">
+        <h2 style="margin-top:0;"><i class="fa-solid fa-circle-check" style="color:var(--primary);"></i> Summary & Future Outlook</h2>
+        <p style="margin-bottom:0; color: var(--text-muted);">
+          As high-speed internet availability broadens and open standards like Matter mature, smart home technologies are evolving from isolated gadgets into cohesive, predictive environments. Household technology continues to redefine domestic life by prioritizing energy decarbonization, seamless security, and daily time savings.
+        </p>
+      </div>
 
     </main>
-
   </div>
 
-  <!-- Fallback Embedded Visualizations for Live Previewing -->
+  <!-- Embedded Vega-Lite JavaScript Specifications for Live Rendering -->
   <script type="text/javascript">
-    const sampleTrendSpec = {
+    const genericSpec = (title, type = "bar") => ({
       "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
       "width": "container",
-      "height": 320,
+      "height": 260,
       "data": {
         "values": [
-          {"Year": "2015", "Devices": 9},
-          {"Year": "2018", "Devices": 14},
-          {"Year": "2021", "Devices": 19},
-          {"Year": "2024", "Devices": 25},
-          {"Year": "2027", "Devices": 34},
-          {"Year": "2030", "Devices": 44}
+          {"Category": "A", "Value": 30},
+          {"Category": "B", "Value": 65},
+          {"Category": "C", "Value": 45},
+          {"Category": "D", "Value": 80}
         ]
       },
-      "mark": {"type": "line", "point": true, "color": "#1d4ed8", "strokeWidth": 3},
+      "mark": {"type": type, "color": "#2563eb", "cornerRadius": 4},
+      "encoding": {
+        "x": {"field": "Category", "type": "nominal", "axis": {"labelAngle": 0}},
+        "y": {"field": "Value", "type": "quantitative"},
+        "tooltip": [{"field": "Category"}, {"field": "Value"}]
+      }
+    });
+
+    const lineSpec = {
+      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+      "width": "container",
+      "height": 300,
+      "data": {
+        "values": [
+          {"Year": "2010", "Val": 10},
+          {"Year": "2014", "Val": 25},
+          {"Year": "2018", "Val": 48},
+          {"Year": "2022", "Val": 72},
+          {"Year": "2026", "Val": 92}
+        ]
+      },
+      "mark": {"type": "line", "point": true, "color": "#2563eb", "strokeWidth": 3},
       "encoding": {
         "x": {"field": "Year", "type": "ordinal", "title": "Year"},
-        "y": {"field": "Devices", "type": "quantitative", "title": "Avg Connected Devices / Home"},
-        "tooltip": [{"field": "Year"}, {"field": "Devices"}]
+        "y": {"field": "Val", "type": "quantitative", "title": "Household Adoption (%)"},
+        "tooltip": [{"field": "Year"}, {"field": "Val"}]
       }
     };
 
-    const sampleCategorySpec = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "width": "container",
-      "height": 320,
-      "data": {
-        "values": [
-          {"Category": "Smart Speakers", "Adoption": 73},
-          {"Category": "Video Doorbells", "Adoption": 50},
-          {"Category": "Security Cameras", "Adoption": 50},
-          {"Category": "Smart Thermostats", "Adoption": 43},
-          {"Category": "Smart Lighting", "Adoption": 34}
-        ]
-      },
-      "mark": {"type": "bar", "cornerRadiusEnd": 6, "color": "#2563eb"},
-      "encoding": {
-        "x": {"field": "Adoption", "type": "quantitative", "title": "Household Penetration (%)", "scale": {"domain": [0, 100]}},
-        "y": {"field": "Category", "type": "nominal", "sort": "-x", "title": null},
-        "tooltip": [{"field": "Category"}, {"field": "Adoption"}]
-      }
-    };
-
-    // Render fallbacks into IDs
-    vegaEmbed('#vis1', sampleTrendSpec, {actions: false});
-    vegaEmbed('#vis2', sampleCategorySpec, {actions: false});
-    vegaEmbed('#vis3', sampleCategorySpec, {actions: false});
-    vegaEmbed('#vis4', sampleTrendSpec, {actions: false});
-    vegaEmbed('#vis5', sampleCategorySpec, {actions: false});
-    vegaEmbed('#vis6', sampleTrendSpec, {actions: false});
+    // Render interactive fallback charts across all 12 containers
+    for (let i = 1; i <= 12; i++) {
+      const spec = (i % 2 === 0) ? genericSpec(`Chart ${i}`, 'bar') : lineSpec;
+      vegaEmbed(`#vis${i}`, spec, {actions: false}).catch(console.error);
+    }
   </script>
 
-  <!-- User External Visualization Scripts -->
-  <script src="/visualisation/map1.js"></script>
-  <script src="/visualisation/map2.js"></script>
-  <script src="/visualisation/map3.js"></script>
-  <script src="/visualisation/map4.js"></script>
-  <script src="/visualisation/vis3.js"></script>
-  <script src="/visualisation/techAffinityVslikelihoodOfEV.js"></script>
+  <!-- Custom User Script External Links -->
+  <script src="visualisation/map1.js"></script>
+  <script src="visualisation/map2.js"></script>
+  <script src="visualisation/map3.js"></script>
+  <script src="visualisation/map4.js"></script>
+  <script src="visualisation/vis3.js"></script>
+  <script src="visualisation/vis4.js"></script>
+  <script src="visualisation/techAffinityVslikelihoodOfEV.js"></script>
 
 </body>
 </html>
