@@ -24,8 +24,7 @@ const spec44 =
   }
 }
 
-print("we added this")
-vegaEmbed('#vis99', spec44).then(result => {
+vegaEmbed('#demographic', spec44).then(result => {
   console.log(result);
   print("we added this")
 }).catch(console.error);

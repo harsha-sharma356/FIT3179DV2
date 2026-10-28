@@ -1,6 +1,6 @@
 const spec4 = {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
-  "width": 500,
+  "width": 700,
   "height": 300,
   "projection": { "type": "equalEarth" },
   "params": [
@@ -16,13 +16,30 @@ const spec4 = {
       }
     }
   ],
+  "resolve": { "scale": { "color": "independent" } },
   "layer": [
     {
       "data": {
         "url": "https://vega.github.io/editor/data/world-110m.json",
         "format": { "type": "topojson", "feature": "countries" }
       },
-      "mark": { "type": "geoshape", "fill": "#e5e5e5", "stroke": "white", "strokeWidth": 0.3 }
+      "transform": [
+        { "calculate": "'No data'", "as": "status" }
+      ],
+      "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 0.3 },
+      "encoding": {
+        "color": {
+          "field": "status",
+          "type": "nominal",
+          "scale": { "domain": ["No data"], "range": ["#e5e5e5"] },
+          "legend": {
+            "title": null,
+            "orient": "bottom",
+            "direction": "horizontal",
+            "symbolType": "square"
+          }
+        }
+      }
     },
     {
       "data": {
@@ -35,17 +52,14 @@ const spec4 = {
           "from": {
             "data": {
               "url": "https://raw.githubusercontent.com/lukes/ISO-3166-Countries-with-Regional-Codes/refs/heads/master/all/all.csv",
-              "format": { "type": "csv", "parse": { "country-code": "number" } }
+              "format": { "type": "csv" }
             },
             "key": "alpha-3",
             "fields": ["country-code"]
           },
           "as": "raw_numeric_id"
         },
-        {
-          "calculate": "format(datum.raw_numeric_id, '03d')",
-          "as": "numeric_id"
-        },
+        { "calculate": "toNumber(datum.raw_numeric_id)", "as": "numeric_id" },
         {
           "lookup": "numeric_id",
           "from": {
@@ -56,7 +70,8 @@ const spec4 = {
             "key": "id"
           },
           "as": "geo"
-        }
+        },
+        { "filter": "isValid(datum.geo)" }
       ],
       "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 0.3 },
       "encoding": {
@@ -66,11 +81,17 @@ const spec4 = {
           "type": "ordinal",
           "scale": {
             "domain": ["Low (<25%)", "Medium (25-60%)", "High (>60%)"],
-            "scheme": "accent"
-          }          
+            "range": ["#c6dbef", "#6baed6", "#08519c"]
+          },
+          "legend": {
+            "title": "Households with internet",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "symbolType": "square"
+          }
         },
         "tooltip": [
-          { "field": "country_code", "title": "Country" },
+          { "field": "country_name", "title": "Country" },
           { "field": "year", "title": "Year" },
           { "field": "internet_access_pct", "title": "Internet access (%)", "format": ".1f" }
         ]
@@ -78,6 +99,6 @@ const spec4 = {
     }
   ]
 }
-vegaEmbed('#vis11', spec4).then(result => {
+vegaEmbed('#accessInternet', spec4).then(result => {
   console.log(result);
 }).catch(console.error);
