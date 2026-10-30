@@ -1,6 +1,6 @@
 const binMapSpec = {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "description": "Hexbin map of synthetic point data over Australia",
+  "description": "Hexbin map of home battery usable capacity (CER, Jul 2025 to Sep 2026) by postcode centroid, Australia",
   "width": 700,
   "height": 600,
   "padding": 5,
@@ -40,18 +40,49 @@ const binMapSpec = {
     },
 
     {
-      "name": "points",
+      "name": "postcodes",
+      "url": "https://raw.githubusercontent.com/matthewproctor/australianpostcodes/master/australian_postcodes.csv",
+      "format": {"type": "csv", "parse": {"postcode": "number", "long": "number", "lat": "number"}},
       "transform": [
-        {"type": "sequence", "start": 0, "stop": 3000},
-        {"type": "formula", "as": "city", "expr": "floor(pow(random(), 1.6) * 6)"},
         {
-          "type": "formula", "as": "lon",
-          "expr": "[151.2, 145.0, 153.0, 115.9, 138.6, 130.8][datum.city] + 1.2 * sqrt(-2 * log(1 - random())) * cos(2 * PI * random())"
+          "type": "filter",
+          "expr": "isValid(datum.postcode) && datum.long > 112 && datum.long < 154 && datum.lat < -9 && datum.lat > -45"
         },
         {
-          "type": "formula", "as": "lat",
-          "expr": "[-33.9, -37.8, -27.5, -32.0, -34.9, -12.5][datum.city] + 1.0 * sqrt(-2 * log(1 - random())) * cos(2 * PI * random())"
+          "type": "aggregate",
+          "groupby": ["postcode"],
+          "ops": ["mean", "mean"],
+          "fields": ["long", "lat"],
+          "as": ["lon", "lat"]
+        }
+      ]
+    },
+
+    {
+      "name": "points",
+      "url": "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/sgu-battery-capacity-2011-to-present-and-totals.csv",
+      "format": {"type": "csv"},
+      "transform": [
+        {
+          "type": "formula",
+          "as": "postcode",
+          "expr": "toNumber(datum['Small Unit Installation Postcode'])"
         },
+        {
+          "type": "formula",
+          "as": "capacity",
+          "expr": "toNumber(replace(datum['Total usable capacity in kWh'], regexp(',', 'g'), ''))"
+        },
+        {"type": "filter", "expr": "isValid(datum.postcode) && isValid(datum.capacity)"},
+        {
+          "type": "lookup",
+          "from": "postcodes",
+          "key": "postcode",
+          "fields": ["postcode"],
+          "values": ["lon", "lat"],
+          "as": ["lon", "lat"]
+        },
+        {"type": "filter", "expr": "isValid(datum.lon) && isValid(datum.lat)"},
         {
           "type": "geopoint",
           "projection": "projection",
@@ -88,8 +119,9 @@ const binMapSpec = {
         {
           "type": "aggregate",
           "groupby": ["cx", "cy"],
-          "ops": ["count"],
-          "as": ["count"]
+          "ops": ["sum", "count"],
+          "fields": ["capacity", "capacity"],
+          "as": ["total", "postcodes"]
         }
       ]
     }
@@ -99,7 +131,7 @@ const binMapSpec = {
     {
       "name": "color",
       "type": "sqrt",
-      "domain": {"data": "hexes", "field": "count"},
+      "domain": {"data": "hexes", "field": "total"},
       "range": {"scheme": "yelloworangered"},
       "zero": false
     }
@@ -109,7 +141,7 @@ const binMapSpec = {
     {
       "fill": "color",
       "type": "gradient",
-      "title": "Points per hex",
+      "title": "Home battery capacity per hex (kWh)",
       "orient": "bottom-right",
       "gradientLength": 180
     }
@@ -162,11 +194,11 @@ const binMapSpec = {
           "path": {
             "signal": "'M0,' + (-hexR) + 'L' + (0.8660254 * hexR) + ',' + (-0.5 * hexR) + 'L' + (0.8660254 * hexR) + ',' + (0.5 * hexR) + 'L0,' + hexR + 'L' + (-0.8660254 * hexR) + ',' + (0.5 * hexR) + 'L' + (-0.8660254 * hexR) + ',' + (-0.5 * hexR) + 'Z'"
           },
-          "fill": {"scale": "color", "field": "count"},
+          "fill": {"scale": "color", "field": "total"},
           "fillOpacity": {"value": 0.85},
           "stroke": {"value": "#ffffff"},
           "strokeWidth": {"value": 0.75},
-          "tooltip": {"signal": "'Points: ' + datum.count"}
+          "tooltip": {"signal": "'Battery capacity: ' + format(datum.total / 1000, ',.1f') + ' MWh (' + datum.postcodes + ' postcodes)'"}
         },
         "hover": {"fillOpacity": {"value": 1}}
       }
@@ -178,3 +210,4 @@ const binMapSpec = {
 vegaEmbed('#vis', binMapSpec).then(result => {
   console.log(result);
 }).catch(console.error);
+
