@@ -1,6 +1,11 @@
 const specIot = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   description: "Registered IoT devices in Casey by suburb and device type",
+  title: {
+    text: "Registered IoT Devices by Suburb and Type",
+    font: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    fontWeight: "normal"
+  },
   width: 500,
   height: 380,
   data: { url: "data/IOT DEVICE REGISTER KAGGLE/iot-device-register.csv" },

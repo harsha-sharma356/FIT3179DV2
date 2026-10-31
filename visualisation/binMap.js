@@ -1,6 +1,11 @@
 const binMapSpec = {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "Hexbin map of home battery usable capacity (CER, Jul 2025 to Sep 2026) by postcode centroid, Australia",
+  "title": {
+    "text": "Home Battery Usable Capacity by Postcode (Australia)",
+    "font": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": "normal"
+  },
   "width": 700,
   "height": 600,
   "padding": 5,

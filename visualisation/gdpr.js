@@ -1,6 +1,11 @@
 const specGdpr = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   description: "Count of privacy scenarios by data class and purpose class",
+  title: {
+    text: "Privacy Scenarios by Data and Purpose Class",
+    font: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    fontWeight: "normal"
+  },
   width: 500,
   height: 380,
   data: { url: "data/GDPR_priv/answers.csv" },

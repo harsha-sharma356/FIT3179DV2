@@ -1,6 +1,11 @@
 const spec5 = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Stacked area chart of energy consumption by source from OWID data",
+  "title": {
+    "text": "Global Energy Consumption by Source",
+    "font": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": "normal"
+  },
   "data": {
     "url": "https://raw.githubusercontent.com/owid/energy-data/master/owid-energy-data.csv"
   },

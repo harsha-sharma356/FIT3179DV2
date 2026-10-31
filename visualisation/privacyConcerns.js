@@ -1,6 +1,11 @@
 const privacySpec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "description": "Privacy attitude score by age group",
+  "title": {
+    "text": "Privacy Attitude Score by Age Group",
+    "font": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": "normal"
+  },
   "width": 520,
   "height": 320,
   "data": {

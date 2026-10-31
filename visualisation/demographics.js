@@ -1,6 +1,11 @@
 const demoSpec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "description": "Survey respondent counts by age group and gender",
+  "title": {
+    "text": "Respondent Demographics by Age Group and Gender",
+    "font": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": "normal"
+  },
   "width": 520,
   "height": 320,
   "data": {

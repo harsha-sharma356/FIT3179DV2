@@ -1,5 +1,10 @@
 wordCloudSpec = {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "title": {
+    "text": "Alexa Review Keywords",
+    "font": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": "normal"
+  },
   "width": 800,
   "height": 400,
   "padding": 0,

@@ -1,6 +1,11 @@
 const spec44 = 
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "Technology Affinity vs Likelihood of Adopting EVs",
+    "font": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": "normal"
+  },
   "width": 520,
   "height": 200,
   "data": {"url": "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/global_ev_adoption/global_ev_adoption_behavior_2026.csv"},
@@ -32,5 +37,4 @@ const spec44 =
 
 vegaEmbed('#demographic', spec44).then(result => {
   console.log(result);
-  print("we added this")
 }).catch(console.error);

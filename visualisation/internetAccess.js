@@ -1,5 +1,10 @@
 const spec4 = {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "title": {
+    "text": "Household Internet Access by Country",
+    "font": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": "normal"
+  },
   "width": 700,
   "height": 300,
   "projection": { "type": "equalEarth" },

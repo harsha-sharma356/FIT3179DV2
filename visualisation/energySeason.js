@@ -1,6 +1,11 @@
 const specEnergySeason = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   description: "Mean appliance energy use by season",
+  title: {
+    text: "Appliance Energy Use by Season",
+    font: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    fontWeight: "normal"
+  },
   width: 500,
   height: 380,
   data: { url: "data/smartHomeEnergyConsumption/smart_home_energy_consumption_large.csv" },

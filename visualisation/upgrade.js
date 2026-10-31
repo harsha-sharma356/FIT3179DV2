@@ -1,6 +1,11 @@
 const specUpgrade = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   description: "Willingness to adopt smart home technology by US region",
+  title: {
+    text: "Willingness to Adopt Smart Home Tech by Region",
+    font: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    fontWeight: "normal"
+  },
   width: 500,
   height: 380,
   data: { url: "data/upgradeE/UPGRADE-E_V2.csv" },

@@ -4,6 +4,8 @@ const spec1 =
   "title": {
     "text": "Global Tech & Appliance Shipping Flows to Australia",
     "subtitle": "Top 10 source countries by import value (USD billions), HS 8509 + 8517 + 8528",
+    "font": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": "normal",
     "fontSize": 16,
     "anchor": "start"
   },
@@ -158,8 +160,7 @@ const spec1 =
   ]
 }
 
-console.log(JSON.stringify(spec1))
-    // Embed the visualization into the div with ID 'vis'
+// Embed the visualization into the div with ID 'importAus'
 vegaEmbed('#importAus', spec1).then(result => {
   console.log(result);
 }).catch(console.error);

@@ -1,6 +1,11 @@
 const specDuty = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   description: "Share of time each smart-home appliance is on",
+  title: {
+    text: "Appliance Duty Cycle",
+    font: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    fontWeight: "normal"
+  },
   width: 500,
   height: 320,
   data: { url: "data/smart_home_dataset/preprocessed_dataset.csv" },

@@ -4,7 +4,9 @@ const spec2 =
   "description": "Proportional symbol map of tech consumption by country, with year and metric controls.",
   "title": {
     "text": "Global tech gadget consumption",
-    "subtitle": "Countries with data are shaded darker. Circle area shows the selected metric."
+    "subtitle": "Countries with data are shaded darker. Circle area shows the selected metric.",
+    "font": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": "normal"
   },
   "width": 800,
   "height": 450,

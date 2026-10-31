@@ -1,6 +1,11 @@
 const smallerSymbolMapSpec = {
   "$schema": "https://vega.github.io/schema/vega/v5.json",
   "description": "Smaller-region proportional symbol map of tech gadget consumption by continent (azimuthal equidistant projection).",
+  "title": {
+    "text": "Tech Gadget Consumption by Continent",
+    "font": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": "normal"
+  },
   "width": 640,
   "height": 480,
   "padding": 5,

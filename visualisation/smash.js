@@ -1,6 +1,11 @@
 const specSmash = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   description: "Mean listed price of Spanish smart-home products by macro-category",
+  title: {
+    text: "Mean Listed Price of Spanish Smart-Home Products by Category",
+    font: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    fontWeight: "normal"
+  },
   width: 500,
   height: 400,
   data: {

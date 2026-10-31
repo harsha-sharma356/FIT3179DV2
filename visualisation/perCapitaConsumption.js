@@ -1,6 +1,11 @@
 const perCapita = {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "description": "Connected dot plot comparing energy consumption per capita across economies",
+  "title": {
+    "text": "Per Capita Energy Consumption by Economy",
+    "font": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": "normal"
+  },
   "data": {
     "url": "https://raw.githubusercontent.com/owid/energy-data/master/owid-energy-data.csv"
   },

@@ -32,6 +32,11 @@ const buyReasonsOrder = buyReasonsFields.map((f) => f[1]);
 const specBuyReasons = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   description: "How important each factor is when buying a connected/AI device",
+  title: {
+    text: "Importance of Reasons for Buying AI",
+    font: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    fontWeight: "normal"
+  },
   width: 640,
   height: 420,
   data: { url: "data/upgradeE/UPGRADE-E_V2.csv" },
@@ -81,6 +86,11 @@ const specBuyReasons = {
 const specBuyReasonsRank = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   description: "Ranking of reasons by share saying Important",
+  title: {
+    text: "Top Reasons for Buying AI (Rated Important)",
+    font: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    fontWeight: "normal"
+  },
   width: 640,
   height: 420,
   data: { url: "data/upgradeE/UPGRADE-E_V2.csv" },

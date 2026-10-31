@@ -2,6 +2,11 @@
 const specAiCountry = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   description: "Amazon Alexa voice-assistant ratings by device variation",
+  title: {
+    text: "Amazon Alexa Ratings by Device",
+    font: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    fontWeight: "normal"
+  },
   width: 500,
   height: 380,
   data: { url: "data/alexaReviewsKaggle/amazon_alexa.tsv", format: { type: "tsv" } },
@@ -29,6 +34,11 @@ const specAiCountry = {
 const specAiIndustry = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
   description: "Smart-home AI edge-offloading decision share by appliance",
+  title: {
+    text: "Smart-Home AI Offloading by Appliance",
+    font: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    fontWeight: "normal"
+  },
   width: 500,
   height: 380,
   data: { url: "data/smart_home_dataset/preprocessed_dataset.csv" },
