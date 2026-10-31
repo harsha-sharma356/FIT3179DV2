@@ -9,7 +9,7 @@ const demoSpec = {
   "width": 520,
   "height": 320,
   "data": {
-    "url": "data/GDPR_priv/answers_aggregated_by_person.csv"
+    "url": "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/GDPR_priv/answers_aggregated_by_person.csv"
   },
   "transform": [
     { "filter": "datum.age !== 'PASS' && datum.gender !== 'PASS'" }

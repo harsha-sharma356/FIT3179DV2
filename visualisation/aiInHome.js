@@ -9,7 +9,7 @@ const specAiCountry = {
   },
   width: 500,
   height: 380,
-  data: { url: "data/alexaReviewsKaggle/amazon_alexa.tsv", format: { type: "tsv" } },
+  data: { url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/alexaReviewsKaggle/amazon_alexa.tsv", format: { type: "tsv" } },
   transform: [
     { calculate: "datum.variation ? datum.variation : 'Other'", as: "device" }
   ],
@@ -41,7 +41,7 @@ const specAiIndustry = {
   },
   width: 500,
   height: 380,
-  data: { url: "data/smart_home_dataset/preprocessed_dataset.csv" },
+  data: { url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/smart_home_dataset/preprocessed_dataset.csv" },
   transform: [
     {
       fold: ["Television", "Dryer", "Oven", "Refrigerator", "Microwave"],

@@ -9,7 +9,7 @@ const specUpgrade = {
   },
   width: 500,
   height: 380,
-  data: { url: "data/upgradeE/UPGRADE-E_V2.csv" },
+  data: { url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/upgradeE/UPGRADE-E_V2.csv" },
   transform: [
     { filter: "indexof(['Yes','No','Maybe'], datum.willing_smart_tech) >= 0" },
     { filter: "isValid(datum.region) && datum.region != ''" }

@@ -39,7 +39,7 @@ const specBuyReasons = {
   },
   width: 640,
   height: 420,
-  data: { url: "data/upgradeE/UPGRADE-E_V2.csv" },
+  data: { url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/upgradeE/UPGRADE-E_V2.csv" },
   transform: [
     {
       fold: buyReasonsFields.map((f) => f[0]),
@@ -93,7 +93,7 @@ const specBuyReasonsRank = {
   },
   width: 640,
   height: 420,
-  data: { url: "data/upgradeE/UPGRADE-E_V2.csv" },
+  data: { url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/upgradeE/UPGRADE-E_V2.csv" },
   transform: [
     {
       fold: buyReasonsFields.map((f) => f[0]),

@@ -261,6 +261,34 @@ ul.styled-list li i {
   font-size: 0.92rem;
 }
 
+/* Introduction figure cards (image + caption) */
+.figure-card {
+  margin: 0;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.figure-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f1f5f9;
+  display: block;
+}
+
+.figure-card figcaption {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 .split-box-container.stacked {
   flex-direction: column;
   margin-top: 12px;

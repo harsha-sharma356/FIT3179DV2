@@ -9,7 +9,7 @@ const specSmash = {
   width: 500,
   height: 400,
   data: {
-    url: "data/doi-10.21950-jtiqq5/smash_2024_v02.tsv",
+    url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/doi-10.21950-jtiqq5/smash_2024_v02.tsv",
     format: { type: "tsv" }
   },
   transform: [

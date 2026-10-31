@@ -8,7 +8,7 @@ const specDuty = {
   },
   width: 500,
   height: 320,
-  data: { url: "data/smart_home_dataset/preprocessed_dataset.csv" },
+  data: { url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/smart_home_dataset/preprocessed_dataset.csv" },
   transform: [
     {
       fold: ["Television", "Dryer", "Oven", "Refrigerator", "Microwave"],
