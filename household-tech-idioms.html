@@ -196,7 +196,7 @@ const FONT = "Inter, -apple-system, BlinkMacSystemFont, sans-serif";
       projection: { type: "albersUsa" },
       datasets: {
         state_willing: {
-          url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/upgradeE/UPGRADE-E_V2.csv",
+          url: "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/upgradeE/UPGRADE-E_V2.csv",
           format: { type: "csv" },
           transform: [
             { filter: "indexof(['Yes','No','Maybe'], datum.willing_smart_tech) >= 0" },
@@ -261,7 +261,7 @@ const FONT = "Inter, -apple-system, BlinkMacSystemFont, sans-serif";
         },
         {
           "name": "devices",
-          "url": "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/IOT%20DEVICE%20REGISTER%20KAGGLE/iot-device-register.csv",
+          "url": "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/IOT%20DEVICE%20REGISTER%20KAGGLE/iot-device-register.csv",
           "format": {"type": "csv"},
           "transform": [
             { "type": "filter", "expr": "isValid(datum.location_suburb) && datum.location_suburb != ''" },
@@ -345,7 +345,7 @@ const FONT = "Inter, -apple-system, BlinkMacSystemFont, sans-serif";
         { "name": "world", "url": "https://vega.github.io/vega-datasets/data/world-110m.json", "format": {"type":"topojson","feature":"countries"} },
         {
           "name": "flows",
-          "url": "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/TradeData_10_25_2026_18_12_12.csv",
+          "url": "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/TradeData_10_25_2026_18_12_12.csv",
           "format": {"type":"csv"},
           "transform": [
             { "type":"filter", "expr": "datum.refYear == 2025 && datum.partnerISO != 'W00'" },
@@ -407,7 +407,7 @@ const FONT = "Inter, -apple-system, BlinkMacSystemFont, sans-serif";
       title: titleObj("Smartwatch Penetration by Country, 2015 vs 2025"),
       width: 720,
       height: 420,
-      data: { url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/global_tech_gadget_consumption/Global_Tech_Gadget_Consumption.csv" },
+      data: { url: "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/global_tech_gadget_consumption/Global_Tech_Gadget_Consumption.csv" },
       transform: [
         { filter: "datum.Year == 2015 || datum.Year == 2025" },
         { filter: "indexof(['USA','China','India','Germany','UK','France','Japan','South Korea','Brazil','Canada','Australia'], datum.Country) >= 0" }
@@ -468,7 +468,7 @@ const FONT = "Inter, -apple-system, BlinkMacSystemFont, sans-serif";
     { "name": "world", "url": "https://vega.github.io/vega-datasets/data/world-110m.json", "format": {"type": "topojson", "feature": "countries"} },
     {
       "name": "access",
-      "url": "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/internetAccess/internet_access_households_cleaned.csv",
+      "url": "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/internetAccess/internet_access_households_cleaned.csv",
       "format": {"type": "csv"},
       "transform": [
         { "type": "filter", "expr": "datum.year == 2024" },
@@ -674,7 +674,7 @@ const FONT = "Inter, -apple-system, BlinkMacSystemFont, sans-serif";
       "data": [
         {
           "name": "pc",
-          "url": "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/global_ev_adoption/global_ev_adoption_behavior_2026.csv",
+          "url": "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/global_ev_adoption/global_ev_adoption_behavior_2026.csv",
           "format": {"type": "csv"},
           "transform": [
             { "type": "sample", "size": 250 },

@@ -8,7 +8,7 @@ const specGdpr = {
   },
   width: 500,
   height: 380,
-  data: { url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/GDPR_priv/answers.csv" },
+  data: { url: "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/GDPR_priv/answers.csv" },
   mark: { type: "rect", stroke: "white", strokeWidth: 1 },
   encoding: {
     x: { field: "purposes_class", type: "nominal", title: "Purpose class" },

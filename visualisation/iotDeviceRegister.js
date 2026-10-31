@@ -8,7 +8,7 @@ const specIot = {
   },
   width: 500,
   height: 380,
-  data: { url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/IOT%20DEVICE%20REGISTER%20KAGGLE/iot-device-register.csv" },
+  data: { url: "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/IOT%20DEVICE%20REGISTER%20KAGGLE/iot-device-register.csv" },
   transform: [
     { filter: "isValid(datum.location_suburb) && datum.location_suburb != ''" },
     {

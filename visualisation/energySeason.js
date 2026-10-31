@@ -8,7 +8,7 @@ const specEnergySeason = {
   },
   width: 500,
   height: 380,
-  data: { url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/smartHomeEnergyConsumption/smart_home_energy_consumption_large.csv" },
+  data: { url: "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/smartHomeEnergyConsumption/smart_home_energy_consumption_large.csv" },
   mark: { type: "bar" },
   encoding: {
     y: { field: "Appliance Type", type: "nominal", title: "Appliance", sort: "-x" },

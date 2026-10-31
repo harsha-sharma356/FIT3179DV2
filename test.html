@@ -110,7 +110,7 @@
       description: "Country AI readiness: digital maturity vs internet penetration",
       width: 720,
       height: 420,
-      data: { url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/aiAdoption/country_ai_index.csv" },
+      data: { url: "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/aiAdoption/country_ai_index.csv" },
       mark: { type: "circle", opacity: 0.75, stroke: "white", strokeWidth: 0.8 },
       encoding: {
         x: { field: "internet_penetration", type: "quantitative", title: "Internet penetration (%)", scale: { zero: false } },
@@ -134,7 +134,7 @@
       description: "Average jobs created vs displaced by industry under AI adoption",
       width: 720,
       height: 380,
-      data: { url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/aiAdoption/ai_industry_summary.csv" },
+      data: { url: "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/aiAdoption/ai_industry_summary.csv" },
       transform: [
         {
           fold: ["avg_jobs_created", "avg_jobs_displaced"],
@@ -165,7 +165,7 @@
       description: "Willingness to adopt smart home technology by US region",
       width: 720,
       height: 360,
-      data: { url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/upgradeE/UPGRADE-E_V2.csv" },
+      data: { url: "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/upgradeE/UPGRADE-E_V2.csv" },
       transform: [
         { filter: "indexof(['Yes','No','Maybe'], datum.willing_smart_tech) >= 0" },
         { filter: "isValid(datum.region) && datum.region != ''" }
@@ -220,7 +220,7 @@
       description: "Registered IoT devices in Casey by suburb and device type",
       width: 720,
       height: 360,
-      data: { url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/IOT%20DEVICE%20REGISTER%20KAGGLE/iot-device-register.csv" },
+      data: { url: "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/IOT%20DEVICE%20REGISTER%20KAGGLE/iot-device-register.csv" },
       transform: [
         { filter: "isValid(datum.location_suburb) && datum.location_suburb != ''" },
         {
@@ -246,7 +246,7 @@
       description: "Mean appliance energy use by season",
       width: 720,
       height: 380,
-      data: { url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/smartHomeEnergyConsumption/smart_home_energy_consumption_large.csv" },
+      data: { url: "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/smartHomeEnergyConsumption/smart_home_energy_consumption_large.csv" },
       mark: { type: "bar" },
       encoding: {
         y: { field: "Appliance Type", type: "nominal", title: "Appliance", sort: "-x" },
@@ -271,7 +271,7 @@
       description: "Share of time each smart-home appliance is on",
       width: 720,
       height: 320,
-      data: { url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/smart_home_dataset/preprocessed_dataset.csv" },
+      data: { url: "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/smart_home_dataset/preprocessed_dataset.csv" },
       transform: [
         {
           fold: ["Television", "Dryer", "Oven", "Refrigerator", "Microwave"],
@@ -296,7 +296,7 @@
       description: "Count of privacy scenarios by data class and purpose class",
       width: 720,
       height: 380,
-      data: { url: "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/GDPR_priv/answers.csv" },
+      data: { url: "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/GDPR_priv/answers.csv" },
       mark: { type: "rect", stroke: "white", strokeWidth: 1 },
       encoding: {
         x: { field: "purposes_class", type: "nominal", title: "Purpose class" },

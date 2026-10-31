@@ -39,7 +39,7 @@ const spec1 =
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/TradeData_10_25_2026_18_12_12.csv",
+        "url": "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/TradeData_10_25_2026_18_12_12.csv",
         "format": { "type": "csv" }
       },
       "transform": [

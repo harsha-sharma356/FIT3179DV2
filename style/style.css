@@ -103,6 +103,14 @@ body {
   overflow: auto;
 }
 
+/* Wide variant for the large proportional symbol map */
+.vis-container--wide {
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 .vis-container > div {
   width: 100%;
 }

@@ -9,7 +9,7 @@ const privacySpec = {
   "width": 520,
   "height": 320,
   "data": {
-    "url": "https://raw.githubusercontent.com/harsha-sharma356/FIT3179DV2/main/data/GDPR_priv/answers_aggregated_by_person.csv"
+    "url": "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/GDPR_priv/answers_aggregated_by_person.csv"
   },
   "transform": [
     { "filter": "datum.age !== 'PASS' && isValid(datum.score)" }
