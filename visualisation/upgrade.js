@@ -4,7 +4,8 @@ const specUpgrade = {
   title: {
     text: "Willingness to Adopt Smart Home Tech by Region",
     font: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
-    fontWeight: "normal"
+    fontWeight: "bold",
+    align: "right"
   },
   width: 500,
   height: 380,

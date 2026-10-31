@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Household Technology — Visualization Idiom Gallery</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg-color:#f8fafc; --card-bg:#ffffff; --text-main:#0f172a; --text-muted:#475569; --primary:#2563eb; --border-color:#e2e8f0; }
+    * { box-sizing:border-box; }
+    body { background:var(--bg-color); color:var(--text-main); font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif; margin:0; padding:40px 24px; line-height:1.6; }
+    .page { max-width:1500px; margin:0 auto; }
+    .page h1 { font-size:2.25rem; font-weight:800; letter-spacing:-0.03em; margin:0 0 8px; }
+    .lede { color:var(--text-muted); max-width:1000px; margin-bottom:36px; font-size:1.05rem; }
+    .badge { display:inline-block; background:#eff6ff; color:var(--primary); font-weight:600; font-size:0.8rem; padding:2px 9px; border-radius:999px; margin-right:6px; }
+    .card { background:var(--card-bg); border:1px solid var(--border-color); border-radius:12px; padding:24px; margin-bottom:28px; box-shadow:0 1px 3px rgba(0,0,0,0.05); }
+    .card h2 { margin:0 0 4px; font-size:1.2rem; font-weight:700; }
+    .tag { color:var(--primary); font-weight:600; font-size:0.78rem; text-transform:uppercase; letter-spacing:0.04em; }
+    .card p { margin:6px 0 16px; color:var(--text-muted); font-size:0.95rem; }
+    .vis { width:100%; min-height:360px; overflow:auto; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Household Technology — Visualization Idiom Gallery</h1>
+    <p class="lede"><span class="badge">Unused</span> A standalone preview of extra Vega / Vega-Lite visualisations in the household-technology domain. Serve the repo root (e.g. <code>python -m http.server</code>) and open this file. Chart titles use the same <strong>Inter / normal</strong> styling as the dashboard body.</p>
+
+    <section class="card">
+      <div class="tag">Map idiom · bin map (hexbin)</div>
+      <h2>Rooftop solar capacity density across Australia</h2>
+      <p>Each hexagon aggregates total small-unit solar capacity (kW) by postcode centroid.</p>
+      <div class="vis" id="vis-solar-hex"></div>
+    </section>
+
+    <section class="card">
+      <div class="tag">Map idiom · choropleth</div>
+      <h2>Willingness to adopt smart-home tech by US state</h2>
+      <p>Share of UPGRADE-E respondents answering "Yes" to adopting smart-home technology, by state.</p>
+      <div class="vis" id="vis-us-state"></div>
+    </section>
+
+    <section class="card">
+      <div class="tag">Map idiom · proportional symbol map</div>
+      <h2>Registered IoT devices across the City of Casey</h2>
+      <p>IoT sensor/device locations aggregated by suburb; circle area encodes device count.</p>
+      <div class="vis" id="vis-iot-symbol"></div>
+    </section>
+
+    <section class="card">
+      <div class="tag">Map idiom · flow map</div>
+      <h2>Household tech import flows to Australia</h2>
+      <p>Top source countries of home-technology imports drawn as curved flows to Sydney; stroke width = import value.</p>
+      <div class="vis" id="vis-flow"></div>
+    </section>
+
+    <section class="card">
+      <div class="tag">Distribution idiom · dot plot</div>
+      <h2>Smartwatch penetration by country, 2015 vs 2025</h2>
+      <p>Cleveland-style dot plot comparing smartwatch adoption between the earliest and latest years.</p>
+      <div class="vis" id="vis-dot"></div>
+    </section>
+
+    <section class="card">
+      <div class="tag">Map idiom · cartogram (Dorling)</div>
+      <h2>Household internet access as a circle cartogram</h2>
+      <p>Countries resized into circles at their geographic centroid; area encodes household internet access.</p>
+      <div class="vis" id="vis-carto"></div>
+    </section>
+
+    <section class="card">
+      <div class="tag">Relationship idiom · network / force-directed</div>
+      <h2>Smart-home device &harr; benefit ecosystem</h2>
+      <p>Force-directed network linking smart-device categories to the capabilities they provide.</p>
+      <div class="vis" id="vis-network"></div>
+    </section>
+
+    <section class="card">
+      <div class="tag">Relationship idiom · parallel coordinates</div>
+      <h2>Home energy &amp; EV-charging behaviour (parallel axes)</h2>
+      <p>Each polyline is one respondent across seven numeric dimensions, coloured by EV-adoption likelihood.</p>
+      <div class="vis" id="vis-parallel"></div>
+    </section>
+  </div>
+
+  <script>
+const FONT = "Inter, -apple-system, BlinkMacSystemFont, sans-serif";
+    const titleObj = (text) => ({ text: text, font: FONT, fontWeight: "normal" });
+
+    // ==================== 1. BIN MAP (Vega) ====================
+    const specSolarHex = {
+      "$schema": "https://vega.github.io/schema/vega/v5.json",
+      "title": titleObj("Rooftop Solar Capacity Density (Australia)"),
+      "width": 800, "height": 560, "padding": 5, "autosize": "none",
+      "signals": [
+        { "name": "hexR", "value": 14, "bind": {"input":"range","min":8,"max":32,"step":2,"name":"Hex radius (px)"} }
+      ],
+      "projections": [
+        { "name": "projection", "type": "azimuthalEquidistant", "rotate": [-134, 25, 0], "scale": 1200, "translate": [400, 280] }
+      ],
+      "data": [
+        { "name": "sphere", "values": [{"type": "Sphere"}] },
+        { "name": "graticule", "transform": [{"type": "graticule", "step":[10,10]}] },
+        { "name": "world", "url": "https://vega.github.io/vega-datasets/data/world-110m.json", "format": {"type":"topojson","feature":"countries"} },
+        {
+          "name": "postcodes",
+          "url": "https://raw.githubusercontent.com/matthewproctor/australianpostcodes/master/australian_postcodes.csv",
+          "format": {"type":"csv","parse":{"postcode":"number","long":"number","lat":"number"}},
+          "transform": [
+            { "type":"filter","expr":"isValid(datum.postcode) && datum.long > 112 && datum.long < 154 && datum.lat < -9 && datum.lat > -45" },
+            { "type":"aggregate","groupby":["postcode"],"ops":["mean","mean"],"fields":["long","lat"],"as":["lon","lat"] }
+          ]
+        },
+        {
+          "name": "points",
+          "url": "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/sgu-solar-capacity-2011-to-present-and-totals.csv",
+          "format": {"type":"csv"},
+          "transform": [
+            { "type":"formula","as":"postcode","expr":"toNumber(datum['Small Unit Installation Postcode'])" },
+            { "type":"formula","as":"capacity","expr":"toNumber(replace(datum['Total Rated Power Output In kW'], regexp(',', 'g'), ''))" },
+            { "type":"filter","expr":"isValid(datum.postcode) && isValid(datum.capacity) && datum.capacity > 0" },
+            { "type":"lookup","from":"postcodes","key":"postcode","fields":["postcode"],"values":["lon","lat"],"as":["lon","lat"] },
+            { "type":"filter","expr":"isValid(datum.lon) && isValid(datum.lat)" },
+            { "type":"geopoint","projection":"projection","fields":["lon","lat"],"as":["x","y"] },
+            { "type":"filter","expr":"isValid(datum.x) && isValid(datum.y)" }
+          ]
+        },
+        {
+          "name": "hexes", "source": "points",
+          "transform": [
+            { "type":"formula","as":"fq","expr":"(sqrt(3) / 3 * datum.x - datum.y / 3) / hexR" },
+            { "type":"formula","as":"fr","expr":"(2 / 3 * datum.y) / hexR" },
+            { "type":"formula","as":"fs","expr":"-datum.fq - datum.fr" },
+            { "type":"formula","as":"rq","expr":"round(datum.fq)" },
+            { "type":"formula","as":"rr","expr":"round(datum.fr)" },
+            { "type":"formula","as":"rs","expr":"round(datum.fs)" },
+            { "type":"formula","as":"dq","expr":"abs(datum.rq - datum.fq)" },
+            { "type":"formula","as":"dr","expr":"abs(datum.rr - datum.fr)" },
+            { "type":"formula","as":"ds","expr":"abs(datum.rs - datum.fs)" },
+            { "type":"formula","as":"q","expr":"(datum.dq > datum.dr && datum.dq > datum.ds) ? -datum.rr - datum.rs : datum.rq" },
+            { "type":"formula","as":"r","expr":"(!(datum.dq > datum.dr && datum.dq > datum.ds) && datum.dr > datum.ds) ? -datum.rq - datum.rs : datum.rr" },
+            { "type":"formula","as":"cx","expr":"hexR * sqrt(3) * (datum.q + datum.r / 2)" },
+            { "type":"formula","as":"cy","expr":"hexR * 1.5 * datum.r" },
+            { "type":"aggregate","groupby":["cx","cy"],"ops":["sum","count"],"fields":["capacity","capacity"],"as":["total","postcodes"] }
+          ]
+        }
+      ],
+      "scales": [
+        { "name":"color","type":"sqrt","domain":{"data":"hexes","field":"total"},"range":{"scheme":"yelloworangered"},"zero":false }
+      ],
+      "legends": [
+        { "fill":"color","type":"gradient","title":"Total solar capacity per hex (kW)","orient":"bottom-right","gradientLength":180 }
+      ],
+      "marks": [
+        { "type":"shape","from":{"data":"sphere"},"encode":{"enter":{"fill":{"value":"#e0f2fe"},"stroke":{"value":"#bae6fd"},"strokeWidth":{"value":1}}},"transform":[{"type":"geoshape","projection":"projection"}] },
+        { "type":"shape","from":{"data":"graticule"},"encode":{"enter":{"fill":{"value":null},"stroke":{"value":"#cbd5e1"},"strokeWidth":{"value":0.5}}},"transform":[{"type":"geoshape","projection":"projection"}] },
+        { "type":"shape","from":{"data":"world"},"encode":{"enter":{"fill":{"value":"#eef2f7"},"stroke":{"value":"#ffffff"},"strokeWidth":{"value":0.8}}},"transform":[{"type":"geoshape","projection":"projection"}] },
+        {
+          "type":"path","from":{"data":"hexes"},
+          "encode": {
+            "update": {
+              "x":{"field":"cx"}, "y":{"field":"cy"},
+              "path":{"signal":"'M0,' + (-hexR) + 'L' + (0.8660254*hexR) + ',' + (-0.5*hexR) + 'L' + (0.8660254*hexR) + ',' + (0.5*hexR) + 'L0,' + hexR + 'L' + (-0.8660254*hexR) + ',' + (0.5*hexR) + 'L' + (-0.8660254*hexR) + ',' + (-0.5*hexR) + 'Z'"},
+              "fill":{"scale":"color","field":"total"}, "fillOpacity":{"value":0.85},
+              "stroke":{"value":"#ffffff"}, "strokeWidth":{"value":0.5},
+              "tooltip":{"signal":"'Solar: ' + format(datum.total/1000, ',.1f') + ' MW (' + datum.postcodes + ' postcodes)'"}
+            },
+            "hover": { "fillOpacity": {"value":1} }
+          }
+        }
+      ]
+    };
+// ==================== 2. CHOROPLETH (Vega-Lite) ====================
+    const stateFips = [
+      ["Alabama",1],["Alaska",2],["Arizona",4],["Arkansas",5],["California",6],["Colorado",8],
+      ["Connecticut",9],["Delaware",10],["District of Columbia",11],["Florida",12],["Georgia",13],
+      ["Hawaii",15],["Idaho",16],["Illinois",17],["Indiana",18],["Iowa",19],["Kansas",20],
+      ["Kentucky",21],["Louisiana",22],["Maine",23],["Maryland",24],["Massachusetts",25],
+      ["Michigan",26],["Minnesota",27],["Mississippi",28],["Missouri",29],["Montana",30],
+      ["Nebraska",31],["Nevada",32],["New Hampshire",33],["New Jersey",34],["New Mexico",35],
+      ["New York",36],["North Carolina",37],["North Dakota",38],["Ohio",39],["Oklahoma",40],
+      ["Oregon",41],["Pennsylvania",42],["Rhode Island",44],["South Carolina",45],
+      ["South Dakota",46],["Tennessee",47],["Texas",48],["Utah",49],["Vermont",50],
+      ["Virginia",51],["Washington",53],["West Virginia",54],["Wisconsin",55],["Wyoming",56]
+    ].map(([state, fips]) => ({ state: state, fips: fips }));
+
+    const specUSState = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      title: titleObj("Willingness to Adopt Smart-Home Tech by US State"),
+      width: 760,
+      height: 460,
+      projection: { type: "albersUsa" },
+      datasets: {
+        state_willing: {
+          url: "data/upgradeE/UPGRADE-E_V2.csv",
+          format: { type: "csv" },
+          transform: [
+            { filter: "indexof(['Yes','No','Maybe'], datum.willing_smart_tech) >= 0" },
+            { calculate: "datum.willing_smart_tech === 'Yes' ? 1 : 0", as: "is_yes" },
+            {
+              aggregate: [
+                { op: "count", as: "n" },
+                { op: "sum", field: "is_yes", as: "n_yes" }
+              ],
+              groupby: ["assigned_state"]
+            },
+            { calculate: "datum.n_yes / datum.n", as: "pct_yes" },
+            {
+              lookup: "assigned_state",
+              from: { data: { values: stateFips }, key: "state", fields: ["fips"] }
+            },
+            { filter: "isValid(datum.fips)" }
+          ]
+        }
+      },
+      data: {
+        url: "https://vega.github.io/vega-datasets/data/us-10m.json",
+        format: { type: "topojson", feature: "states" }
+      },
+      transform: [
+        {
+          lookup: "id",
+          from: { data: { name: "state_willing" }, key: "fips", fields: ["pct_yes", "n"] }
+        }
+      ],
+      mark: { type: "geoshape", stroke: "white", strokeWidth: 0.5 },
+      encoding: {
+        color: {
+          field: "pct_yes",
+          type: "quantitative",
+          scale: { scheme: "blues" },
+          title: "Share willing (%)",
+          legend: { format: ".0%" }
+        },
+        tooltip: [
+          { field: "pct_yes", title: "Willing (%)", format: ".1%" },
+          { field: "n", title: "Responses" }
+        ]
+      }
+    };
+// ==================== 3. SYMBOL MAP (Vega) ====================
+    const specIotSymbol = {
+      "$schema": "https://vega.github.io/schema/vega/v5.json",
+      "title": titleObj("Registered IoT Devices — City of Casey"),
+      "width": 720, "height": 460, "padding": 5,
+      "data": [
+        {
+          "name": "suburb_coords",
+          "values": [
+            {"suburb":"Berwick","lon":145.350,"lat":-38.033},
+            {"suburb":"Narre Warren","lon":145.303,"lat":-38.027},
+            {"suburb":"Cranbourne","lon":145.280,"lat":-38.101},
+            {"suburb":"Cranbourne West","lon":145.270,"lat":-38.103},
+            {"suburb":"Clyde","lon":145.333,"lat":-38.133},
+            {"suburb":"Clyde North","lon":145.320,"lat":-38.133}
+          ]
+        },
+        {
+          "name": "devices",
+          "url": "data/IOT DEVICE REGISTER KAGGLE/iot-device-register.csv",
+          "format": {"type": "csv"},
+          "transform": [
+            { "type": "filter", "expr": "isValid(datum.location_suburb) && datum.location_suburb != ''" },
+            { "type": "lookup", "from": "suburb_coords", "key": "suburb", "fields": ["location_suburb"], "values": ["lon", "lat"], "as": ["lon", "lat"] },
+            { "type": "filter", "expr": "isValid(datum.lon) && isValid(datum.lat)" },
+            { "type": "aggregate", "groupby": ["location_suburb", "lon", "lat"], "ops": ["count"], "as": ["count"] }
+          ]
+        }
+      ],
+      "scales": [
+        { "name": "x", "type": "linear", "domain": [145.25, 145.37], "range": [30, 690], "nice": true },
+        { "name": "y", "type": "linear", "domain": [-38.15, -38.00], "range": [430, 30], "nice": true },
+        { "name": "size", "type": "sqrt", "domain": {"data": "devices", "field": "count"}, "range": [150, 3200], "zero": false }
+      ],
+      "axes": [
+        { "orient": "bottom", "scale": "x", "title": "Longitude", "grid": false },
+        { "orient": "left", "scale": "y", "title": "Latitude", "grid": false }
+      ],
+      "legends": [
+        { "size": "size", "title": "Devices per suburb", "orient": "bottom-right", "symbolFillColor": "#2563eb", "symbolOpacity": 0.7 }
+      ],
+      "marks": [
+        {
+          "type": "symbol", "from": {"data": "devices"},
+          "encode": {
+            "update": {
+              "x": {"scale": "x", "field": "lon"},
+              "y": {"scale": "y", "field": "lat"},
+              "size": {"scale": "size", "field": "count"},
+              "fill": {"value": "#2563eb"},
+              "fillOpacity": {"value": 0.7},
+              "stroke": {"value": "#ffffff"},
+              "strokeWidth": {"value": 1},
+              "tooltip": {"signal": "datum.location_suburb + ': ' + datum.count + ' devices'"}
+            },
+            "hover": {"fillOpacity": {"value": 0.95}}
+          }
+        },
+        {
+          "type": "text", "from": {"data": "devices"},
+          "encode": {
+            "update": {
+              "x": {"scale": "x", "field": "lon"},
+              "y": {"scale": "y", "field": "lat"},
+              "dy": {"value": -12},
+              "align": {"value": "center"},
+              "text": {"field": "location_suburb"},
+              "font": {"value": "Inter, sans-serif"},
+              "fontSize": {"value": 11},
+              "fill": {"value": "#0f172a"}
+            }
+          }
+        }
+      ]
+    };
+// ==================== 4. FLOW MAP (Vega, linkpath) ====================
+    const flowCoords = [
+      {"iso":"CHN","lon":104.2,"lat":35.9},{"iso":"USA","lon":-98.6,"lat":39.8},
+      {"iso":"JPN","lon":138.3,"lat":36.2},{"iso":"KOR","lon":127.8,"lat":36.5},
+      {"iso":"DEU","lon":10.4,"lat":51.2},{"iso":"THA","lon":100.9,"lat":15.9},
+      {"iso":"MYS","lon":102.0,"lat":4.2},{"iso":"VNM","lon":108.3,"lat":14.1},
+      {"iso":"SGP","lon":103.8,"lat":1.35},{"iso":"IDN","lon":113.9,"lat":-0.8},
+      {"iso":"IND","lon":78.9,"lat":20.6},{"iso":"GBR","lon":-3.4,"lat":55.4},
+      {"iso":"FRA","lon":2.2,"lat":46.2},{"iso":"ITA","lon":12.6,"lat":41.9},
+      {"iso":"NLD","lon":5.3,"lat":52.1},{"iso":"ESP","lon":-3.7,"lat":40.5},
+      {"iso":"CAN","lon":-106.3,"lat":56.1},{"iso":"MEX","lon":-102.5,"lat":23.6},
+      {"iso":"BRA","lon":-51.9,"lat":-14.2},{"iso":"NZL","lon":174.9,"lat":-40.9}
+    ];
+
+    const specFlow = {
+      "$schema": "https://vega.github.io/schema/vega/v5.json",
+      "title": titleObj("Household-Tech Import Flows to Australia (2025)"),
+      "width": 1400, "height": 760, "padding": 5, "autosize": "none",
+      "projections": [
+        { "name": "proj", "type": "equalEarth", "scale": 320, "translate": [400, 230] }
+      ],
+      "data": [
+        { "name": "flow_coords", "values": flowCoords },
+        { "name": "sphere", "values": [{"type": "Sphere"}] },
+        { "name": "graticule", "transform": [{"type": "graticule", "step":[30,30]}] },
+        { "name": "world", "url": "https://vega.github.io/vega-datasets/data/world-110m.json", "format": {"type":"topojson","feature":"countries"} },
+        {
+          "name": "flows",
+          "url": "data/TradeData_10_25_2026_18_12_12.csv",
+          "format": {"type":"csv"},
+          "transform": [
+            { "type":"filter", "expr": "datum.refYear == 2025 && datum.partnerISO != 'W00'" },
+            { "type":"aggregate", "groupby":["partnerISO","partnerDesc"], "ops":["sum"], "fields":["primaryValue"], "as":["value"] },
+            { "type":"formula", "as":"value_b", "expr":"datum.value / 1e9" },
+            { "type":"lookup", "from":"flow_coords", "key":"iso", "fields":["partnerISO"], "values":["lon","lat"], "as":["lon","lat"] },
+            { "type":"filter", "expr":"isValid(datum.lon) && isValid(datum.lat)" },
+            { "type":"window", "ops":["rank"], "as":["rnk"], "sort":[{"field":"value","order":"descending"}] },
+            { "type":"filter", "expr":"datum.rnk <= 12" },
+            { "type":"formula", "as":"dlon", "expr":"151.2" },
+            { "type":"formula", "as":"dlat", "expr":"-33.9" },
+            { "type":"geopoint", "projection":"proj", "fields":["lon","lat"], "as":["sx","sy"] },
+            { "type":"geopoint", "projection":"proj", "fields":["dlon","dlat"], "as":["dx","dy"] },
+            { "type":"linkpath", "shape":"curve", "sourceX":"sx", "sourceY":"sy", "targetX":"dx", "targetY":"dy", "as":"route" }
+          ]
+        }
+      ],
+      "scales": [
+        { "name":"sw", "type":"sqrt", "domain":{"data":"flows","field":"value_b"}, "range":[0.6, 7], "zero":false },
+        { "name":"color", "type":"sqrt", "domain":{"data":"flows","field":"value_b"}, "range":["#bfdbfe","#1d4ed8"], "zero":false }
+      ],
+      "legends": [
+        { "fill":"color", "title":"Import value ($B USD)", "orient":"bottom-right" }
+      ],
+      "marks": [
+        { "type":"shape","from":{"data":"sphere"},"encode":{"enter":{"fill":{"value":"#ecfeff"}}},"transform":[{"type":"geoshape","projection":"proj"}] },
+        { "type":"shape","from":{"data":"graticule"},"encode":{"enter":{"fill":{"value":null},"stroke":{"value":"#e2e8f0"},"strokeWidth":{"value":0.4}}},"transform":[{"type":"geoshape","projection":"proj"}] },
+        { "type":"shape","from":{"data":"world"},"encode":{"enter":{"fill":{"value":"#eef2f7"},"stroke":{"value":"#ffffff"},"strokeWidth":{"value":0.5}}},"transform":[{"type":"geoshape","projection":"proj"}] },
+        {
+          "type":"path","from":{"data":"flows"},
+          "encode": {
+            "update": {
+              "path":{"field":"route"},
+              "stroke":{"scale":"color","field":"value_b"},
+              "strokeWidth":{"scale":"sw","field":"value_b"},
+              "opacity":{"value":0.6},
+              "tooltip":{"signal":"datum.partnerDesc + ': $' + format(datum.value_b, ',.1f') + 'B'"}
+            },
+            "hover": {"opacity":{"value":0.9}}
+          }
+        },
+        {
+          "type":"symbol","from":{"data":"flows"},
+          "encode":{
+            "update":{"x":{"field":"sx"},"y":{"field":"sy"},"fill":{"value":"#1e293b"},"size":{"value":40}}
+          }
+        },
+        {
+          "type":"symbol","from":{"data":"flows"},
+          "encode":{
+            "update":{"x":{"field":"dx"},"y":{"field":"dy"},"fill":{"value":"#2563eb"},"size":{"value":120},"stroke":{"value":"#ffffff"},"strokeWidth":{"value":1.5}}
+          }
+        }
+      ]
+    };
+// ==================== 5. DOT PLOT (Vega-Lite) ====================
+    const specDot = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      title: titleObj("Smartwatch Penetration by Country, 2015 vs 2025"),
+      width: 720,
+      height: 420,
+      data: { url: "data/global_tech_gadget_consumption/Global_Tech_Gadget_Consumption.csv" },
+      transform: [
+        { filter: "datum.Year == 2015 || datum.Year == 2025" },
+        { filter: "indexof(['USA','China','India','Germany','UK','France','Japan','South Korea','Brazil','Canada','Australia'], datum.Country) >= 0" }
+      ],
+      layer: [
+        {
+          mark: { type: "line", color: "#cbd5e1", strokeWidth: 1.5 },
+          encoding: {
+            x: { field: "Smartwatch Penetration (%)", type: "quantitative", title: "Smartwatch penetration (%)" },
+            y: { field: "Country", type: "nominal", title: null, sort: { field: "Smartwatch Penetration (%)", op: "average", order: "descending" } },
+            detail: { field: "Country" }
+          }
+        },
+        {
+          mark: { type: "circle", filled: true, size: 140, stroke: "black", strokeWidth: 1 },
+          encoding: {
+            x: { field: "Smartwatch Penetration (%)", type: "quantitative" },
+            y: { field: "Country", type: "nominal", title: null },
+            color: { field: "Year", type: "nominal", title: "Year", scale: { domain: [2015, 2025], range: ["#94a3b8", "#2563eb"] } },
+            tooltip: [
+              { field: "Country", title: "Country" },
+              { field: "Year", title: "Year" },
+              { field: "Smartwatch Penetration (%)", title: "Penetration (%)", format: ".1f" }
+            ]
+          }
+        }
+      ]
+    };
+// ==================== 6. CARTOGRAM (Vega, circle cartogram) ====================
+    const cartoCoords = [
+      {"c":"USA","lon":-98.6,"lat":39.8},{"c":"CAN","lon":-106.3,"lat":56.1},{"c":"MEX","lon":-102.5,"lat":23.6},
+      {"c":"BRA","lon":-51.9,"lat":-10.4},{"c":"ARG","lon":-63.6,"lat":-38.4},{"c":"COL","lon":-74.1,"lat":4.6},{"c":"PER","lon":-75.0,"lat":-9.2},
+      {"c":"GBR","lon":-3.4,"lat":55.4},{"c":"FRA","lon":2.2,"lat":46.6},{"c":"DEU","lon":10.4,"lat":51.2},{"c":"ITA","lon":12.6,"lat":41.9},
+      {"c":"ESP","lon":-3.7,"lat":40.5},{"c":"NLD","lon":5.3,"lat":52.1},{"c":"SWE","lon":15.2,"lat":62.0},{"c":"NOR","lon":8.5,"lat":61.0},
+      {"c":"POL","lon":19.1,"lat":52.0},{"c":"UKR","lon":31.2,"lat":48.4},{"c":"RUS","lon":105.0,"lat":61.5},{"c":"TUR","lon":35.2,"lat":38.9},
+      {"c":"SAU","lon":45.1,"lat":23.9},{"c":"IRN","lon":53.6,"lat":32.4},{"c":"EGY","lon":30.8,"lat":26.8},{"c":"NGA","lon":8.0,"lat":9.1},
+      {"c":"ZAF","lon":22.9,"lat":-30.6},{"c":"ETH","lon":40.5,"lat":9.0},{"c":"CHN","lon":104.2,"lat":35.9},{"c":"IND","lon":79.0,"lat":20.6},
+      {"c":"JPN","lon":138.3,"lat":36.2},{"c":"KOR","lon":127.8,"lat":36.5},{"c":"AUS","lon":133.8,"lat":-25.3},{"c":"NZL","lon":174.9,"lat":-40.9},
+      {"c":"IDN","lon":113.9,"lat":-0.8},{"c":"MYS","lon":102.0,"lat":4.2},{"c":"THA","lon":100.5,"lat":15.9},{"c":"VNM","lon":108.3,"lat":14.1},
+      {"c":"PHL","lon":121.8,"lat":12.9},{"c":"PAK","lon":69.3,"lat":30.4},{"c":"BGD","lon":90.4,"lat":23.7}
+    ];
+
+    const specCarto = {
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "title": titleObj("Household Internet Access — Dorling Cartogram"),
+  "width": 820, "height": 420, "padding": 5, "autosize": "none",
+  "signals": [
+    { "name": "maxArea", "value": 1400 },   // symbol area at 100%; tune to taste
+    { "name": "gap", "value": 1 }           // padding between circles (px)
+  ],
+  "projections": [
+    { "name": "proj", "type": "equalEarth", "scale": 250, "translate": [410, 210] }
+  ],
+  "data": [
+    { "name": "carto_coords", "values": cartoCoords },
+    { "name": "sphere", "values": [{"type": "Sphere"}] },
+    { "name": "graticule", "transform": [{"type": "graticule", "step": [30, 30]}] },
+    { "name": "world", "url": "https://vega.github.io/vega-datasets/data/world-110m.json", "format": {"type": "topojson", "feature": "countries"} },
+    {
+      "name": "access",
+      "url": "data/internetAccess/internet_access_households_cleaned.csv",
+      "format": {"type": "csv"},
+      "transform": [
+        { "type": "filter", "expr": "datum.year == 2024" },
+        { "type": "lookup", "from": "carto_coords", "key": "c", "fields": ["country_code"], "values": ["lon", "lat"], "as": ["lon", "lat"] },
+        { "type": "filter", "expr": "isValid(datum.lon) && isValid(datum.lat) && isValid(datum.internet_access_pct)" },
+        { "type": "geopoint", "projection": "proj", "fields": ["lon", "lat"], "as": ["x", "y"] },
+
+        // remember the true geographic position, and compute radius (area ∝ value)
+        { "type": "formula", "as": "x0", "expr": "datum.x" },
+        { "type": "formula", "as": "y0", "expr": "datum.y" },
+        { "type": "formula", "as": "r", "expr": "0.5 * sqrt(maxArea * datum.internet_access_pct / 100)" },
+
+        // the Dorling step: resolve overlaps while staying near the true location
+        {
+          "type": "force",
+          "static": true,
+          "iterations": 400,
+          "forces": [
+            { "force": "collide", "radius": {"expr": "datum.r + gap"}, "iterations": 3, "strength": 1 },
+            { "force": "x", "x": {"field": "x0"}, "strength": 0.1 },
+            { "force": "y", "y": {"field": "y0"}, "strength": 0.1 }
+          ]
+        },
+
+        // draw big circles first so small ones sit on top
+        { "type": "collect", "sort": {"field": "r", "order": "descending"} }
+      ]
+    }
+  ],
+  "scales": [
+    // area is proportional to value (zero baseline), as a Dorling should be
+    { "name": "size", "type": "linear", "domain": [0, 100], "range": [0, {"signal": "maxArea"}], "zero": true },
+    { "name": "color", "type": "linear", "domain": {"data": "access", "field": "internet_access_pct"},
+      "range": ["#7aa7f5", "#1e3a8a"], "zero": false }
+  ],
+  "legends": [
+    { "fill": "color", "type": "gradient", "title": "Households with internet (%)",
+      "orient": "bottom-left", "direction": "horizontal", "gradientLength": 160 }
+  ],
+  "marks": [
+    { "type": "shape", "from": {"data": "sphere"}, "encode": {"enter": {"fill": {"value": "#ecfeff"}}}, "transform": [{"type": "geoshape", "projection": "proj"}] },
+    { "type": "shape", "from": {"data": "graticule"}, "encode": {"enter": {"fill": {"value": null}, "stroke": {"value": "#e2e8f0"}, "strokeWidth": {"value": 0.4}}}, "transform": [{"type": "geoshape", "projection": "proj"}] },
+    { "type": "shape", "from": {"data": "world"}, "encode": {"enter": {"fill": {"value": "#eef2f7"}, "stroke": {"value": "#ffffff"}, "strokeWidth": {"value": 0.4}}}, "transform": [{"type": "geoshape", "projection": "proj"}] },
+    {
+      "type": "symbol", "name": "dots", "from": {"data": "access"},
+      "encode": {
+        "update": {
+          "x": {"field": "x"},
+          "y": {"field": "y"},
+          "size": {"signal": "4 * datum.r * datum.r"},   // symbol size = bounding-box area
+          "fill": {"scale": "color", "field": "internet_access_pct"},
+          "fillOpacity": {"value": 0.9},
+          "stroke": {"value": "#ffffff"},
+          "strokeWidth": {"value": 0.8},
+          "tooltip": {"signal": "datum.country_name + ': ' + datum.internet_access_pct + '% households online (2024)'"}
+        },
+        "hover": {"fillOpacity": {"value": 1}, "stroke": {"value": "#0f172a"}}
+      }
+    },
+    {
+      "type": "text", "from": {"data": "access"},
+      "encode": {
+        "update": {
+          "x": {"field": "x"}, "y": {"field": "y"},
+          "text": {"field": "country_code"},
+          "align": {"value": "center"}, "baseline": {"value": "middle"},
+          "fontSize": {"value": 8}, "fontWeight": {"value": "bold"},
+          "fill": {"value": "#ffffff"},
+          "opacity": {"signal": "datum.r > 9 ? 1 : 0"},   // hide labels on tiny circles
+          "interactive": {"value": false}
+        }
+      }
+    }
+  ]
+};
+// ==================== 7. NETWORK DIAGRAM (Vega, force-directed) ====================
+    const netNodes = [
+      {"id":"Smart Speaker","group":1},{"id":"Smart Thermostat","group":1},
+      {"id":"Smart Lock","group":1},{"id":"Smart Bulb","group":1},
+      {"id":"Security Camera","group":1},{"id":"Robot Vacuum","group":1},
+      {"id":"Smart Hub","group":1},
+      {"id":"Voice Control","group":2},{"id":"Energy Saving","group":2},
+      {"id":"Security","group":2},{"id":"Convenience","group":2},
+      {"id":"Remote Access","group":2},{"id":"Integration","group":2},
+      {"id":"Privacy Risk","group":2}
+    ];
+    const netLinks = [
+      {"source":"Smart Speaker","target":"Voice Control"},
+      {"source":"Smart Speaker","target":"Integration"},
+      {"source":"Smart Speaker","target":"Convenience"},
+      {"source":"Smart Speaker","target":"Privacy Risk"},
+      {"source":"Smart Thermostat","target":"Energy Saving"},
+      {"source":"Smart Thermostat","target":"Remote Access"},
+      {"source":"Smart Thermostat","target":"Convenience"},
+      {"source":"Smart Lock","target":"Security"},
+      {"source":"Smart Lock","target":"Remote Access"},
+      {"source":"Smart Bulb","target":"Convenience"},
+      {"source":"Smart Bulb","target":"Energy Saving"},
+      {"source":"Smart Bulb","target":"Integration"},
+      {"source":"Security Camera","target":"Security"},
+      {"source":"Security Camera","target":"Remote Access"},
+      {"source":"Security Camera","target":"Privacy Risk"},
+      {"source":"Robot Vacuum","target":"Convenience"},
+      {"source":"Smart Hub","target":"Integration"},
+      {"source":"Smart Hub","target":"Voice Control"}
+    ];
+
+    const specNetwork = {
+      "$schema": "https://vega.github.io/schema/vega/v5.json",
+      "title": titleObj("Smart-Home Devices and Their Capabilities"),
+      "width": 760, "height": 500, "padding": 5, "autosize": "none",
+      "signals": [
+        { "name": "cx", "update": "width / 2" },
+        { "name": "cy", "update": "height / 2" }
+      ],
+      "data": [
+        { "name": "link-data", "values": netLinks },
+        {
+          "name": "node-data", "values": netNodes,
+          "transform": [
+            {
+              "type": "force",
+              "signal": "force",
+              "static": true,
+              "iterations": 300,
+              "forces": [
+                { "force": "center", "x": { "signal": "cx" }, "y": { "signal": "cy" } },
+                { "force": "collide", "radius": 28 },
+                { "force": "nbody", "strength": -300 },
+                { "force": "link", "links": "link-data", "id": "id", "distance": 50 }
+              ]
+            }
+          ]
+        }
+      ],
+      "scales": [
+        { "name": "color", "type": "ordinal", "domain": [1, 2], "range": ["#2563eb", "#f59e0b"] }
+      ],
+      "legends": [
+        { "fill": "color", "title": "Type", "values": [
+          { "label": "Device", "value": 1, "fill": "#2563eb" },
+          { "label": "Capability", "value": 2, "fill": "#f59e0b" }
+        ]}
+      ],
+      "marks": [
+        {
+          "type": "path", "from": { "data": "link-data" }, "interactive": false,
+          "encode": {
+            "update": { "stroke": { "value": "#cbd5e1" }, "strokeWidth": { "value": 1.2 } }
+          },
+          "transform": [
+            {
+              "type": "linkpath",
+              "require": { "signal": "force" },
+              "shape": "line",
+              "sourceX": "datum.source.x", "sourceY": "datum.source.y",
+              "targetX": "datum.target.x", "targetY": "datum.target.y"
+            }
+          ]
+        },
+        {
+          "type": "symbol", "zindex": 1, "from": { "data": "node-data" },
+          "encode": {
+            "update": {
+              "x": { "field": "x" }, "y": { "field": "y" },
+              "fill": { "scale": "color", "field": "group" },
+              "size": { "signal": "datum.group === 1 ? 500 : 220" },
+              "stroke": { "value": "#ffffff" }, "strokeWidth": { "value": 1.5 },
+              "tooltip": { "signal": "datum.id" }
+            }
+          }
+        },
+        {
+          "type": "text", "from": { "data": "node-data" },
+          "encode": {
+            "update": {
+              "x": { "field": "x" }, "y": { "field": "y" },
+              "dx": { "value": 12 }, "dy": { "value": 4 },
+              "text": { "field": "id" },
+              "font": { "value": "Inter, sans-serif" },
+              "fontSize": { "value": 11 },
+              "fill": { "value": "#0f172a" }
+            }
+          }
+        }
+      ]
+    };
+// ==================== 8. PARALLEL COORDINATES (Vega) ====================
+    const pcDims = [
+      "technology_affinity_score", "environmental_awareness_score", "range_anxiety_score",
+      "monthly_energy_consumption_kwh", "monthly_charging_cost",
+      "electricity_cost_per_kwh", "nearest_charging_station_km"
+    ];
+    const pcLabels = ["Tech affinity", "Eco awareness", "Range anxiety", "Home energy kWh", "Charging cost $", "Elec $/kWh", "Charger km"];
+    const pcLabelExpr = "{" + pcDims.map((d, i) => "'" + d + "': '" + pcLabels[i] + "'").join(", ") + "}[datum.key]";
+    const pcXiExpr = "indexof(" + JSON.stringify(pcDims) + ", datum.key)";
+    const pcAxes = pcDims.map((d, i) => ({ key: d, label: pcLabels[i] }));
+
+    const specParallel = {
+      "$schema": "https://vega.github.io/schema/vega/v5.json",
+      "title": titleObj("Home Energy & EV-charging Behaviour (Parallel Coordinates)"),
+      "width": 760, "height": 440, "padding": 5, "autosize": "none",
+      "data": [
+        {
+          "name": "pc",
+          "url": "data/global_ev_adoption/global_ev_adoption_behavior_2026.csv",
+          "format": {"type": "csv"},
+          "transform": [
+            { "type": "sample", "size": 250 },
+            {
+              "type": "filter",
+              "expr": "isValid(datum.technology_affinity_score) && isValid(datum.environmental_awareness_score) && isValid(datum.range_anxiety_score) && isValid(datum.monthly_energy_consumption_kwh) && isValid(datum.monthly_charging_cost) && isValid(datum.electricity_cost_per_kwh) && isValid(datum.nearest_charging_station_km)"
+            },
+            { "type": "window", "ops": ["row_number"], "as": ["_row"] },
+            { "type": "fold", "fields": pcDims, "as": ["key", "value"] },
+            { "type": "formula", "as": "_xi", "expr": pcXiExpr },
+            { "type": "joinaggregate", "groupby": ["key"], "ops": ["min", "max"], "fields": ["value", "value"], "as": ["lo", "hi"] },
+            { "type": "formula", "as": "norm", "expr": "(datum.hi - datum.lo) == 0 ? 0.5 : (datum.value - datum.lo) / (datum.hi - datum.lo)" }
+          ]
+        },
+        { "name": "axes", "values": pcAxes }
+      ],
+      "scales": [
+        { "name": "x", "type": "point", "range": [40, 720], "round": true, "domain": pcDims },
+        { "name": "y", "type": "linear", "range": [400, 40], "domain": [0, 1] },
+        { "name": "color", "type": "ordinal", "domain": ["High", "Medium", "Low"], "range": ["#2563eb", "#f59e0b", "#94a3b8"] }
+      ],
+      "legends": [
+        { "fill": "color", "title": "EV-adoption likelihood", "orient": "bottom-right" }
+      ],
+      "marks": [
+        {
+          "type": "rule", "from": {"data": "axes"},
+          "encode": {
+            "update": {
+              "x": {"scale": "x", "field": "key"},
+              "y": {"value": 400},
+              "y2": {"value": 40},
+              "stroke": {"value": "#cbd5e1"}, "strokeWidth": {"value": 1}
+            }
+          }
+        },
+        {
+          "type": "text", "from": {"data": "axes"},
+          "encode": {
+            "update": {
+              "x": {"scale": "x", "field": "key"},
+              "y": {"value": 32},
+              "align": {"value": "center"},
+              "text": {"field": "label"},
+              "font": {"value": "Inter, sans-serif"},
+              "fontSize": {"value": 11},
+              "fill": {"value": "#475569"}
+            }
+          }
+        },
+        {
+          "type": "group",
+          "from": {
+            "facet": { "name": "series", "data": "pc", "groupby": ["_row"] }
+          },
+          "marks": [
+            {
+              "type": "line", "from": {"data": "series"},
+              "encode": {
+                "update": {
+                  "x": {"scale": "x", "field": "key"},
+                  "y": {"scale": "y", "field": "norm"},
+                  "stroke": {"scale": "color", "field": "ev_adoption_likelihood"},
+                  "strokeWidth": {"value": 0.6},
+                  "opacity": {"value": 0.35}
+                }
+              }
+            }
+          ]
+        }
+      ]
+    };
+
+    // ==================== EMBED ALL ====================
+    const charts = [
+      ["#vis-solar-hex", specSolarHex],
+      ["#vis-us-state", specUSState],
+      ["#vis-iot-symbol", specIotSymbol],
+      ["#vis-flow", specFlow],
+      ["#vis-dot", specDot],
+      ["#vis-carto", specCarto],
+      ["#vis-network", specNetwork],
+      ["#vis-parallel", specParallel]
+    ];
+
+    charts.forEach(([sel, spec]) => {
+      vegaEmbed(sel, spec, { actions: true, renderer: "canvas" }).catch(err => {
+        const el = document.querySelector(sel);
+        if (el) el.textContent = "Failed to load: " + err;
+        console.error(sel, err);
+      });
+    });
+  </script>
+</body>
+</html>

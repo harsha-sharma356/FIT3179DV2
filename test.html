@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unused data schema preview</title>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --primary: #2563eb;
+      --border-color: #e2e8f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      background: var(--bg-color);
+      color: var(--text-main);
+      font-family: Inter, sans-serif;
+      margin: 0;
+      padding: 40px 24px;
+      line-height: 1.6;
+    }
+    .page { max-width: 1400px; margin: 0 auto; }
+    h1 { font-size: 2rem; margin: 0 0 8px; }
+    .lede { color: var(--text-muted); max-width: 900px; margin-bottom: 36px; }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 28px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .card h2 { margin: 0 0 6px; font-size: 1.2rem; }
+    .card p { margin: 0 0 16px; color: var(--text-muted); font-size: 0.95rem; }
+    .vis { min-height: 360px; width: 100%; overflow: auto; }
+    code { font-size: 0.85em; background: #f1f5f9; padding: 1px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <h1>Unused dataset schemas</h1>
+    <p class="lede">
+      Preview of new Vega-Lite specs built from local files that are not currently wired into
+      <code>index.html</code>. Serve the repo root (for example <code>python -m http.server</code>)
+      and open this page. HomeC.csv (~500k rows) and ai_company_adoption.csv (~150k rows) were
+      left out because they are too heavy for a browser preview.
+    </p>
+
+    <section class="card">
+      <h2>1. Country AI readiness bubble chart</h2>
+      <p>Source: <code>data/aiAdoption/country_ai_index.csv</code>. Digital maturity vs internet penetration; bubble size is 2024 AI patent filings.</p>
+      <div class="vis" id="vis-ai-country"></div>
+    </section>
+
+    <section class="card">
+      <h2>2. AI jobs created vs displaced by industry</h2>
+      <p>Source: <code>data/aiAdoption/ai_industry_summary.csv</code>. Grouped bars of average jobs created and displaced.</p>
+      <div class="vis" id="vis-ai-industry"></div>
+    </section>
+
+    <section class="card">
+      <h2>3. Willingness to adopt smart home tech (UPGRADE-E)</h2>
+      <p>Source: <code>data/upgradeE/UPGRADE-E_V2.csv</code>. Stacked counts of Yes / Maybe / No by US region.</p>
+      <div class="vis" id="vis-upgrade"></div>
+    </section>
+
+    <section class="card">
+      <h2>4. Spanish smart-home listing prices (SMASH)</h2>
+      <p>Source: <code>data/doi-10.21950-jtiqq5/smash_2024_v02.tsv</code>. Mean EUR price by English macro-category, coloured by listings count.</p>
+      <div class="vis" id="vis-smash"></div>
+    </section>
+
+    <section class="card">
+      <h2>5. Casey IoT device register</h2>
+      <p>Source: <code>data/IOT DEVICE REGISTER KAGGLE/iot-device-register.csv</code>. Device counts by suburb and type.</p>
+      <div class="vis" id="vis-iot"></div>
+    </section>
+
+    <section class="card">
+      <h2>6. Household appliance energy by season</h2>
+      <p>Source: <code>data/smartHomeEnergyConsumption/smart_home_energy_consumption_large.csv</code>. Mean kWh by appliance, coloured by season. This file is large, so the first draw can take a few seconds.</p>
+      <div class="vis" id="vis-energy-season"></div>
+    </section>
+
+    <section class="card">
+      <h2>7. Appliance duty cycle</h2>
+      <p>Source: <code>data/smart_home_dataset/preprocessed_dataset.csv</code>. Share of intervals where each appliance is on.</p>
+      <div class="vis" id="vis-duty"></div>
+    </section>
+
+    <section class="card">
+      <h2>8. Privacy scenario heatmap (raw GDPR answers)</h2>
+      <p>Source: <code>data/GDPR_priv/answers.csv</code>. Number of survey scenarios at each data-class × purpose-class pair. Distinct from the aggregated-person charts already on the dashboard.</p>
+      <div class="vis" id="vis-gdpr"></div>
+    </section>
+  </div>
+
+  <script>
+    const embedOpts = { actions: true, renderer: "canvas" };
+
+    const specAiCountry = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      description: "Country AI readiness: digital maturity vs internet penetration",
+      width: 720,
+      height: 420,
+      data: { url: "data/aiAdoption/country_ai_index.csv" },
+      mark: { type: "circle", opacity: 0.75, stroke: "white", strokeWidth: 0.8 },
+      encoding: {
+        x: { field: "internet_penetration", type: "quantitative", title: "Internet penetration (%)", scale: { zero: false } },
+        y: { field: "digital_maturity_index", type: "quantitative", title: "Digital maturity index", scale: { zero: false } },
+        size: { field: "ai_patent_filings_2024", type: "quantitative", title: "AI patents (2024)", scale: { range: [40, 1200] } },
+        color: { field: "region", type: "nominal", title: "Region", scale: { scheme: "tableau10" } },
+        tooltip: [
+          { field: "country", title: "Country" },
+          { field: "region", title: "Region" },
+          { field: "country_ai_policy", title: "AI policy" },
+          { field: "gdp_per_capita", title: "GDP per capita", format: ",.0f" },
+          { field: "internet_penetration", title: "Internet %", format: ".1f" },
+          { field: "digital_maturity_index", title: "Digital maturity", format: ".1f" },
+          { field: "ai_patent_filings_2024", title: "Patents", format: "," }
+        ]
+      }
+    };
+
+    const specAiIndustry = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      description: "Average jobs created vs displaced by industry under AI adoption",
+      width: 720,
+      height: 380,
+      data: { url: "data/aiAdoption/ai_industry_summary.csv" },
+      transform: [
+        {
+          fold: ["avg_jobs_created", "avg_jobs_displaced"],
+          as: ["metric", "jobs"]
+        },
+        {
+          calculate: "datum.metric === 'avg_jobs_created' ? 'Jobs created' : 'Jobs displaced'",
+          as: "metric_label"
+        }
+      ],
+      mark: { type: "bar" },
+      encoding: {
+        y: { field: "industry", type: "nominal", title: "Industry", sort: { field: "jobs", op: "max", order: "descending" } },
+        x: { field: "jobs", type: "quantitative", title: "Average jobs (survey units)" },
+        color: { field: "metric_label", type: "nominal", title: "Outcome", scale: { scheme: "tableau10" } },
+        yOffset: { field: "metric_label" },
+        tooltip: [
+          { field: "industry", title: "Industry" },
+          { field: "metric_label", title: "Outcome" },
+          { field: "jobs", title: "Average jobs", format: ".1f" },
+          { field: "avg_ai_adoption_rate", title: "AI adoption %", format: ".1f" }
+        ]
+      }
+    };
+
+    const specUpgrade = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      description: "Willingness to adopt smart home technology by US region",
+      width: 720,
+      height: 360,
+      data: { url: "data/upgradeE/UPGRADE-E_V2.csv" },
+      transform: [
+        { filter: "indexof(['Yes','No','Maybe'], datum.willing_smart_tech) >= 0" },
+        { filter: "isValid(datum.region) && datum.region != ''" }
+      ],
+      mark: { type: "bar" },
+      encoding: {
+        x: { field: "region", type: "nominal", title: "Region" },
+        y: { aggregate: "count", type: "quantitative", title: "Respondents", stack: "normalize" },
+        color: {
+          field: "willing_smart_tech",
+          type: "nominal",
+          title: "Willing to adopt smart tech",
+          scale: { domain: ["Yes", "Maybe", "No"], range: ["#2563eb", "#f59e0b", "#94a3b8"] }
+        },
+        tooltip: [
+          { field: "region", title: "Region" },
+          { field: "willing_smart_tech", title: "Response" },
+          { aggregate: "count", title: "Respondents" }
+        ]
+      }
+    };
+
+    const specSmash = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      description: "Mean listed price of Spanish smart-home products by macro-category",
+      width: 720,
+      height: 400,
+      data: {
+        url: "data/doi-10.21950-jtiqq5/smash_2024_v02.tsv",
+        format: { type: "tsv" }
+      },
+      transform: [
+        { calculate: "toNumber(datum.price)", as: "price_num" },
+        { filter: "isValid(datum.price_num) && datum.price_num > 0" },
+        { filter: "isValid(datum['Macro-Category-EN']) && datum['Macro-Category-EN'] != ''" }
+      ],
+      mark: { type: "bar" },
+      encoding: {
+        y: { field: "Macro-Category-EN", type: "nominal", title: "Macro category", sort: "-x" },
+        x: { aggregate: "mean", field: "price_num", type: "quantitative", title: "Mean listed price (EUR)" },
+        color: { aggregate: "count", type: "quantitative", title: "Listings", scale: { scheme: "blues" } },
+        tooltip: [
+          { field: "Macro-Category-EN", title: "Category" },
+          { aggregate: "mean", field: "price_num", title: "Mean price (€)", format: ",.0f" },
+          { aggregate: "count", title: "Listings" }
+        ]
+      }
+    };
+
+    const specIot = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      description: "Registered IoT devices in Casey by suburb and device type",
+      width: 720,
+      height: 360,
+      data: { url: "data/IOT DEVICE REGISTER KAGGLE/iot-device-register.csv" },
+      transform: [
+        { filter: "isValid(datum.location_suburb) && datum.location_suburb != ''" },
+        {
+          calculate: "isValid(datum.device_type) && datum.device_type != '' ? datum.device_type : 'Unspecified'",
+          as: "type_clean"
+        }
+      ],
+      mark: { type: "bar" },
+      encoding: {
+        x: { field: "location_suburb", type: "nominal", title: "Suburb" },
+        y: { aggregate: "count", type: "quantitative", title: "Devices" },
+        color: { field: "type_clean", type: "nominal", title: "Device type", scale: { scheme: "tableau10" } },
+        tooltip: [
+          { field: "location_suburb", title: "Suburb" },
+          { field: "type_clean", title: "Type" },
+          { aggregate: "count", title: "Devices" }
+        ]
+      }
+    };
+
+    const specEnergySeason = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      description: "Mean appliance energy use by season",
+      width: 720,
+      height: 380,
+      data: { url: "data/smartHomeEnergyConsumption/smart_home_energy_consumption_large.csv" },
+      mark: { type: "bar" },
+      encoding: {
+        y: { field: "Appliance Type", type: "nominal", title: "Appliance", sort: "-x" },
+        x: {
+          aggregate: "mean",
+          field: "Energy Consumption (kWh)",
+          type: "quantitative",
+          title: "Mean energy (kWh)"
+        },
+        color: { field: "Season", type: "nominal", title: "Season", scale: { scheme: "tableau10" } },
+        yOffset: { field: "Season" },
+        tooltip: [
+          { field: "Appliance Type", title: "Appliance" },
+          { field: "Season", title: "Season" },
+          { aggregate: "mean", field: "Energy Consumption (kWh)", title: "Mean kWh", format: ".2f" }
+        ]
+      }
+    };
+
+    const specDuty = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      description: "Share of time each smart-home appliance is on",
+      width: 720,
+      height: 320,
+      data: { url: "data/smart_home_dataset/preprocessed_dataset.csv" },
+      transform: [
+        {
+          fold: ["Television", "Dryer", "Oven", "Refrigerator", "Microwave"],
+          as: ["appliance", "on_flag"]
+        },
+        { calculate: "toNumber(datum.on_flag)", as: "on_num" }
+      ],
+      mark: { type: "bar" },
+      encoding: {
+        x: { field: "appliance", type: "nominal", title: "Appliance" },
+        y: { aggregate: "mean", field: "on_num", type: "quantitative", title: "Share of intervals on", axis: { format: ".0%" } },
+        color: { field: "appliance", type: "nominal", legend: null, scale: { scheme: "tableau10" } },
+        tooltip: [
+          { field: "appliance", title: "Appliance" },
+          { aggregate: "mean", field: "on_num", title: "Duty cycle", format: ".1%" }
+        ]
+      }
+    };
+
+    const specGdpr = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      description: "Count of privacy scenarios by data class and purpose class",
+      width: 720,
+      height: 380,
+      data: { url: "data/GDPR_priv/answers.csv" },
+      mark: { type: "rect", stroke: "white", strokeWidth: 1 },
+      encoding: {
+        x: { field: "purposes_class", type: "nominal", title: "Purpose class" },
+        y: { field: "data_class", type: "nominal", title: "Data class" },
+        color: { aggregate: "count", type: "quantitative", title: "Scenarios", scale: { scheme: "blues" } },
+        tooltip: [
+          { field: "data_class", title: "Data class" },
+          { field: "purposes_class", title: "Purpose" },
+          { aggregate: "count", title: "Scenarios" }
+        ]
+      }
+    };
+
+    const charts = [
+      ["#vis-ai-country", specAiCountry],
+      ["#vis-ai-industry", specAiIndustry],
+      ["#vis-upgrade", specUpgrade],
+      ["#vis-smash", specSmash],
+      ["#vis-iot", specIot],
+      ["#vis-energy-season", specEnergySeason],
+      ["#vis-duty", specDuty],
+      ["#vis-gdpr", specGdpr]
+    ];
+
+    charts.forEach(([sel, spec]) => {
+      vegaEmbed(sel, spec, embedOpts).catch(err => {
+        const el = document.querySelector(sel);
+        if (el) el.textContent = "Failed to load: " + err;
+        console.error(sel, err);
+      });
+    });
+  </script>
+</body>
+</html>

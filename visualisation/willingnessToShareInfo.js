@@ -1,6 +1,11 @@
 const willingnessSpec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
   "description": "Average willingness to share special vs other data by age",
+  "title": {
+    "text": "Willingness to Share Personal Data by Age Group",
+    "font": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": "normal"
+  },
   "width": 520,
   "height": 320,
   "data": {

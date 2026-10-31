@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rise of Household Technology</title>
+
+  <!-- Vega, Vega-Lite, & Vega-Embed CDNs -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <!-- Pure.css CDNs -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.1.0/build/pure-min.css" integrity="sha384-kj0X2NG2KHBie8Tq8fH1kxnyWM9XsXQpq7XdwbKmFKjwwaXGKBlB2Klu3VOltSFx" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.1.0/build/grids-responsive-min.css">
+
+  <!-- Font Awesome Icons & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --border-color: #e2e8f0;
+      --accent-green: #10b981;
+      --accent-amber: #f59e0b;
+      --accent-rose: #f43f5e;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    .page-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+
+    .hero-header {
+      text-align: center;
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .hero-header h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+      margin: 0 0 16px 0;
+      text-transform: uppercase;
+    }
+
+    .hero-header p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 850px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .highlight {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .section-block {
+      margin-bottom: 56px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .section-block:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 0;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title i {
+      color: var(--primary);
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .vis-container {
+      width: 100%;
+      min-height: 400px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .vis-container > div {
+      width: 100%;
+    }
+
+    ul.styled-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+    }
+
+    ul.styled-list li {
+      padding: 10px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.98rem;
+    }
+
+    ul.styled-list li i {
+      color: var(--primary);
+      margin-top: 4px;
+    }
+
+    .split-box-container {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .driver-box, .barrier-box {
+      flex: 1;
+      padding: 16px;
+      border-radius: 8px;
+    }
+
+    .driver-box {
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+    }
+
+    .barrier-box {
+      background: #fef2f2;
+      border-left: 4px solid var(--accent-rose);
+    }
+
+    .driver-box h4, .barrier-box h4 {
+      margin: 0 0 8px 0;
+      font-size: 1rem;
+    }
+
+    .driver-box h4 { color: #1e40af; }
+    .barrier-box h4 { color: #991b1b; }
+
+    .conclusion-block {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-left: 6px solid var(--primary);
+      border-radius: 8px;
+      padding: 32px;
+      margin-top: 24px;
+    }
+
+    .references-block {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 32px;
+      margin-top: 24px;
+    }
+
+    .references-block h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .references-block h2 i {
+      color: var(--primary);
+    }
+
+    .references-block ol {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--text-muted);
+    }
+
+    .references-block li {
+      margin-bottom: 10px;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .split-text-col {
+      padding-right: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero-header h1 { font-size: 2rem; }
+      .page-container { padding: 20px 12px; }
+      .split-box-container { flex-direction: column; }
+      .split-text-col { padding-right: 0; margin-bottom: 24px; }
+      .section-title { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-container">
+
+    <header class="hero-header">
+      <h1>The Rise of Household Technology</h1>
+      <p>An interactive visualization dashboard exploring smart home adoption, demographic trends, privacy and environmental concerns, and the growing influence of AI on connected homes.</p>
+    </header>
+
+    <main>
+
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1 pure-u-md-1-2 split-text-col">
+            <h2 class="section-title"><i class="fa-solid fa-clock-rotate-left"></i> History</h2>
+            <p class="section-desc">
+              The concept of the "smart home" traces back to early home automation experiments in the 1970s, when X10 protocol allowed basic device control over power lines. The 2000s saw the introduction of Wi-Fi and Bluetooth-enabled devices, while the 2010s brought voice assistants and affordable IoT sensors into mainstream households. Today, smart homes integrate lighting, climate, security, and entertainment through unified platforms, driven by falling sensor costs and ubiquitous broadband.
+            </p>
+            <ul class="styled-list">
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>1970s–80s:</strong> X10 power-line automation for lights and appliances.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>2000s:</strong> Wi-Fi and Bluetooth enable wireless device control.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>2010s:</strong> Voice assistants (Alexa, Google Assistant) go mainstream.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>2020s:</strong> Matter standard unifies device ecosystems.</span></li>
+            </ul>
+          </div>
+          <div class="pure-u-1 pure-u-md-1-2">
+            <div class="vis-container" id="accessInternet"></div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1 pure-u-md-1-2 split-text-col">
+            <h2 class="section-title"><i class="fa-solid fa-chart-line"></i> Adoption</h2>
+            <p class="section-desc">
+              Smart home adoption has accelerated sharply since 2015, with internet-connected devices now present in a majority of households in developed economies. Key drivers include falling hardware prices, energy savings, remote monitoring, and improved security. Barriers remain around cost, privacy, and device interoperability.
+            </p>
+            <ul class="styled-list">
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Smart speakers:</strong> Fastest-growing category, with double-digit annual growth.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Smart thermostats:</strong> High adoption in regions with extreme climates.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Security cameras:</strong> Strong uptake for remote monitoring and deterrence.</span></li>
+            </ul>
+            <div class="split-box-container">
+              <div class="driver-box">
+                <h4><i class="fa-solid fa-arrow-trend-up"></i> Key Drivers</h4>
+                <ul style="margin:0; padding-left:16px; color:var(--text-muted); font-size:0.9rem;">
+                  <li>Falling device costs</li>
+                  <li>Energy savings incentives</li>
+                  <li>Remote monitoring demand</li>
+                </ul>
+              </div>
+              <div class="barrier-box">
+                <h4><i class="fa-solid fa-triangle-exclamation"></i> Barriers</h4>
+                <ul style="margin:0; padding-left:16px; color:var(--text-muted); font-size:0.9rem;">
+                  <li>Privacy & data concerns</li>
+                  <li>Interoperability issues</li>
+                  <li>Upfront cost</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="pure-u-1 pure-u-md-1-2">
+            <div class="vis-container" id="importAus"></div>
+          </div>
+        </div>
+      </section>
+
+
+
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1 pure-u-md-1-2 split-text-col">
+            <h2 class="section-title"><i class="fa-solid fa-users"></i> Demographics</h2>
+            <p class="section-desc">
+              Smart home ownership varies significantly by age, income, and urban vs rural location. Younger, higher-income households in urban areas lead adoption, while older and rural demographics lag due to cost and digital literacy barriers. Device density per household continues to rise as more affordable sensors enter the market.
+            </p>
+            <ul class="styled-list">
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Age:</strong> 25–44 year-olds show highest adoption rates.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Income:</strong> Households above median income adopt 2× faster.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Location:</strong> Urban areas lead rural by a wide margin.</span></li>
+            </ul>
+          </div>
+          <div class="pure-u-1 pure-u-md-1-2">
+            <div class="vis-container" id="demographic"></div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1 pure-u-md-1-3 split-text-col">
+            <h2 class="section-title"><i class="fa-solid fa-leaf"></i> Environmental Concerns</h2>
+            <p class="section-desc">
+              While smart thermostats and lighting can reduce household energy use, the manufacturing, shipping, and disposal of millions of IoT devices create e-waste and carbon footprints. Data centers that process smart home data also consume significant electricity. The net environmental impact depends on whether efficiency gains outweigh device lifecycle emissions.
+            </p>
+            <ul class="styled-list">
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Energy savings:</strong> Smart thermostats cut heating/cooling by 10–15%.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>E-waste:</strong> Short device lifecycles increase electronic waste.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Data center load:</strong> Cloud processing adds indirect carbon emissions.</span></li>
+            </ul>
+          </div>
+          <div class="pure-u-1 pure-u-md-1-2">
+            <div class="vis-container" id="energy"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1 pure-u-md-1-2 split-text-col">
+            <h2 class="section-title"><i class="fa-solid fa-robot"></i> Rise of AI and Its Effects on Smart Homes</h2>
+            <p class="section-desc">
+              Artificial intelligence is transforming smart homes from reactive device collections into proactive, predictive environments. AI enables voice assistants to understand context, cameras to recognize faces and packages, and thermostats to learn occupancy patterns. The result is greater automation, personalization, and energy efficiency—but also new questions about algorithmic transparency and data dependence.
+            </p>
+            <ul class="styled-list">
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Predictive automation:</strong> Homes anticipate needs rather than just respond.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Natural language:</strong> Voice interfaces understand complex, contextual requests.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Anomaly detection:</strong> AI identifies unusual activity for security and safety.</span></li>
+            </ul>
+          </div>
+          <div class="pure-u-1 pure-u-md-1-2">
+            <div class="vis-container" id="vis-ai-country"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1 pure-u-md-1-2 split-text-col">
+            <h2 class="section-title"><i class="fa-solid fa-industry"></i> AI Jobs Created vs Displaced by Industry</h2>
+            <p class="section-desc">
+              AI adoption is reshaping employment across industries. This chart compares average jobs created versus jobs displaced, highlighting which sectors benefit most from automation and which face the greatest disruption.
+            </p>
+            <ul class="styled-list">
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Tech & AI services:</strong> Net job creation from new AI development and maintenance roles.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Manufacturing:</strong> Automation displaces routine manual roles but creates supervisory positions.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Healthcare:</strong> AI augments diagnostics while creating new patient-care support roles.</span></li>
+            </ul>
+          </div>
+          <div class="pure-u-1 pure-u-md-1-2">
+            <div class="vis-container" id="vis-ai-industry"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1 pure-u-md-1-2 split-text-col">
+            <h2 class="section-title"><i class="fa-solid fa-euro-sign"></i> Smart Home Listing Prices (Spain)</h2>
+            <p class="section-desc">
+              Mean listed prices of smart-home products in Spain by macro-category. Higher-priced categories tend to have fewer listings, while mass-market devices cluster at lower price points.
+            </p>
+            <ul class="styled-list">
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Security systems:</strong> Command premium prices due to hardware and installation costs.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Lighting & plugs:</strong> Lower entry price with high listing volume.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Climate control:</strong> Mid-range pricing with steady adoption.</span></li>
+            </ul>
+          </div>
+          <div class="pure-u-1 pure-u-md-1-2">
+            <div class="vis-container" id="vis-smash"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="pure-g">
+          <div class="pure-u-1 pure-u-md-1-2 split-text-col">
+            <h2 class="section-title"><i class="fa-solid fa-plug"></i> Appliance Duty Cycle</h2>
+            <p class="section-desc">
+              Share of time each smart-home appliance is actively on. Refrigerators run continuously, while microwaves and ovens have intermittent duty cycles, informing which devices offer the greatest energy-saving opportunities.
+            </p>
+            <ul class="styled-list">
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Refrigerator:</strong> Near-continuous operation, highest baseline draw.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Television:</strong> Moderate duty cycle during viewing hours.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Microwave/Oven:</strong> Short, high-power bursts with low duty cycle.</span></li>
+            </ul>
+          </div>
+          <div class="pure-u-1 pure-u-md-1-2">
+            <div class="vis-container" id="vis-duty"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="conclusion-block">
+          <h2><i class="fa-solid fa-circle-check"></i> Conclusion</h2>
+          <p style="margin-bottom:0; color: var(--text-muted);">
+            Smart home technology has evolved from niche automation to mainstream household infrastructure. Driven by widespread broadband, falling device costs, and AI integration, connected homes now offer unprecedented convenience, efficiency, and security. However, realizing their full potential requires addressing privacy risks, environmental impacts, and equitable access across all demographics. As standards like Matter mature and AI capabilities expand, smart homes will continue to redefine domestic life—prioritizing energy decarbonization, seamless security, and daily time savings.
+          </p>
+        </div>
+      </section>
+
+      <section class="section-block">
+        <div class="references-block">
+          <h2><i class="fa-solid fa-book"></i> References</h2>
+          <ol>
+            <li>International Telecommunication Union (ITU). <em>Measuring Digital Development: Facts and Figures 2023</em>. Internet access and household connectivity statistics.</li>
+            <li>Statista. <em>Smart Home Market — Worldwide</em>. Smart home device adoption and revenue forecasts, 2017–2027.</li>
+            <li>European Union. <em>Regulation (EU) 2016/679 (General Data Protection Regulation)</em>. Privacy and data protection framework for connected devices.</li>
+            <li>U.S. Energy Information Administration (EIA). <em>Residential Energy Consumption Survey (RECS)</em>. Household energy use and smart appliance penetration.</li>
+            <li>Connectivity Standards Alliance. <em>Matter Specification</em>. Open-source connectivity standard for smart home interoperability.</li>
+            <li>Kaggle. <em>Smart Home Dataset with Weather Information</em>. Household appliance energy readings and weather conditions.</li>
+            <li>Kaggle. <em>IoT Device Register</em>. Registered IoT devices by suburb and device type.</li>
+            <li>European Commission. <em>GDPR Privacy Survey Responses</em>. Consumer attitudes toward data class and purpose class scenarios.</li>
+          </ol>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Custom User Script External Links -->
+  <script src="visualisation/importToAus.js"></script>
+  <script src="visualisation/internetAccess.js"></script>
+  <script src="visualisation/EnergyConsumption.js"></script>
+  <script src="visualisation/binMap.js"></script>
+  <script src="visualisation/techConsumption.js"></script>
+  <script src="visualisation/wordMap.js"></script>
+  <script src="visualisation/techAffinityVslikelihoodOfEV.js"></script>
+  <script src="visualisation/perCapitaConsumption.js"></script>
+  <script src="visualisation/demographics.js"></script>
+  <script src="visualisation/privacyConcerns.js"></script>
+  <script src="visualisation/willingnessToShareInfo.js"></script>
+
+  <script>
+    const embedOpts = { actions: true, renderer: "canvas" };
+
+    const specAiCountry = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      description: "Country AI readiness: digital maturity vs internet penetration",
+      width: 500,
+      height: 380,
+      data: { url: "data/aiAdoption/country_ai_index.csv" },
+      mark: { type: "circle", opacity: 0.75, stroke: "white", strokeWidth: 0.8 },
+      encoding: {
+        x: { field: "internet_penetration", type: "quantitative", title: "Internet penetration (%)", scale: { zero: false } },
+        y: { field: "digital_maturity_index", type: "quantitative", title: "Digital maturity index", scale: { zero: false } },
+        size: { field: "ai_patent_filings_2024", type: "quantitative", title: "AI patents (2024)", scale: { range: [40, 900] } },
+        color: { field: "region", type: "nominal", title: "Region", scale: { scheme: "tableau10" } },
+        tooltip: [
+          { field: "country", title: "Country" },
+          { field: "region", title: "Region" },
+          { field: "country_ai_policy", title: "AI policy" },
+          { field: "gdp_per_capita", title: "GDP per capita", format: ",.0f" },
+          { field: "internet_penetration", title: "Internet %", format: ".1f" },
+          { field: "digital_maturity_index", title: "Digital maturity", format: ".1f" },
+          { field: "ai_patent_filings_2024", title: "Patents", format: "," }
+        ]
+      }
+    };
+
+    const specGdpr = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      description: "Count of privacy scenarios by data class and purpose class",
+      width: 500,
+      height: 380,
+      data: { url: "data/GDPR_priv/answers.csv" },
+      mark: { type: "rect", stroke: "white", strokeWidth: 1 },
+      encoding: {
+        x: { field: "purposes_class", type: "nominal", title: "Purpose class" },
+        y: { field: "data_class", type: "nominal", title: "Data class" },
+        color: { aggregate: "count", type: "quantitative", title: "Scenarios", scale: { scheme: "blues" } },
+        tooltip: [
+          { field: "data_class", title: "Data class" },
+          { field: "purposes_class", title: "Purpose" },
+          { aggregate: "count", title: "Scenarios" }
+        ]
+      }
+    };
+
+    const specUpgrade = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      description: "Willingness to adopt smart home technology by US region",
+      width: 500,
+      height: 380,
+      data: { url: "data/upgradeE/UPGRADE-E_V2.csv" },
+      transform: [
+        { filter: "indexof(['Yes','No','Maybe'], datum.willing_smart_tech) >= 0" },
+        { filter: "isValid(datum.region) && datum.region != ''" }
+      ],
+      mark: { type: "bar" },
+      encoding: {
+        x: { field: "region", type: "nominal", title: "Region" },
+        y: { aggregate: "count", type: "quantitative", title: "Respondents", stack: "normalize" },
+        color: {
+          field: "willing_smart_tech",
+          type: "nominal",
+          title: "Willing to adopt smart tech",
+          scale: { domain: ["Yes", "Maybe", "No"], range: ["#2563eb", "#f59e0b", "#94a3b8"] }
+        },
+        tooltip: [
+          { field: "region", title: "Region" },
+          { field: "willing_smart_tech", title: "Response" },
+          { aggregate: "count", title: "Respondents" }
+        ]
+      }
+    };
+
+    const specIot = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      description: "Registered IoT devices in Casey by suburb and device type",
+      width: 500,
+      height: 380,
+      data: { url: "data/IOT DEVICE REGISTER KAGGLE/iot-device-register.csv" },
+      transform: [
+        { filter: "isValid(datum.location_suburb) && datum.location_suburb != ''" },
+        {
+          calculate: "isValid(datum.device_type) && datum.device_type != '' ? datum.device_type : 'Unspecified'",
+          as: "type_clean"
+        }
+      ],
+      mark: { type: "bar" },
+      encoding: {
+        x: { field: "location_suburb", type: "nominal", title: "Suburb" },
+        y: { aggregate: "count", type: "quantitative", title: "Devices" },
+        color: { field: "type_clean", type: "nominal", title: "Device type", scale: { scheme: "tableau10" } },
+        tooltip: [
+          { field: "location_suburb", title: "Suburb" },
+          { field: "type_clean", title: "Type" },
+          { aggregate: "count", title: "Devices" }
+        ]
+      }
+    };
+
+    const specEnergySeason = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      description: "Mean appliance energy use by season",
+      width: 500,
+      height: 380,
+      data: { url: "data/smartHomeEnergyConsumption/smart_home_energy_consumption_large.csv" },
+      mark: { type: "bar" },
+      encoding: {
+        y: { field: "Appliance Type", type: "nominal", title: "Appliance", sort: "-x" },
+        x: {
+          aggregate: "mean",
+          field: "Energy Consumption (kWh)",
+          type: "quantitative",
+          title: "Mean energy (kWh)"
+        },
+        color: { field: "Season", type: "nominal", title: "Season", scale: { scheme: "tableau10" } },
+        yOffset: { field: "Season" },
+        tooltip: [
+          { field: "Appliance Type", title: "Appliance" },
+          { field: "Season", title: "Season" },
+          { aggregate: "mean", field: "Energy Consumption (kWh)", title: "Mean kWh", format: ".2f" }
+        ]
+      }
+    };
+
+    const specAiIndustry = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      description: "Average jobs created vs displaced by industry under AI adoption",
+      width: 500,
+      height: 380,
+      data: { url: "data/aiAdoption/ai_industry_summary.csv" },
+      transform: [
+        {
+          fold: ["avg_jobs_created", "avg_jobs_displaced"],
+          as: ["metric", "jobs"]
+        },
+        {
+          calculate: "datum.metric === 'avg_jobs_created' ? 'Jobs created' : 'Jobs displaced'",
+          as: "metric_label"
+        }
+      ],
+      mark: { type: "bar" },
+      encoding: {
+        y: { field: "industry", type: "nominal", title: "Industry", sort: { field: "jobs", op: "max", order: "descending" } },
+        x: { field: "jobs", type: "quantitative", title: "Average jobs (survey units)" },
+        color: { field: "metric_label", type: "nominal", title: "Outcome", scale: { scheme: "tableau10" } },
+        yOffset: { field: "metric_label" },
+        tooltip: [
+          { field: "industry", title: "Industry" },
+          { field: "metric_label", title: "Outcome" },
+          { field: "jobs", title: "Average jobs", format: ".1f" },
+          { field: "avg_ai_adoption_rate", title: "AI adoption %", format: ".1f" }
+        ]
+      }
+    };
+
+    const specSmash = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      description: "Mean listed price of Spanish smart-home products by macro-category",
+      width: 500,
+      height: 400,
+      data: {
+        url: "data/doi-10.21950-jtiqq5/smash_2024_v02.tsv",
+        format: { type: "tsv" }
+      },
+      transform: [
+        { calculate: "toNumber(datum.price)", as: "price_num" },
+        { filter: "isValid(datum.price_num) && datum.price_num > 0" },
+        { filter: "isValid(datum['Macro-Category-EN']) && datum['Macro-Category-EN'] != ''" }
+      ],
+      mark: { type: "bar" },
+      encoding: {
+        y: { field: "Macro-Category-EN", type: "nominal", title: "Macro category", sort: "-x" },
+        x: { aggregate: "mean", field: "price_num", type: "quantitative", title: "Mean listed price (EUR)" },
+        color: { aggregate: "count", type: "quantitative", title: "Listings", scale: { scheme: "blues" } },
+        tooltip: [
+          { field: "Macro-Category-EN", title: "Category" },
+          { aggregate: "mean", field: "price_num", title: "Mean price (€)", format: ",.0f" },
+          { aggregate: "count", title: "Listings" }
+        ]
+      }
+    };
+
+    const specDuty = {
+      $schema: "https://vega.github.io/schema/vega-lite/v6.json",
+      description: "Share of time each smart-home appliance is on",
+      width: 500,
+      height: 320,
+      data: { url: "data/smart_home_dataset/preprocessed_dataset.csv" },
+      transform: [
+        {
+          fold: ["Television", "Dryer", "Oven", "Refrigerator", "Microwave"],
+          as: ["appliance", "on_flag"]
+        },
+        { calculate: "toNumber(datum.on_flag)", as: "on_num" }
+      ],
+      mark: { type: "bar" },
+      encoding: {
+        x: { field: "appliance", type: "nominal", title: "Appliance" },
+        y: { aggregate: "mean", field: "on_num", type: "quantitative", title: "Share of intervals on", axis: { format: ".0%" } },
+        color: { field: "appliance", type: "nominal", legend: null, scale: { scheme: "tableau10" } },
+        tooltip: [
+          { field: "appliance", title: "Appliance" },
+          { aggregate: "mean", field: "on_num", title: "Duty cycle", format: ".1%" }
+        ]
+      }
+    };
+
+    const charts = [
+      ["#vis-ai-country", specAiCountry],
+      ["#privacyConcerns", specGdpr],
+      ["#importAus", specUpgrade],
+      ["#demographic", specIot],
+      ["#energy", specEnergySeason],
+      ["#vis-ai-industry", specAiIndustry],
+      ["#vis-smash", specSmash],
+      ["#vis-duty", specDuty]
+    ];
+
+    charts.forEach(([sel, spec]) => {
+      vegaEmbed(sel, spec, embedOpts).catch(err => {
+        const el = document.querySelector(sel);
+        if (el) el.textContent = "Failed to load: " + err;
+        console.error(sel, err);
+      });
+    });
+  </script>
+
+</body>
+</html>
