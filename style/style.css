@@ -311,15 +311,8 @@ ul.styled-list li i {
   min-width: 0;
 }
 
-.note-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-
-.note-card h3 {
+/* Chart-adjacent note: plain explanatory text (no card background or border) */
+.chart-note h3 {
   margin: 0 0 10px 0;
   font-size: 1.05rem;
   font-weight: 700;
@@ -328,13 +321,13 @@ ul.styled-list li i {
   gap: 8px;
 }
 
-.note-card p {
+.chart-note p {
   margin: 0 0 12px 0;
   color: var(--text-muted);
   font-size: 0.95rem;
 }
 
-.note-card ul {
+.chart-note ul {
   margin: 0;
   padding-left: 18px;
   color: var(--text-muted);

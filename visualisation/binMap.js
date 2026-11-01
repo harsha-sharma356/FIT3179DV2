@@ -184,7 +184,7 @@
       marks.push({
         type: "group", name: "statePanel",
         title: {text: {signal: "'By state: ' + metricLabel"}, anchor: "start", fontSize: 11, fontWeight: "normal", limit: 260},
-        encode: {enter: {x: {value: 0}, y: {value: 632}, width: {value: 700}, height: {value: 150}}},
+        encode: {enter: {x: {value: 0}, y: {value: 612}, width: {value: 700}, height: {value: 100}}},
         scales: [
           {name: "yS", type: "band", range: "height", padding: 0.2,
            domain: {data: "byState", field: "state", sort: {op: "max", field: "value", order: "descending"}}},
@@ -218,7 +218,7 @@
       });
       marks.push({
         type: "text", interactive: false,
-        encode: {enter: {x: {value: 0}, y: {value: 820}, fontSize: {value: 10}, fill: {value: "#6b7280"},
+        encode: {enter: {x: {value: 0}, y: {value: 725}, fontSize: {value: 10}, fill: {value: "#6b7280"},
                          text: {value: "Dashed line = national figure (rates only)"}}}
       });
     }
@@ -232,7 +232,7 @@
         font: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
         fontWeight: "normal", anchor: "start", subtitleFontSize: 11, subtitleColor: "#6b7280"
       },
-      width: 700, height: 840, padding: 5, autosize: "pad",
+      width: 700, height: 750, padding: 5, autosize: "pad",
 
       signals: [
         {name: "hexR", value: 14, bind: {input: "range", min: 8, max: 32, step: 2, name: "Hex radius (px): "}},
