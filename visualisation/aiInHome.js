@@ -59,4 +59,4 @@ const specAiIndustry = {
   }
 }
 
-vegaEmbed('#vis-ai-industry', specAiIndustry).catch(console.error);
+vegaEmbed('#vis-ai-industry', specAiIndustry, { renderer: "svg" }).catch(console.error);

@@ -237,5 +237,5 @@ const specPopularBrands = {
   ]
 };
 
-vegaEmbed('#vis-popular-types', specPopularTypes).catch(console.error);
-vegaEmbed('#vis-popular-brands', specPopularBrands).catch(console.error);
+vegaEmbed('#vis-popular-types', specPopularTypes, { renderer: "svg" }).catch(console.error);
+vegaEmbed('#vis-popular-brands', specPopularBrands, { renderer: "svg" }).catch(console.error);

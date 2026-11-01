@@ -91,6 +91,6 @@ const perCapita = {
   "height": 450
 }
 
-vegaEmbed('#perCapita1', perCapita).then(result => {
+vegaEmbed('#perCapita1', perCapita, { renderer: "svg" }).then(result => {
   console.log(result);
 }).catch(console.error);

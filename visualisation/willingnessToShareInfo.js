@@ -81,6 +81,6 @@ const willingnessSpec = {
   ]
 };
 
-vegaEmbed('#willingnessToShare', willingnessSpec).then(result => {
+vegaEmbed('#willingnessToShare', willingnessSpec, { renderer: "svg" }).then(result => {
   console.log(result);
 }).catch(console.error);

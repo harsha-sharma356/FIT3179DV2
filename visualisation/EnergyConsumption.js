@@ -66,6 +66,6 @@ const spec5 = {
 }
 
     // Embed the visualization into the div with ID 'vis'
-vegaEmbed('#energy', spec5).then(result => {
+vegaEmbed('#energy', spec5, { renderer: "svg" }).then(result => {
   console.log(result);
 }).catch(console.error);

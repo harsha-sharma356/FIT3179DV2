@@ -74,6 +74,6 @@ wordCloudSpec = {
   ]
 }
 
-vegaEmbed('#demographics', wordCloudSpec).then(result => {
+vegaEmbed('#demographics', wordCloudSpec, { renderer: "svg" }).then(result => {
   console.log(result);
 }).catch(console.error);

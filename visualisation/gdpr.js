@@ -22,4 +22,4 @@ const specGdpr = {
   }
 };
 
-vegaEmbed('#vis-gdpr', specGdpr).catch(console.error);
+vegaEmbed('#vis-gdpr', specGdpr, { renderer: "svg" }).catch(console.error);

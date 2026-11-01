@@ -124,5 +124,5 @@ const specBuyReasonsRank = {
   }
 };
 
-vegaEmbed('#vis-buy-reasons', specBuyReasons).catch(console.error);
-vegaEmbed('#vis-buy-reasons-rank', specBuyReasonsRank).catch(console.error);
+vegaEmbed('#vis-buy-reasons', specBuyReasons, { renderer: "svg" }).catch(console.error);
+vegaEmbed('#vis-buy-reasons-rank', specBuyReasonsRank, { renderer: "svg" }).catch(console.error);

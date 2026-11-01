@@ -1,4 +1,4 @@
-// ---------------------------------------------------------------------------
+﻿// ---------------------------------------------------------------------------
 // Global tech & connectivity map – reads tech_countries.csv made by build_dataset.py
 //   * ~200 countries, 2015-2025 (World Bank API + optional ITU / e-waste / Comtrade files)
 //   * size = any metric, colour = any metric
@@ -21,10 +21,6 @@
     ["mobile_per100",            "Mobile subscriptions per 100 people"],
     ["internet_millions",        "Internet users (millions)"],
     ["internet_pct",             "Internet users (% of population)"],
-    ["fiveg_pct",                "5G population coverage (%)"],
-    ["ewaste_kt",                "E-waste generated (kilotonnes)"],
-    ["ewaste_kg_pc",             "E-waste per capita (kg)"],
-    ["smartphone_imports_usd_m", "Smartphone imports (US$ millions)"],
     ["population_millions",      "Population (millions)"]
   ];
   const FIELDS = METRICS.map(m => m[0]);

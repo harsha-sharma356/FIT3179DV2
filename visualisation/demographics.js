@@ -41,6 +41,6 @@ const demoSpec = {
   }
 };
 
-vegaEmbed('#demoStats', demoSpec).then(result => {
+vegaEmbed('#demoStats', demoSpec, { renderer: "svg" }).then(result => {
   console.log(result);
 }).catch(console.error);

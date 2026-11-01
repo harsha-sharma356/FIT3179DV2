@@ -108,6 +108,6 @@ const spec4 = {
     }
   ]
 }
-vegaEmbed('#accessInternet', spec4).then(result => {
+vegaEmbed('#accessInternet', spec4, { renderer: "svg" }).then(result => {
   console.log(result);
 }).catch(console.error);

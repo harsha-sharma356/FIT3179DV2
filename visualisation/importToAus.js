@@ -170,6 +170,6 @@ const spec1 =
 }
 
 // Embed the visualization into the div with ID 'importAus'
-vegaEmbed('#importAus', spec1).then(result => {
+vegaEmbed('#importAus', spec1, { renderer: "svg" }).then(result => {
   console.log(result);
 }).catch(console.error);

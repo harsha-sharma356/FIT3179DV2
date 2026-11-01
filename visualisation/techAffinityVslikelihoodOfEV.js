@@ -35,6 +35,6 @@ const spec44 =
   }
 }
 
-vegaEmbed('#demographic', spec44).then(result => {
+vegaEmbed('#demographic', spec44, { renderer: "svg" }).then(result => {
   console.log(result);
 }).catch(console.error);

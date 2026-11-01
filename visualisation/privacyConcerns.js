@@ -40,6 +40,6 @@ const privacySpec = {
   }
 };
 
-vegaEmbed('#privacyConcerns', privacySpec).then(result => {
+vegaEmbed('#privacyConcerns', privacySpec, { renderer: "svg" }).then(result => {
   console.log(result);
 }).catch(console.error);

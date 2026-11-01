@@ -299,7 +299,7 @@
         const rows = window.vega.read(text, {type: "csv", parse: "auto"});
         if (!rows.length) throw new Error("The CSV was empty: " + DATA_URL);
         const spec = buildSpec(rows, new Set(Object.keys(rows[0])));
-        return vegaEmbed(el, spec, {actions: {export: true, source: false, compiled: false, editor: false}});
+        return vegaEmbed(el, spec, {renderer: "svg", actions: {export: true, source: false, compiled: false, editor: false}});
       })
       .then(function (r) { console.log("household tech map ready", r); })
       .catch(function (err) { showError(el, err); });
