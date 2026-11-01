@@ -26,20 +26,20 @@ The following sources were used for the data underlying the visualisations. Refe
 
 12. Taranvee. (n.d.). *Smart home dataset with weather information* [Data set]. Kaggle. https://www.kaggle.com/datasets/taranvee/smart-home-dataset-with-weather-information
 
-13. Kaggle. (2026). *Smart home energy consumption* [Data set]. https://www.kaggle.com/
+13. GitHub. (n.d.). *Smart home dataset* [Data set]. https://github.com/
 
-14. GitHub. (n.d.). *Smart home dataset* [Data set]. https://github.com/
+14. Clean Energy Regulator. (2026). *Small generation unit (SGU) installation data: solar, battery, wind and hydro capacity, 2011–present* [Data set]. Australian Government. https://cer.gov.au/
 
-15. Department of Energy, Land, Water and Planning. (2025). *Vicmap features: Locality point* [Data set]. State Government of Victoria. https://discover.data.vic.gov.au/dataset/vicmap-features-locality-point
+15. nbn Co. (2024). *Average nbn network downloads to double by 2029* [Press release]. https://www.nbnco.com.au/corporate-information/media-centre/media-statements/average-nbn-network-downloads-to-double-by-2029
 
-16. Clean Energy Regulator. (2026). *Small generation unit (SGU) installation data: solar, battery, wind and hydro capacity, 2011–present* [Data set]. Australian Government. https://cer.gov.au/
+16. iTWire. (2023). *Smart home adoption rises in Australia with 25 connected devices per household*. https://itwire.com/guest-articles/guest-opinion/smart-home-adoption-rises-in-australia-with-25-connected-devices-per-household
 
-17. nbn Co. (2024). *Average nbn network downloads to double by 2029* [Press release]. https://www.nbnco.com.au/corporate-information/media-centre/media-statements/average-nbn-network-downloads-to-double-by-2029
+17. ENERGY STAR. (n.d.). *Smart thermostats FAQ*. U.S. Environmental Protection Agency. https://www.energystar.gov/products/heating_cooling/smart_thermostats/smart_thermostat_faq
 
-18. iTWire. (2023). *Smart home adoption rises in Australia with 25 connected devices per household*. https://itwire.com/guest-articles/guest-opinion/smart-home-adoption-rises-in-australia-with-25-connected-devices-per-household
+18. SQ Magazine. (2024). *Smart home statistics*. https://sqmagazine.co.uk/smart-home-statistics/
 
-19. ENERGY STAR. (n.d.). *Smart thermostats FAQ*. U.S. Environmental Protection Agency. https://www.energystar.gov/products/heating_cooling/smart_thermostats/smart_thermostat_faq
+19. Ring. (2017). *Ring video doorbell* [Photograph]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Ring_video_doorbell.jpg (CC BY-SA 4.0)
 
-20. SQ Magazine. (2024). *Smart home statistics*. https://sqmagazine.co.uk/smart-home-statistics/
+20. MTheiler. (2019). *Detected-with-YOLO — Schreibtisch mit Objekten (object detection with OpenCV DNN and YOLOv3)* [Photograph]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Detected-with-YOLO--Schreibtisch-mit-Objekten.jpg (CC BY-SA 4.0)
 
-21. Ring. (2017). *Ring video doorbell* [Photograph]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Ring_video_doorbell.jpg (CC BY-SA 4.0)
+21. Y2kcrazyjoker4. (2019). *Google Home with Home Hub and Home Mini on table* [Photograph]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Google_Home_with_Home_Hub_and_Home_Mini_on_table.jpg (CC BY-SA 4.0)

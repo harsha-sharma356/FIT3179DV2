@@ -100,10 +100,12 @@
           <div class="pure-u-1 pure-u-md-1-3 chart-cell">
             <div class="note-card">
               <h3>About this map</h3>
-              <p>A hexagonal-bin map of Australia. The points are <strong>synthetic</strong>, randomly generated around six metropolitan areas, so it shows how a density map reads rather than real device counts.</p>
+              <p>A hexagonal-bin map of home battery capacity and rooftop solar capacity by postcode across Australia. Each hex aggregates Clean Energy Regulator installation data and is coloured by the selected metric.</p>
               <ul>
-                <li>Use the slider to change the hexagon size.</li>
-                <li>Redder hexagons contain more points.</li>
+                <li><strong>Hex radius:</strong> use the slider to change the hexagon size.</li>
+                <li><strong>Show:</strong> switch between battery capacity, rooftop solar capacity, or storage per kW of solar.</li>
+                <li><strong>Threshold:</strong> slider hides hexes with less rooftop solar capacity.</li>
+                <li>The bar chart below compares the same metric by state; the dashed line marks the national rate.</li>
               </ul>
             </div>
           </div>
@@ -160,14 +162,7 @@
           </div>
         </div>
 
-        <div class="pure-g">
-          <div class="pure-u-1 pure-u-md-1-2 chart-cell">
-            <div class="vis-container" id="symbolMap1"></div>
-          </div>
-          <div class="pure-u-1 pure-u-md-1-2 chart-cell">
-            <div class="vis-container" id="symbolMap2"></div>
-          </div>
-        </div>
+        
 
         <div class="pure-g">
           <div class="pure-u-1 pure-u-md-1-2 chart-cell">
@@ -225,15 +220,27 @@
           <div class="pure-u-1 pure-u-md-1-2 split-text-col">
             <h2 class="section-title">Rise of AI in the Home</h2>
             <p class="section-desc">
-              Artificial intelligence is turning smart homes from collections of remote-controlled devices into systems that learn and anticipate. Voice assistants answer questions and run routines, while smart appliances increasingly decide when to process data at the edge versus offload it to the cloud for AI analysis.
+              Artificial intelligence is turning smart homes from collections of remote-controlled devices into systems that learn and anticipate. Voice assistants answer questions and run routines, computer-vision cameras recognise objects and people, and smart appliances increasingly decide when to process data at the edge versus offload it to the cloud for AI analysis.
             </p>
             <ul class="styled-list">
-              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Voice assistants:</strong> how owners rate the most popular Alexa devices.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Computer vision:</strong> cameras that use object detection to recognise objects and people.</span></li>
+              <li><i class="fa-solid fa-circle-check"></i> <span><strong>Voice assistants:</strong> Google Home (Nest) speakers that listen, answer, and run routines.</span></li>
               <li><i class="fa-solid fa-circle-check"></i> <span><strong>On-device AI:</strong> which appliances offload work to the cloud for AI processing.</span></li>
             </ul>
           </div>
           <div class="pure-u-1 pure-u-md-1-2 chart-cell">
-            <div class="vis-container" id="vis-ai-country"></div>
+            <figure class="figure-card">
+              <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Detected-with-YOLO--Schreibtisch-mit-Objekten.jpg?width=800"
+                alt="A room scene with everyday objects highlighted by coloured bounding boxes, demonstrating computer-vision object detection">
+              <figcaption>Computer vision: an object-detection model draws labelled boxes around everyday objects in a room.</figcaption>
+            </figure>
+            <figure class="figure-card">
+              <img
+                src="https://commons.wikimedia.org/wiki/Special:FilePath/Google_Home_with_Home_Hub_and_Home_Mini_on_table.jpg?width=800"
+                alt="Google Home, Google Home Hub, and Google Home Mini smart speakers arranged on a table">
+              <figcaption>AI voice assistant: Google Home (Nest) smart speakers — Home, Home Hub, and Home Mini.</figcaption>
+            </figure>
           </div>
         </div>
 
@@ -351,12 +358,11 @@
           <div class="pure-u-1 pure-u-md-1-3 split-text-col">
             <h2 class="section-title">Environmental Concerns</h2>
             <p class="section-desc">
-              Smart thermostats and lighting can reduce household energy use, but making, shipping and disposing of connected devices adds to e-waste and emissions, and the cloud services behind them draw power too. These charts put household energy in a global context and look at how appliances use it.
+              Smart thermostats and lighting can reduce household energy use, but making, shipping and disposing of connected devices adds to e-waste and emissions, and the cloud services behind them draw power too. The charts below put household energy use in a global context.
             </p>
             <ul class="styled-list">
               <li><i class="fa-solid fa-circle-check"></i> <span><strong>Global mix:</strong> energy consumption by source since 1990.</span></li>
               <li><i class="fa-solid fa-circle-check"></i> <span><strong>Per person:</strong> energy use compared across economies.</span></li>
-              <li><i class="fa-solid fa-circle-check"></i> <span><strong>At home:</strong> appliance energy by season and duty cycle.</span></li>
             </ul>
           </div>
           <div class="pure-u-1 pure-u-md-2-3 chart-cell">
@@ -377,15 +383,6 @@
                 <li>Colour shows the World Bank income group.</li>
               </ul>
             </div>
-          </div>
-        </div>
-
-        <div class="pure-g">
-          <div class="pure-u-1 pure-u-md-1-2 chart-cell">
-            <div class="vis-container" id="vis-energy-season"></div>
-          </div>
-          <div class="pure-u-1 pure-u-md-1-2 chart-cell">
-            <div class="vis-container" id="vis-duty"></div>
           </div>
         </div>
       </section>
@@ -514,9 +511,7 @@
             <li>UC3M Software Engineering. (2026). <em>SMASH: Spanish market's smart home devices — 2024 descriptors</em> [Data set]. Zenodo. https://doi.org/10.21950/JTIQQ5</li>
             <li>Gajjar, N. (n.d.). <em>IoT device register, City of Casey</em> [Data set]. Kaggle. https://www.kaggle.com/datasets/neelgajjar/iot-device-register</li>
             <li>Taranvee. (n.d.). <em>Smart home dataset with weather information</em> [Data set]. Kaggle. https://www.kaggle.com/datasets/taranvee/smart-home-dataset-with-weather-information</li>
-            <li>Kaggle. (2026). <em>Smart home energy consumption</em> [Data set]. https://www.kaggle.com/</li>
             <li>GitHub. (n.d.). <em>Smart home dataset</em> [Data set]. https://github.com/</li>
-            <li>Department of Energy, Land, Water and Planning. (2025). <em>Vicmap features: Locality point</em> [Data set]. State Government of Victoria. https://discover.data.vic.gov.au/dataset/vicmap-features-locality-point</li>
             <li>Clean Energy Regulator. (2026). <em>Small generation unit (SGU) installation data: solar, battery, wind and hydro capacity, 2011–present</em> [Data set]. Australian Government. https://cer.gov.au/</li>
             <li>nbn Co. (2024). <em>Average nbn network downloads to double by 2029</em> [Press release]. https://www.nbnco.com.au/corporate-information/media-centre/media-statements/average-nbn-network-downloads-to-double-by-2029</li>
             <li>iTWire. (2023). <em>Smart home adoption rises in Australia with 25 connected devices per household</em>. https://itwire.com/guest-articles/guest-opinion/smart-home-adoption-rises-in-australia-with-25-connected-devices-per-household</li>
@@ -542,15 +537,11 @@
   <script src="visualisation/demographics.js"></script>
   <script src="visualisation/privacyConcerns.js"></script>
   <script src="visualisation/willingnessToShareInfo.js"></script>
-  <script src="visualisation/smallerSymbolMap.js"></script>
-  <script src="visualisation/smallerSymbolMap2.js"></script>
   <script src="visualisation/aiInHome.js"></script>
   <script src="visualisation/gdpr.js"></script>
   <script src="visualisation/upgrade.js"></script>
   <script src="visualisation/iotDeviceRegister.js"></script>
-  <script src="visualisation/energySeason.js"></script>
   <script src="visualisation/smash.js"></script>
-  <script src="visualisation/duty.js"></script>
   <script src="visualisation/buyReasons.js"></script>
   <script src="visualisation/popularItems.js"></script>
 
