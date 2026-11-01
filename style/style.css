@@ -201,6 +201,28 @@ ul.styled-list li i {
   color: var(--text-muted);
 }
 
+/* APA 7 hanging indent for the numbered reference list */
+.references-block ol.references-list {
+  padding-left: 0;
+  list-style: none;
+  counter-reset: ref;
+}
+
+.references-block ol.references-list li {
+  counter-increment: ref;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  padding-left: 2em;
+  text-indent: -2em;
+}
+
+.references-block ol.references-list li::before {
+  content: counter(ref) ". ";
+  color: var(--text-main);
+  font-weight: 600;
+}
+
 .references-block li {
   margin-bottom: 10px;
   line-height: 1.6;
