@@ -24,6 +24,10 @@ const spec4 = {
   "resolve": { "scale": { "color": "independent" } },
   "layer": [
     {
+      "data": { "sphere": true },
+      "mark": { "type": "geoshape", "fill": "#dbeafe", "stroke": "#bfdbfe", "strokeWidth": 1 }
+    },
+    {
       "data": {
         "url": "https://vega.github.io/editor/data/world-110m.json",
         "format": { "type": "topojson", "feature": "countries" }
@@ -31,12 +35,12 @@ const spec4 = {
       "transform": [
         { "calculate": "'No data'", "as": "status" }
       ],
-      "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 0.3 },
+      "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 0.5 },
       "encoding": {
         "color": {
           "field": "status",
           "type": "nominal",
-          "scale": { "domain": ["No data"], "range": ["#e5e5e5"] },
+          "scale": { "domain": ["No data"], "range": ["#e5e7eb"] },
           "legend": {
             "title": null,
             "orient": "bottom",
@@ -78,7 +82,7 @@ const spec4 = {
         },
         { "filter": "isValid(datum.geo)" }
       ],
-      "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 0.3 },
+      "mark": { "type": "geoshape", "stroke": "white", "strokeWidth": 0.5 },
       "encoding": {
         "shape": { "field": "geo", "type": "geojson" },
         "color": {
@@ -86,7 +90,7 @@ const spec4 = {
           "type": "ordinal",
           "scale": {
             "domain": ["Low (<25%)", "Medium (25-60%)", "High (>60%)"],
-            "range": ["#c6dbef", "#6baed6", "#08519c"]
+            "range": ["#440154", "#2a788e", "#fde725"]
           },
           "legend": {
             "title": "Households with internet",

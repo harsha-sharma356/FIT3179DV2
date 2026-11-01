@@ -26,14 +26,23 @@ const spec1 =
   ],
   "layer": [
     {
+      "data": { "sphere": true },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#dbeafe",
+        "stroke": "#bfdbfe",
+        "strokeWidth": 1
+      }
+    },
+    {
       "data": {
         "url": "https://vega.github.io/editor/data/world-110m.json",
         "format": { "type": "topojson", "feature": "countries" }
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#6b6b6c",
-        "stroke": "#cbd5e1",
+        "fill": "#e5e7eb",
+        "stroke": "#ffffff",
         "strokeWidth": 0.5
       }
     },
