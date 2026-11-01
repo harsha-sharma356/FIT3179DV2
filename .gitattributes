@@ -1,3 +1,7 @@
 *.csv filter=lfs diff=lfs merge=lfs -text
 data/homeE/HomeC.csv filter=lfs diff=lfs merge=lfs -text
 data/TechnologyDataFull.csv filter=lfs diff=lfs merge=lfs -text
+
+# Store this small file as a normal git blob (not LFS) so it can be served
+# via raw/media.githubusercontent.com URLs for the browser viz.
+data/au_household_tech_by_postcode.csv !filter !diff !merge -text
