@@ -2,41 +2,61 @@
 // (The voice-assistant ratings chart was replaced with imagery in index.html.)
 
 const specAiIndustry = {
-  $schema: "https://vega.github.io/schema/vega-lite/v6.json",
-  description: "Smart-home AI edge-offloading decision share by appliance",
-  title: {
-    text: "Smart-Home AI Offloading by Appliance",
-    font: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
-    fontWeight: "normal"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": {
+    "text": "Research publications mentioning AI in smart homes, by year",
+    "subtitle": "Live from OpenAlex (title/abstract/full-text search). The latest year is partial."
   },
-  width: 500,
-  height: 380,
-  data: { url: "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/smart_home_dataset/preprocessed_dataset.csv" },
-  transform: [
+  "width": 600,
+  "height": 360,
+  "layer": [
     {
-      fold: ["Television", "Dryer", "Oven", "Refrigerator", "Microwave"],
-      as: ["appliance", "on_flag"]
+      "data": {
+        "url": "https://api.openalex.org/works?search=%22smart%20home%22%20AND%20%22artificial%20intelligence%22&filter=publication_year:2010-2026&group_by=publication_year",
+        "format": {"type": "json", "property": "group_by"}
+      },
+      "transform": [
+        {"calculate": "toNumber(datum.key)", "as": "year"},
+        {"calculate": "'\"smart home\" AND \"artificial intelligence\"'", "as": "series"}
+      ],
+      "mark": {"type": "line", "point": {"filled": true, "size": 50}, "strokeWidth": 2}
     },
-    { calculate: "toNumber(datum.on_flag)", as: "on_num" },
-    { calculate: "toNumber(datum['Offloading Decision'])", as: "offload" },
-    { filter: "isValid(datum.on_num) && datum.on_num === 1 && isValid(datum.offload)" }
+    {
+      "data": {
+        "url": "https://api.openalex.org/works?search=%22smart%20home%22&filter=publication_year:2010-2026&group_by=publication_year",
+        "format": {"type": "json", "property": "group_by"}
+      },
+      "transform": [
+        {"calculate": "toNumber(datum.key)", "as": "year"},
+        {"calculate": "'\"smart home\" (all publications)'", "as": "series"}
+      ],
+      "mark": {"type": "line", "point": {"filled": true, "size": 50}, "strokeWidth": 2, "strokeDash": [6, 4]}
+    }
   ],
-  mark: { type: "bar" },
-  encoding: {
-    x: { field: "appliance", type: "nominal", title: "Appliance" },
-    y: {
-      aggregate: "mean",
-      field: "offload",
-      type: "quantitative",
-      title: "Share of on-intervals offloaded to edge/cloud AI",
-      axis: { format: ".0%" }
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "title": "Publication year",
+      "axis": {"format": "d", "tickMinStep": 1}
     },
-    color: { field: "appliance", type: "nominal", legend: null, scale: { scheme: "tableau10" } },
-    tooltip: [
-      { field: "appliance", title: "Appliance" },
-      { aggregate: "mean", field: "offload", title: "AI offload share", format: ".1%" }
+    "y": {
+      "field": "count",
+      "type": "quantitative",
+      "title": "Number of works"
+    },
+    "color": {
+      "field": "series",
+      "type": "nominal",
+      "title": "Search query",
+      "legend": {"orient": "top-left"}
+    },
+    "tooltip": [
+      {"field": "series", "type": "nominal", "title": "Query"},
+      {"field": "year", "type": "quantitative", "title": "Year", "format": "d"},
+      {"field": "count", "type": "quantitative", "title": "Works", "format": ","}
     ]
   }
-};
+}
 
 vegaEmbed('#vis-ai-industry', specAiIndustry).catch(console.error);

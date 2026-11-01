@@ -6,8 +6,8 @@ const spec44 =
     "font": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
     "fontWeight": "normal"
   },
-  "width": 520,
-  "height": 200,
+  "width": 1200,
+  "height": 400,
   "data": {"url": "https://media.githubusercontent.com/media/harsha-sharma356/FIT3179DV2/refs/heads/main/data/global_ev_adoption/global_ev_adoption_behavior_2026.csv"},
   "transform": [
     {"filter": "isValid(datum.technology_affinity_score) && isValid(datum.ev_adoption_likelihood)"}
