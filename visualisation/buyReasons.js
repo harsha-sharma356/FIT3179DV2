@@ -1,4 +1,4 @@
-// Reasons for Buying AI: stacked importance and ranking charts.
+// Benefits of smart home devices: stacked importance and ranking charts.
 // Both specs share the same folded "reason" fields.
 
 // Fields are listed in descending order of "Important" responses (top = most cited).
@@ -31,9 +31,9 @@ const buyReasonsOrder = buyReasonsFields.map((f) => f[1]);
 
 const specBuyReasons = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
-  description: "How important each factor is when buying a connected/AI device",
+  description: "How important each benefit is when choosing a smart home device",
   title: {
-    text: "Importance of Reasons for Buying AI",
+    text: "Importance of Smart Home Device Benefits",
     font: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
     fontWeight: "normal"
   },
@@ -85,9 +85,9 @@ const specBuyReasons = {
 
 const specBuyReasonsRank = {
   $schema: "https://vega.github.io/schema/vega-lite/v6.json",
-  description: "Ranking of reasons by share saying Important",
+  description: "Ranking of benefits by share of respondents rating them 'Important'",
   title: {
-    text: "Top Reasons for Buying AI (Rated Important)",
+    text: "Top Smart Home Device Benefits (Rated Important)",
     font: "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
     fontWeight: "normal"
   },

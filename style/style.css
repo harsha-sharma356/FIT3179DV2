@@ -9,6 +9,13 @@
   --accent-green: #10b981;
   --accent-amber: #f59e0b;
   --accent-rose: #f43f5e;
+  /* Vertical offset (px) that drops the section title's first line to the
+     same height as a chart title in the neighbouring cell.
+     Measured at 1440px wide: chart titles centre ~43px below the row top
+     (12px cell padding + 20px container padding + title offset in the SVG);
+     the section title is 28px * 1.2 line-height, so its centre is 16.8px
+     below its own top: 43 - 16.8 = ~26px. */
+  --title-line-offset: 26px;
 }
 
 * {
@@ -98,7 +105,9 @@ body {
   padding: 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   display: flex;
-  align-items: center;
+  /* Top-anchor charts so every chart title sits on the same line as the
+     section title beside it, instead of drifting down with row height. */
+  align-items: flex-start;
   justify-content: center;
   overflow: auto;
 }
@@ -233,14 +242,30 @@ ul.styled-list li i {
   padding-right: 24px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* Start at the top so the section title shares a horizontal sight line
+     with the chart title in the neighbouring cell. */
+  justify-content: flex-start;
+  /* Offset that lines the section title up with the chart title (see
+     .split-text-col .section-title below). */
+  padding-top: var(--title-line-offset);
+}
+
+/* The Adoption chart uses a larger (16px) title plus a subtitle, which sits
+   ~2px lower than the default Vega-Lite title used by the other charts. */
+#adoption .split-text-col {
+  --title-line-offset: 28px;
+}
+
+/* Fixed line-height so the title's vertical centre is predictable. */
+.split-text-col .section-title {
+  line-height: 1.2;
 }
 
 @media (max-width: 768px) {
   .hero-header h1 { font-size: 2rem; }
   .page-container { padding: 20px 12px; }
   .split-box-container { flex-direction: column; }
-  .split-text-col { padding-right: 0; margin-bottom: 24px; }
+  .split-text-col { padding-right: 0; padding-top: 0; margin-bottom: 24px; }
   .section-title { font-size: 1.4rem; }
 }
 
