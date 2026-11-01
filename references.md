@@ -41,3 +41,5 @@ The following sources were used for the data underlying the visualisations. Refe
 19. ENERGY STAR. (n.d.). *Smart thermostats FAQ*. U.S. Environmental Protection Agency. https://www.energystar.gov/products/heating_cooling/smart_thermostats/smart_thermostat_faq
 
 20. SQ Magazine. (2024). *Smart home statistics*. https://sqmagazine.co.uk/smart-home-statistics/
+
+21. Ring. (2017). *Ring video doorbell* [Photograph]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Ring_video_doorbell.jpg (CC BY-SA 4.0)
