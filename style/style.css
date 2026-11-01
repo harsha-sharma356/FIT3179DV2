@@ -31,6 +31,23 @@ body {
   line-height: 1.6;
 }
 
+/* Subtle smart-doorbell photograph behind the whole dashboard.
+   Image: "Ring video doorbell" by Ring, via Wikimedia Commons (CC BY-SA 4.0)
+   — see References. Kept quite transparent and fixed so it never interferes
+   with the charts (opaque cards sit on top of it; interaction is not blocked). */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("../images/ring-video-doorbell.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: -1;
+}
+
 .page-container {
   max-width: 1600px;
   margin: 0 auto;
@@ -112,12 +129,20 @@ body {
   overflow: auto;
 }
 
-/* Wide variant for the large proportional symbol map */
+/* Wide variant for the large proportional symbol map. */
 .vis-container--wide {
   align-items: flex-start;
   justify-content: flex-start;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: hidden;
+}
+
+/* The tech/consumption map is rendered by Vega as a fixed-size SVG. Scale it
+   down (via its viewBox) to the container width so it never needs a
+   horizontal scroller. The SVG renderer keeps hover/click/tooltip working
+   because interactions are bound directly to the SVG marks. */
+.vis-container--wide .chart-wrapper > svg {
+  width: 100% !important;
+  height: auto !important;
 }
 
 .vis-container > div {
