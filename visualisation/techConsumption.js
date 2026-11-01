@@ -64,8 +64,8 @@
       "fontWeight": "normal",
       "anchor": "start"
     },
-    "width": 1400,
-    "height": 530,
+    "width": 980,
+    "height": 915,
     "padding": 5,
     "autosize": "pad",
 
@@ -91,23 +91,43 @@
       {"name": "centerLon", "update": regionExpr("lon", "zoomRegion")},
       {"name": "centerLat", "update": regionExpr("lat", "zoomRegion")},
       {"name": "projZoomScale", "update":
-        "zoomRegion === 'World' ? 60 : (zoomRegion === 'South Asia' ? 520 : zoomRegion === 'Sub-Saharan Africa' ? 450 : zoomRegion === 'North America' ? 480 : 340)"},
-      {"name": "zoomLabel", "update": "zoomRegion"}
+        "zoomRegion === 'World' ? 55 : (zoomRegion === 'South Asia' ? 480 : zoomRegion === 'Sub-Saharan Africa' ? 260 : zoomRegion === 'North America' ? 280 : zoomRegion === 'Europe & Central Asia' ? 180 : zoomRegion === 'East Asia & Pacific' ? 200 : zoomRegion === 'Middle East & North Africa' ? 260 : 230)"},
+      {"name": "zoomLabel", "update": "zoomRegion"},
+
+      // ---- layout grid: three concatenated blocks, stacked vertically.
+      //      Block 1 = big world map (full width). Block 2 = bottom row split into a
+      //      left column (bar chart + trend chart) and a right column (mini map).
+      //      Block 3 = legend strip. All coordinates derive from these signals, so no
+      //      view is ever superimposed on another.
+      {"name": "contentW", "value": 970},      // full content width (980 minus padding)
+      {"name": "mapH",     "value": 420},      // Block 1: big map height
+      {"name": "blockGap", "value": 16},       // vertical gap between blocks
+      {"name": "colGap",   "value": 18},       // horizontal gap between the two columns
+      {"name": "labelW",   "value": 122},      // gutter for the bar chart's left axis labels
+      {"name": "chartW",   "value": 320},      // left column (bar/trend) plot width
+      {"name": "rankH",    "value": 220},      // bar chart height
+      {"name": "trendH",   "value": 150},      // trend chart height
+      {"name": "rowY",     "update": "mapH + blockGap"},                       // 436
+      {"name": "rightX",   "update": "labelW + chartW + colGap"},              // 460
+      {"name": "rightW",   "update": "contentW - rightX"},                     // 510 (mini-map width)
+      {"name": "trendY",   "update": "rowY + rankH + blockGap"},               // 672
+      {"name": "rowH",     "update": "rankH + blockGap + trendH"},             // 386 (mini-map height)
+      {"name": "legendY",  "update": "rowY + rowH + blockGap"}                 // 822
     ],
 
     "projections": [
       {
         "name": "proj",
         "type": "equalEarth",
-        "scale": 115,
-        "translate": [320, 180]
+        "scale": 170,
+        "translate": [485, 230]
       },
       {
         "name": "projZoom",
         "type": "azimuthalEquidistant",
         "rotate": [{"signal": "-centerLon"}, {"signal": "-centerLat"}],
         "scale": {"signal": "projZoomScale"},
-        "translate": [150, 75]
+        "translate": [255, 193]
       }
     ],
 
@@ -173,12 +193,12 @@
     ],
 
     "legends": [
-      {"size": "size", "title": {"signal": "'Size: ' + sizeLabel"}, "titleLimit": 280,
-       "format": "~s", "orient": "bottom-left",
-       "symbolFillColor": "#9ca3af", "symbolStrokeColor": "#374151", "symbolOpacity": 0.7},
       {"fill": "color", "type": "gradient", "title": {"signal": "'Colour: ' + colorLabel"},
-       "titleLimit": 280, "orient": "top-left", "direction": "horizontal",
-       "gradientLength": 180, "format": "~s"}
+       "titleLimit": 280, "format": "~s", "orient": "bottom-left", "direction": "horizontal",
+       "gradientLength": 220},
+      {"size": "size", "title": {"signal": "'Size: ' + sizeLabel"}, "titleLimit": 280,
+       "format": "~s", "orient": "bottom-right", "direction": "horizontal",
+       "symbolFillColor": "#9ca3af", "symbolStrokeColor": "#374151", "symbolOpacity": 0.7}
     ],
 
     "marks": [
@@ -186,7 +206,7 @@
       {
         "type": "group", "name": "mapPanel",
         "encode": {"enter": {
-          "x": {"value": 0}, "y": {"value": 0}, "width": {"value": 640}, "height": {"value": 360},
+          "x": {"value": 0}, "y": {"value": 0}, "width": {"signal": "contentW"}, "height": {"signal": "mapH"},
           "clip": {"value": true}, "stroke": {"value": "#e5e7eb"}}},
         "marks": [
           {"type": "shape", "from": {"data": "sphere"},
@@ -224,13 +244,13 @@
         ]
       },
 
-      // ---------- mini region map (small strip directly UNDER the world map)
+      // ---------- mini region map (beside the ranking bar, under the big world map)
       {
         "type": "group", "name": "miniPanel",
         "title": {"text": {"signal": "'Region zoom: ' + zoomLabel"},
                   "anchor": "start", "fontSize": 11, "fontWeight": "normal", "limit": 600},
         "encode": {"enter": {
-          "x": {"value": 0}, "y": {"value": 362}, "width": {"value": 640}, "height": {"value": 360},
+          "x": {"signal": "rightX"}, "y": {"signal": "rowY"}, "width": {"signal": "rightW"}, "height": {"signal": "rowH"},
           "clip": {"value": true}, "stroke": {"value": "#e5e7eb"}}},
         "marks": [
           {"type": "shape", "from": {"data": "sphere"},
@@ -262,7 +282,7 @@
         "type": "group", "name": "rankPanel",
         "title": {"text": {"signal": "'Top 12 in ' + year + ': ' + sizeLabel"},
                   "anchor": "start", "fontSize": 11, "fontWeight": "normal", "limit": 320},
-        "encode": {"enter": {"x": {"value": 790}, "y": {"value": 30}, "width": {"value": 300}, "height": {"value": 200}}},
+        "encode": {"enter": {"x": {"signal": "labelW"}, "y": {"signal": "rowY"}, "width": {"signal": "chartW"}, "height": {"signal": "rankH"}, "clip": {"value": true}}},
         "scales": [
           {"name": "yBar", "type": "band", "range": "height", "padding": 0.2,
            "domain": {"data": "top", "field": "country",
@@ -294,7 +314,7 @@
         "title": {"text": {"signal":
           "'Trend: ' + (length(data('pickedSeries')) ? data('pickedSeries')[0].country : picked) + ' — ' + sizeLabel"},
           "anchor": "start", "fontSize": 11, "fontWeight": "normal", "limit": 320},
-        "encode": {"enter": {"x": {"value": 790}, "y": {"value": 296}, "width": {"value": 300}, "height": {"value": 140}}},
+        "encode": {"enter": {"x": {"signal": "labelW"}, "y": {"signal": "trendY"}, "width": {"signal": "chartW"}, "height": {"signal": "trendH"}, "clip": {"value": true}}},
         "scales": [
           {"name": "xT", "type": "linear", "domain": [2015, 2025], "range": "width"},
           {"name": "yT", "type": "linear", "range": "height", "zero": true, "nice": true,
@@ -344,7 +364,7 @@
       showError(el, new Error("vegaEmbed is not loaded. Load vega, vega-lite and vega-embed <script> tags BEFORE this file."));
       return;
     }
-    vegaEmbed(el, spec, {actions: {export: true, source: false, compiled: false, editor: false}})
+    vegaEmbed(el, spec, {renderer: "svg", actions: {export: true, source: false, compiled: false, editor: false}})
       .then(function (r) { console.log("gadget map ready; Vega " + r.view.constructor.name, r); })
       .catch(function (err) { showError(el, err); });
   }
